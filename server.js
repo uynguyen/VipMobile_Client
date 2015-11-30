@@ -1,30 +1,35 @@
-var cc          = require('config-multipaas'),
-    restify     = require('restify'),
-    fs          = require('fs')
+var express     = require('express'),
+    bodyParser      = require('body-parser'),
+    cors        = require('cors');
 
-var config      = cc(),
-    app         = restify.createServer()
 
-app.use(restify.queryParser())
-app.use(restify.CORS())
-app.use(restify.fullResponse())
+
+var app         = express();
+
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static(__dirname + '/static'));
+app.use(express.static(__dirname + '/app'));
 
 // Routes
-app.get('/status', function (req, res, next)
+app.get('/status', function (req, res)
 {
   res.send("{status: 'ok'}");
 });
 
-app.get('/', function (req, res, next)
+app.get('/', function (req, res)
 {
-  var data = fs.readFileSync(__dirname + '/index.html');
-  res.status(200);
-  res.header('Content-Type', 'text/html');
-  res.end(data.toString().replace(/host:port/g, req.header('Host')));
+  res.sendFile('index.html');
 });
 
-app.get(/\/(css|js|img)\/?.*/, restify.serveStatic({directory: './static/'}));
 
-app.listen(config.get('PORT'), config.get('IP'), function () {
-  console.log( "Listening on " + config.get('IP') + ", port " + config.get('PORT') )
+
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    host = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+
+if (host == '127.0.0.1') port = 9000;
+
+app.listen(port, host, function () {
+  console.log( "Listening on " + host  + ", port " + port );
 });
