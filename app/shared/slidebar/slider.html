@@ -1,0 +1,21 @@
+<div class="row carousel-holder" ng-controller="SliderCtrl">
+
+    <div class="col-md-12">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li ng-repeat="slide in slides" data-target="#carousel-example-generic" data-slide-to="{{slide.id}}" class="{{slide.isactive && 'active'}}"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div ng-repeat="item in slides" class="item {{item.isactive && 'active'}}">
+                   <a href="#product/{{item.sku}}"> <img class="slide-image" ng-src="{{item.src}}" alt=""></a>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+</div>

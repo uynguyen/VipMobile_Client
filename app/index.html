@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="vipmobile">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <title ng-bind="'VIP Mobile - ' + $root.title">VIP Mobile - Welcome</title>
     <link rel="icon" href="/img/favicon.png" type="image/png" />
@@ -22,40 +18,50 @@
 <body>
 
     <!-- Navigation -->
-   <div data-ng-include="'view/partials/nav-top.html'"></div>
+    <div data-ng-include="'shared/navbar/nav-top.html'"></div>
 
     <!-- Page Content -->
     <div class="container">
 
         <div class="row">
-           <div ng-view></div>
+            <div ui-view></div>
         </div>
 
     </div>
     <!-- /.container -->
 
-    <div data-ng-include="'view/partials/footer.html'"></div>
+    <div data-ng-include="'shared/footer/footer.html'"></div>
 
     <!-- AngularJS -->
-    <script src="js/angular/angular.min.js"></script>
-    <script src="js/angular/angular-route.min.js"></script>
-    
+    <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular-ui-router.min.js"></script>
+
+   <!-- AngularJS Services -->
+    <!-- <script src="services/backend.js"></script>
+    <script src="services/authentication.js"></script>
+    <script src="services/product.js"></script>
+    <script src="services/user.js"></script> -->
+
+    <!-- AngularJS Filters -->
+    <!-- <script src="filters/tokeninterceptor.js"></script> -->
+
     <!-- AngularJS Routes -->
-    <script src="app.js"></script>
-     
-     <!-- AngularJS Controllers -->
-    <script src="controllers/category.js"></script>
-    <script src="controllers/slider.js"></script>
-    <script src="controllers/home.js"></script>
-       
-    
+    <script src="app.module.js"></script>
+    <script src="app.route.js"></script>
+
+    <!-- AngularJS Controllers -->
+    <script src="shared/leftside/category.js"></script>
+     <script src="shared/slidebar/slider.js"></script>
+    <script src="components/home/home.js"></script>
+
+
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="libs/jquery/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    
-   
+    <script src="libs/bootstrap/bootstrap.min.js"></script>
+
+
 </body>
 
 </html>
