@@ -1,0 +1,53 @@
+
+ <div data-ng-include="'shared/leftside/left-side.html'"></div>
+
+<div class="col-md-9">
+<div class="row" >
+
+    <div class="col-sm-3 col-lg-3 col-md-3" ng-repeat="product in products">
+        <span class="thumbnail">
+        <a href="single/{{product.id}}">
+            <img ng-src={{product.thumbnail}} alt="...">
+            <h4>{{product.name}}</h4>
+        </a>
+            <div class="ratings">
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+            </div>
+            <p>{{product.shortdescription}} </p>
+            <hr class="line">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <p class="price">{{product.price | currency: '':0}}đ</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <button class="btn btn-success right" > MUA</button>
+                </div>
+
+            </div>
+        </span>
+        <!-- <div class="thumbnail">
+            <img src="http://placehold.it/320x250" alt="">
+            <div class="caption">
+                <h5 class="pull-right price"><strong>{{product.price | currency: 'VNĐ ':0}}</strong></h5>
+                <h4><a href="#">{{product.name}}</a></h4>
+                <p>{{product.shortdescription}}</p>
+            </div>
+            <div class="ratings">
+                <p class="pull-right">15 reviews</p>
+                <p>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                </p>
+            </div>
+        </div> -->
+    </div>
+
+</div>
+</div>

@@ -1,6 +1,5 @@
 'use strict';
 
-var app = angular.module('vipmobile');
 
 var SampleData = [
 	{ id: 1, name: 'IPhone'},
@@ -15,12 +14,12 @@ app.controller('CategoryCtrl', function ($scope) {
 
 		SampleData[0].isactive = true;
 	  	$scope.categories = SampleData;
-		
+
 		$scope.active = function(id){
 			$scope.categories.forEach(function(cat){
 				cat.isactive = false;
 				if (cat.id == id) cat.isactive = true;
-			});	
-						
+			});
+
 		};
 });

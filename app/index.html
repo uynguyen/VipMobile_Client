@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title ng-bind="'VIP Mobile - ' + $root.title">VIP Mobile - Welcome</title>
+    <title title-update >VIP Mobile - {{title}}</title>
     <link rel="icon" href="/img/favicon.png" type="image/png" />
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,6 +36,7 @@
     <script src="libs/angular/angular.min.js"></script>
     <script src="libs/angular/angular-ui-router.min.js"></script>
 
+
    <!-- AngularJS Services -->
     <!-- <script src="services/backend.js"></script>
     <script src="services/authentication.js"></script>
@@ -49,10 +50,14 @@
     <script src="app.module.js"></script>
     <script src="app.route.js"></script>
 
+    <!-- AngularJS Directives -->
+    <script src="shared/directives/title.js"></script>
+
     <!-- AngularJS Controllers -->
     <script src="shared/leftside/category.js"></script>
-     <script src="shared/slidebar/slider.js"></script>
-    <script src="components/home/home.js"></script>
+    <script src="shared/slidebar/slider.js"></script>
+    <script src="components/home/homectrl.js"></script>
+    <script src="components/product/productctrl.js"></script>
 
 
     <!-- jQuery -->
