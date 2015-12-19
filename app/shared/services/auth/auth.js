@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('vipmobile.controllers')
+angular.module('vipmobile.controllers', ['vipmobile.services'])
 .controller('LoginCtrl', ['$scope', '$window', '$location', 'UserService', 'AuthenticationService',
-  function($scope, $window, $location, UserService, Authentication) {
+  function($scope, $window, $location, UserService, AuthenticationService) {
     $scope.user = {
       username: 'arvind@myApp.com',
       password: 'pass123'

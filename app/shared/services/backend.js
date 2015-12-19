@@ -1,13 +1,14 @@
 'use strict';
 
-var app = angular.module('vipmobile');
 var backendip = 'localhost:9000/api';
+
 app.factory('BackendService', [function(){
- 
-    return {  
-		
+    return {
+
 			product:{
 				getAll: function(limit, page){
+                    limit = limit || 50;
+                    page = page || 1;
 					return backendip + '/products' + '?limit=' + limit + '&page=' + page;
 				},
 				getOne: function(id){
@@ -17,9 +18,9 @@ app.factory('BackendService', [function(){
 					return backendip + '/search?' + query;
 				}
 			},
-			
-			
-			
+
+
+
 			user:{
 				register: function(){
 					return backendip + '/user/register';
@@ -31,22 +32,22 @@ app.factory('BackendService', [function(){
 					return backendip + '/user/update/' + id;
 				}
 			},
-			
-			
-			
+
+
+
 			category:{
 				getAll: function(){
 					return backendip + '/category';
 				},
 			},
-			
-			
-			
+
+
+
 			producer:{
 				getAll: function(){
 					return backendip + '/producer';
 				},
 			}
     };
- 
+
 }]);

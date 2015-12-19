@@ -1,9 +1,8 @@
+'use strict';
 
-
-var app = angular.module('vipmobile');
-
-app.factory('UserService', ['$http', '$q', 'BackEndService', 'Authentication',
-    function ($http, $q, backend, Authentication, $window, $location) {
+angular.module('vipmobile.services')
+.factory('UserService', ['$http', '$q', 'BackEndService', 'AuthenticationService',
+    function ($http, $q, backend, AuthenticationService, $window, $location) {
 
         return {
             login: function (username, password) {
@@ -24,11 +23,11 @@ app.factory('UserService', ['$http', '$q', 'BackEndService', 'Authentication',
             },
 
             logout: function () {
-                if (Authentication.isLogged) {
+                if (AuthenticationService.isLogged) {
 
-                    Authentication.isLogged = false;
-                    delete Authentication.user;
-                    delete Authentication.userRole;
+                    AuthenticationService.isLogged = false;
+                    delete AuthenticationService.user;
+                    delete AuthenticationService.userRole;
 
                     delete $window.sessionStorage.token;
                     delete $window.sessionStorage.user;

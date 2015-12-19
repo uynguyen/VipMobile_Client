@@ -28,7 +28,7 @@ h4{
 		margin-top: 5px;
 	}
 	.price{
-		font-size: 20px;
+		font-size: 18px;
     	margin: 0 auto;
     	color: #FC2345;
 	}
@@ -40,6 +40,9 @@ h4{
 		opacity:0.70;
 		-webkit-transition: all 0.5s;
 		transition: all 0.5s;
+        -webkit-box-shadow: 0 8px 6px -6px  #999;
+	   -moz-box-shadow: 0 8px 6px -6px  #999;
+	        box-shadow: 0 8px 6px -6px #999;
 	}
 	.thumbnail:hover{
 		opacity:1.00;
