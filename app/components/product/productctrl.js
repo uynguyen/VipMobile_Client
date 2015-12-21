@@ -7,6 +7,7 @@
       console.log(domain);
       $http.get( domain + '/product/list')
           .success(function (data, status) {
+              console.log(data);
               $scope.products = data;
           })
           .error(function (err) {
