@@ -3,9 +3,9 @@
 
   angular.module('vipmobile.controllers')
 
-  .controller('ProductCtrl', ['$scope', '$http','DOMAIN', function($scope, $http, domain) {
+  .controller('SearchCtrl', ['$scope', '$http','DOMAIN', function($scope, $http, domain) {
       console.log(domain);
-    //   $http.get( domain + '/product/list')
+    //   $http.get( domain + '/product/search')
     //       .success(function (data, status) {
     //           $scope.products = data;
     //       })
