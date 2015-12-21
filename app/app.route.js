@@ -1,7 +1,7 @@
 'use strict';
 
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/home'); // Mọi đường dẫn không hợp lệ đều được chuyển đến state home
 
@@ -9,21 +9,30 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('home', {    // Định ngĩa 1 state home
-            url: '/home',  // khai báo Url hiển thị
-            templateUrl: 'components/home/homeview.html',  // đường dẫn view
-            controller: 'HomeCtrl',
-            title: 'Trang chủ',
+            url:'/home', // khai báo Url hiển thị
+            templateUrl:'components/home/homeview.html', // đường dẫn view
+            controller:'HomeCtrl',
+            title:'Trang chủ',
             access:{
-                requiredLogin: false
+                requiredLogin:false
             }
         })
         .state('product', {    // Định ngĩa 1 state home
-            url: '/product',  // khai báo Url hiển thị
-            templateUrl: 'components/product/productsview.html',  // đường dẫn view
-            controller: 'ProductCtrl',
-            title: 'Danh sách sản phẩm',
+            url:'/product', // khai báo Url hiển thị
+            templateUrl:'components/product/productsview.html', // đường dẫn view
+            controller:'ProductCtrl',
+            title:'Danh sách sản phẩm',
             access:{
-                requiredLogin: false
+                requiredLogin:false
+            }
+        })
+        .state('single', {    // Định ngĩa 1 state home
+            url:'/single/:id', // khai báo Url hiển thị
+            templateUrl:'components/singleproduct/single-product.html', // đường dẫn view
+            controller:'SingleCtrl',
+            title:'Chi tiết sản phẩm',
+            access:{
+                requiredLogin:false
             }
         });
 });

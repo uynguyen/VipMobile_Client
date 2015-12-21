@@ -6,8 +6,8 @@
 
     <div class="col-sm-3 col-lg-3 col-md-3" ng-repeat="product in products">
         <span class="thumbnail">
-        <a href="single/{{product.id}}">
-            <img ng-src={{product.thumbnail}} alt="...">
+        <a href="#/single/{{product.id}}">
+            <img ng-src={{product.image}} alt="...">
             <h4>{{product.name}}</h4>
         </a>
             <div class="ratings">
@@ -17,7 +17,7 @@
                 <span class="glyphicon glyphicon-star"></span>
                 <span class="glyphicon glyphicon-star-empty"></span>
             </div>
-            <p>{{product.shortdescription}} </p>
+            <p>{{product.name}} </p>
             <hr class="line">
             <div class="row">
                 <div class="col-md-6 col-sm-6">
