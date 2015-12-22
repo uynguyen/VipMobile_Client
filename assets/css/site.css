@@ -195,6 +195,10 @@ pre {
     height: 300px;
     width: auto;
     margin: auto;
+
+.form-horizontal > .error{
+    color:red;
+}
 }
 .cursor-pointer {
     cursor: pointer;

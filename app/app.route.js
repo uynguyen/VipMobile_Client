@@ -34,5 +34,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             access:{
                 requiredLogin:false
             }
+        })
+        .state('authenticate', {    // Định ngĩa 1 state home
+            url:'/authenticate/:RegisterToken', // khai báo Url hiển thị
+            templateUrl:'components/authenticate/authenticateview.html', // đường dẫn view
+            controller:'AuthenticateCtrl',
+            title:'Xác nhận tài khoản',
+            access:{
+                requiredLogin:false
+            }
         });
 });

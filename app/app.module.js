@@ -5,8 +5,8 @@ var angularController = angular.module('vipmobile.controllers', ['ui-rangeSlider
 
 var app = angular.module('vipmobile', [
 	'ui.router',
-    'ui-rangeSlider',
-    'vipmobile.controllers'
+    'vipmobile.controllers',
+    'vipmobile.directive'
 ]);
 
 
