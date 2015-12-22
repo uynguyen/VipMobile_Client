@@ -1,7 +1,7 @@
 'use strict';
 
 
-  angular.module('vipmobile.controllers')
+angularController
 
   .controller('ProductCtrl', ['$scope', '$http','DOMAIN', function($scope, $http, domain) {
       console.log(domain);

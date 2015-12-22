@@ -8,7 +8,7 @@
 'use strict';
 
 
-angular.module('vipmobile.controllers')
+angularController
 
     .controller('SingleCtrl', ['$scope', '$http','$routeParams','DOMAIN',function($scope, $http,$routeParams, domain) {
     console.log(domain);

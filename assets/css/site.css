@@ -194,10 +194,18 @@ line-height: 1.4;
 
 
 .filter{
-    min-height: 400px;
-    max-height: 800px;
+
 }
 
 .filter > .panel-body {
     height: 100%;
+}
+
+.filter > .btn-group-vertical {
+    width: 100% !important;
+}
+
+.content-filter {
+    padding-left: 15px;
+    padding-right: 15px;
 }

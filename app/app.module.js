@@ -1,9 +1,11 @@
 'use strict';
+var angularController = angular.module('vipmobile.controllers', ['ui-rangeSlider','ui.bootstrap'])
+.constant('DOMAIN','http://localhost:8080/java_he_thong_phan_tan');
 
- angular.module('vipmobile.controllers', []).constant('DOMAIN','http://localhost:8080/java_he_thong_phan_tan');
- 
+
 var app = angular.module('vipmobile', [
 	'ui.router',
+    'ui-rangeSlider',
     'vipmobile.controllers'
 ]);
 

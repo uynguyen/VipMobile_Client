@@ -1,9 +1,47 @@
 <div class="container-fluid" ng-controller="FilterCtrl">
     <div class="row">
         <div class="panel panel-default filter">
-            <div class="panel-body">
 
+            <div class="btn-group-vertical" role="group" aria-label="...">
+                <button type="button" class="btn btn-info" ng-click="listIsCollapse['producer'].isCollapse = !listIsCollapse['producer'].isCollapse">Nhà sản xuất</button>
+                <div class="content-filter" uib-collapse="listIsCollapse['producer'].isCollapse">
+                    <div class="checkbox" ng-repeat="(id, producer) in producers">
+                        <label>
+                            <input type="checkbox" ng-model="producer.checked">{{producer.name}}
+                        </label>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-info" ng-click="listIsCollapse['size'].isCollapse = !listIsCollapse['size'].isCollapse">Kích thước</button>
+
+                <div class="content-filter" uib-collapse="listIsCollapse['size'].isCollapse">
+                    <div class="checkbox" ng-repeat="(id, size) in sizes">
+                        <label>
+                            <input type="checkbox" ng-model="size.checked">{{size.name}}
+                        </label>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-info" ng-click="listIsCollapse['price'].isCollapse = !listIsCollapse['price'].isCollapse">Giá</button>
+                <div class="content-filter" uib-collapse="listIsCollapse['price'].isCollapse">
+                    <div range-slider
+                    min="filterprice.range.min"
+                    max="filterprice.range.max"
+                    model-min="filterprice.minPrice"
+                    model-max="filterprice.maxPrice"
+                    data-show-values="true"
+                     step="100"></div>
+                </div>
+                <button type="button" class="btn btn-info" ng-click="listIsCollapse['color'].isCollapse = !listIsCollapse['color'].isCollapse">Màu sắc</button>
+                <div class="content-filter" uib-collapse="listIsCollapse['color'].isCollapse">
+
+                    <div class="checkbox" ng-repeat="(id, color) in colors">
+                        <label>
+                            <input type="checkbox" ng-model="color.checked">{{color.name}}
+                        </label>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </div>

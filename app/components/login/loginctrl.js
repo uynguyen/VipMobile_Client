@@ -1,7 +1,6 @@
 'use strict';
 
-  angular.module('vipmobile.controllers')
-
+angularController
   .controller('LoginCtrl', ['$scope', function($scope) {
 
 
