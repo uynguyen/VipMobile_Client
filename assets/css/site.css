@@ -206,3 +206,7 @@ line-height: 1.4;
 .product-thumb > a > img {
     height: 200px !important;
 }
+
+.form-horizontal > .error{
+    color:red;
+}

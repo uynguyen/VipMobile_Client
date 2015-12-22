@@ -4,7 +4,8 @@
  
 var app = angular.module('vipmobile', [
 	'ui.router',
-    'vipmobile.controllers'
+    'vipmobile.controllers',
+    'vipmobile.directive'
 ]);
 
 
