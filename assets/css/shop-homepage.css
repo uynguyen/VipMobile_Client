@@ -61,3 +61,27 @@ h4{
 footer {
     margin: 50px 0;
 }
+
+
+.best-sale {
+    background-image: url('../img/bookself.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 600px;
+    padding-top: 55px;
+}
+.best-sale > div > .thumbnail >a > img {
+    height: 90px;
+    width: auto;
+}
+
+.best-sale > .item {
+    margin-top: 10px;
+}
+
+.best-sale > .item > .product-name > h5 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    text-align: center;
+}

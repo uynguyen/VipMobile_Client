@@ -92,19 +92,4 @@ angularController
                 id: 3
             }
         };
-
-        $scope.listIsCollapse = {
-            "producer": {
-                isCollapse: false
-            },
-            "size": {
-                isCollapse: false
-            },
-            "price": {
-                isCollapse: false
-            },
-            "color": {
-                isCollapse: false
-            }
-        };
     }]);

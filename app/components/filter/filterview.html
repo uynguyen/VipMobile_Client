@@ -28,8 +28,9 @@
                     max="filterprice.range.max"
                     model-min="filterprice.minPrice"
                     model-max="filterprice.maxPrice"
-                    data-show-values="true"
-                     step="100"></div>
+                    show-values="true"
+                    filter = "number:0"
+                    step="500"></div>
                 </div>
                 <button type="button" class="btn btn-info" ng-click="listIsCollapse['color'].isCollapse = !listIsCollapse['color'].isCollapse">Màu sắc</button>
                 <div class="content-filter" uib-collapse="listIsCollapse['color'].isCollapse">
