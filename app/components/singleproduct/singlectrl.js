@@ -10,8 +10,20 @@
 
 angularController
 
-    .controller('SingleCtrl', ['$scope', '$http','$routeParams','DOMAIN',function($scope, $http,$routeParams, domain) {
+    .controller('SingleCtrl', ['$scope', '$http','$stateParams','DOMAIN',function($scope, $http,$stateParams, domain) {
     console.log(domain);
-  //  console.log($routeParams.id);
+    console.log( domain + '/product/' + $stateParams.id);
+    $http.get( domain + '/product/' + $stateParams.id)
+        .success(function (data, status) {
 
+            data.product.image =  domain + data.product.image;
+            $scope.selectProduct = data;
+            console.log($scope.selectProduct.product.image);
+
+
+
+        })
+        .error(function (err) {
+            console.log(err);
+        });
 }]);

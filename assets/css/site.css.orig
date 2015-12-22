@@ -201,6 +201,7 @@ line-height: 1.4;
     height: 100%;
 }
 
+<<<<<<< HEAD
 .filter > .btn-group-vertical {
     width: 100% !important;
 }
@@ -209,8 +210,9 @@ line-height: 1.4;
     padding-left: 15px;
     padding-right: 15px;
 }
-
+=======
 
 .product-thumb > a > img {
     height: 200px !important;
 }
+>>>>>>> aac1f7bd73481a33f37a2c977be5313c618fe0cf
