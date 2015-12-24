@@ -1,11 +1,11 @@
-<div class="container-fluid" ng-controller="FilterCtrl">
+<div class="container-fluid">
     <div class="row">
         <div class="panel panel-default filter">
 
             <div class="btn-group-vertical" role="group" aria-label="...">
                 <button type="button" class="btn btn-info" ng-click="listIsCollapse['producer'].isCollapse = !listIsCollapse['producer'].isCollapse">Nhà sản xuất</button>
                 <div class="content-filter" uib-collapse="listIsCollapse['producer'].isCollapse">
-                    <div class="checkbox" ng-repeat="(id, producer) in producers">
+                    <div class="checkbox" ng-repeat="(id, producer) in filter.producers">
                         <label>
                             <input type="checkbox" ng-model="producer.checked">{{producer.name}}
                         </label>
@@ -14,7 +14,7 @@
                 <button type="button" class="btn btn-info" ng-click="listIsCollapse['size'].isCollapse = !listIsCollapse['size'].isCollapse">Kích thước</button>
 
                 <div class="content-filter" uib-collapse="listIsCollapse['size'].isCollapse">
-                    <div class="checkbox" ng-repeat="(id, size) in sizes">
+                    <div class="checkbox" ng-repeat="(id, size) in filter.sizes">
                         <label>
                             <input type="checkbox" ng-model="size.checked">{{size.name}}
                         </label>
@@ -24,18 +24,18 @@
                 <button type="button" class="btn btn-info" ng-click="listIsCollapse['price'].isCollapse = !listIsCollapse['price'].isCollapse">Giá</button>
                 <div class="content-filter" uib-collapse="listIsCollapse['price'].isCollapse">
                     <div range-slider
-                    min="filterprice.range.min"
-                    max="filterprice.range.max"
-                    model-min="filterprice.minPrice"
-                    model-max="filterprice.maxPrice"
+                    min="filter.price.range.min"
+                    max="filter.price.range.max"
+                    model-min="filter.price.minPrice"
+                    model-max="filter.price.maxPrice"
                     show-values="true"
                     filter = "number:0"
-                    step="500"></div>
+                    step="100000"></div>
                 </div>
                 <button type="button" class="btn btn-info" ng-click="listIsCollapse['color'].isCollapse = !listIsCollapse['color'].isCollapse">Màu sắc</button>
                 <div class="content-filter" uib-collapse="listIsCollapse['color'].isCollapse">
 
-                    <div class="checkbox" ng-repeat="(id, color) in colors">
+                    <div class="checkbox" ng-repeat="(id, color) in filter.colors">
                         <label>
                             <input type="checkbox" ng-model="color.checked">{{color.name}}
                         </label>

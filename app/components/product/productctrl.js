@@ -2,26 +2,15 @@
 
 
 angularController
+  .controller('ProductCtrl', ['$scope', '$http', 'CartService', 'ProductService',
+  function($scope, $http, cartService, productService) {
 
-  .controller('ProductCtrl', ['$scope', '$http', 'DOMAIN', function($scope, $http,domain) {
-      console.log(domain);
+      $scope.products = [];
+      productService.getAllProducts(12, 0).then(function(data){
+          $scope.products = data;
+      }).catch(function(err){
+          console.log(err);
+      });
 
-
-       $http.get( domain + '/product/list')
-           .success(function (data, status) {
-               console.log(data);
-               angular.forEach(data, function(item){
-                   item.image = domain + item.image;
-                   console.log(item);
-               });
-
-
-
-               $scope.products = data;
-           })
-           .error(function (err) {
-               console.log(err);
-           });
-
-
+      $scope.addToCart = cartService.addToCart;
   }]);

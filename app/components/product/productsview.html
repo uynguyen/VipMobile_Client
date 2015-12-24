@@ -1,52 +1,35 @@
-<div class="col-md-3">
-    <div data-ng-include="'components/filter/filterview.html'"></div>
-</div>
-<div class="col-md-9">
-    <div class="row">
-        <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products">
-            <span class="thumbnail product-thumb" title="{{product.name}}">
-                <a href="#/single/{{product.id}}">
-                    <img ng-src={{product.image}} alt="{{product.name}}">
-                    <h4>{{product.name | limitTo:22}}{{product.name.length > 22 && '...' || ''}}</h4>
-                </a>
-                <div class="ratings">
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star-empty"></span>
-                </div>
-                <p>{{product.name}} </p>
-                <hr class="line">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <p class="price">{{product.price | currency: '':0}}đ</p>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <button class="btn btn-success btn-md right"> <span class="glyphicon glyphicon-shopping-cart font-lg"></span></button>
-                    </div>
-
-                </div>
-            </span>
-            <!-- <div class="thumbnail">
-            <img src="http://placehold.it/320x250" alt="">
-            <div class="caption">
-                <h5 class="pull-right price"><strong>{{product.price | currency: 'VNĐ ':0}}</strong></h5>
-                <h4><a href="#">{{product.name}}</a></h4>
-                <p>{{product.shortdescription}}</p>
-            </div>
-            <div class="ratings">
-                <p class="pull-right">15 reviews</p>
-                <p>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                </p>
-            </div>
-        </div> -->
-        </div>
-
+    <div class="col-md-3">
+        <div ng-controller="FilterCtrl" ng-include="'components/filter/filterview.html'"></div>
     </div>
-</div>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products">
+                <span class="thumbnail product-thumb" title="{{product.name}}">
+                    <a href="#/single/{{product.id}}">
+                        <img ng-src={{product.image}} alt="{{product.name}}">
+                        <h4>{{product.name | limitTo:22}}{{product.name.length > 22 && '...' || ''}}</h4>
+                    </a>
+                    <div class="ratings">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <p>{{product.name}} </p>
+                    <hr class="line">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <p class="price">{{product.price | currency: '':0}}đ</p>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <button class="btn btn-success btn-md right" ng-click="addToCart(product.id, 1)">
+                                <span class="glyphicon glyphicon-shopping-cart font-lg"></span>
+                            </button>
+                        </div>
+
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>

@@ -25,13 +25,26 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Đăng nhập</a>
-                    <ul class="dropdown-menu">
+                    <a href="#" class="dropdown-toggle" ng-click="isCollapse = !isCollapse" ng-init="isCollapse=true"
+                    role="button" aria-haspopup="true"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></a>
+                    <ul class="dropdown-menu user-login-signup"  uib-collapse="isCollapse">
                         <li>
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-9">
+                            <span class="pull-left text-danger glyphicon glyphicon-remove font-xsxs cursor-pointer"
+                            ng-click="isCollapse = !isCollapse">
+
+                            </span>
+                        </div>
+                        </div>
                             <div data-ng-include="'components/login/loginview.html'"></div>
                         </li>
+
+
                     </ul>
                 </li>
+
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->

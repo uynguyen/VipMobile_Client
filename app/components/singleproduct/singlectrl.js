@@ -9,21 +9,12 @@
 
 
 angularController
+    .controller('SingleCtrl', ['$scope', '$http','$stateParams','ProductService',
+    function($scope, $http,$stateParams, productService) {
 
-    .controller('SingleCtrl', ['$scope', '$http','$stateParams','DOMAIN',function($scope, $http,$stateParams, domain) {
-    console.log(domain);
-    console.log( domain + '/product/' + $stateParams.id);
-    $http.get( domain + '/product/' + $stateParams.id)
-        .success(function (data, status) {
-
-            data.product.image =  domain + data.product.image;
-            $scope.selectProduct = data;
-            console.log($scope.selectProduct.product.image);
+    productService.getProduct($stateParams.id).then(function(data){
+        $scope.selectProduct = data;
+    });
 
 
-
-        })
-        .error(function (err) {
-            console.log(err);
-        });
 }]);

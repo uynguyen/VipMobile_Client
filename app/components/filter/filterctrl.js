@@ -1,26 +1,19 @@
 'use strict';
 
-
 angularController
-    .controller('FilterCtrl', ['$scope', '$http', 'DOMAIN', function($scope, $http, domain) {
-        $scope.filterprice = {
+    .controller('FilterCtrl', ['$scope' , '$http', 'DOMAIN', 'ProductService',
+    function($scope, $http, domain, productService) {
+        $scope.filter = {};
+        $scope.filter.price = {
             range: {
                 min: 1000000,
-                max: 20000000
+                max: 100000000
             },
             minPrice: 5000000,
-            maxPrice: 10000000
+            maxPrice: 50000000
         };
-        console.log(domain);
-        //   $http.get( domain + '/product/search')
-        //       .success(function (data, status) {
-        //           $scope.products = data;
-        //       })
-        //       .error(function (err) {
-        //           console.log(err);
-        //       });
 
-        $scope.producers = {
+        $scope.filter.producers = {
             "0": {
                 name: "Tất cả",
                 checked: true,
@@ -43,7 +36,7 @@ angularController
             }
         };
 
-        $scope.sizes = {
+        $scope.filter.sizes = {
             "0": {
                 name: "Tất cả",
                 checked: true,
@@ -66,7 +59,7 @@ angularController
             }
         };
 
-        $scope.colors = {
+        $scope.filter.colors = {
             "0": {
                 name: "Tất cả",
                 checked: true,
@@ -92,4 +85,41 @@ angularController
                 id: 3
             }
         };
+
+
+
+        $scope.$watch('filter', function(){
+            $scope.$parent.flag = "Me!";
+            var filterdata = {
+                searchString: null,
+                page: 0,
+                limit: 12,
+                minPrice: $scope.filter.price.minPrice,
+                maxPrice: $scope.filter.price.maxPrice,
+                producers: getCheckedFilterList($scope.filter.producers),
+                screenSize: getCheckedFilterList($scope.filter.sizes),
+                colors: getCheckedFilterList($scope.filter.colors)
+            };
+            productService.searchProducts(filterdata).then(function(data){
+                $scope.$parent.products = data;
+                console.log('products updated!');
+            }).catch(function(err){
+                console.log(err);
+            });
+        }, true);
+
     }]);
+
+var getCheckedFilterList = function(list){
+        var result = [];
+        for (var key in list){
+            if (list[key].checked)
+                result.push(list[key].name);
+            if (list[key].checked && key == "0")
+                return null;
+        }
+        if (result.length == 0)
+            return null;
+
+        return result;
+};

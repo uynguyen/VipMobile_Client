@@ -3,9 +3,9 @@
 
 angularController
 
-  .controller('SmallCartCtrl', ['$scope', '$http', 'DOMAIN', function($scope, $http,domain) {
-      console.log(domain);
+  .controller('SmallCartCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
 
 
-      
+
+
   }]);
