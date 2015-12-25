@@ -3,9 +3,8 @@
 
 angularController
 
-  .controller('SmallCartCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+  .controller('SmallCartCtrl', ['$scope', '$http', 'CartService', function($scope, $http, cartService) {
 
-
-
+      $scope.totalNumber = cartService.getTotalNumber;
 
   }]);
