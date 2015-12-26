@@ -43,5 +43,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             access:{
                 requiredLogin:false
             }
+        })
+        .state('cart', {    // Định ngĩa 1 state home
+            url:'/cart', // khai báo Url hiển thị
+            templateUrl:'components/cart/cartview.html', // đường dẫn view
+            controller:'CartCtrl',
+            title:'Giỏ hàng của bạn',
+            access:{
+                requiredLogin: false
+            }
         });
 });

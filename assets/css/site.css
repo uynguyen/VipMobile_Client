@@ -195,11 +195,11 @@ pre {
     height: 300px;
     width: auto;
     margin: auto;
-
+}
 .form-horizontal > .error{
     color:red;
 }
-}
+
 .cursor-pointer {
     cursor: pointer;
 }
@@ -252,7 +252,7 @@ pre {
     text-decoration: line-through;
 }
 .cart-small > .row > .affix {
-    z-index: 99999;
+    z-index: 9999;
 pointer-events: none;
 }
 .cart-small > .row > .affix > span {
@@ -284,4 +284,8 @@ pointer-events: none;
     border-radius: 100px;
     background-color: rgb(248,255,115);
     background-size: cover;
+}
+
+.user-login-signup {
+    z-index: 999999;
 }

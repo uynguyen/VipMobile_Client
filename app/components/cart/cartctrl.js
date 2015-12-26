@@ -3,25 +3,28 @@
 
 angularController
 
-  .controller('BestSaleCtrl', ['$scope', '$http', 'DOMAIN', function($scope, $http,domain) {
-      console.log(domain);
+  .controller('CartCtrl', ['$scope', 'CartService', function($scope, cartService) {
+     cartService.getItems(function(cart){
+           $scope.cart = cart.items;
+      });
 
-
-       $http.get( domain + '/product/list')
-           .success(function (data, status) {
-               console.log(data);
-               angular.forEach(data, function(item){
-                   item.image = domain + item.image;
-                   console.log(item);
-               });
-
-
-
-               $scope.products = data;
-           })
-           .error(function (err) {
-               console.log(err);
+      $scope.updateCart = function(productid, quantity){
+          if (quantity == null || quantity == "undefined")
+            quantity = 1;
+          cartService.updateCart(productid, quantity);
+          cartService.getItems(function(cart){
+                $scope.cart = cart.items;
            });
+      }
 
+      $scope.removeFromCart = function(productid){
+          cartService.removeFromCart(productid);
+          cartService.getItems(function(cart){
+                $scope.cart = cart.items;
+           });
+      }
 
+      $scope.subtotal = cartService.getSubtotal;
+
+      $scope.total = cartService.getTotal;
   }]);
