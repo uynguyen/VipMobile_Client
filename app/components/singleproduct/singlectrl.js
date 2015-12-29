@@ -9,12 +9,12 @@
 
 
 angularController
-    .controller('SingleCtrl', ['$scope', '$http','$stateParams','ProductService',
-    function($scope, $http,$stateParams, productService) {
+    .controller('SingleCtrl', ['$scope', '$http','$stateParams','ProductService', 'CartService',
+    function($scope, $http,$stateParams, productService, cartService) {
 
     productService.getProduct($stateParams.id).then(function(data){
         $scope.selectProduct = data;
     });
-
+  $scope.addToCart = cartService.addToCart;
 
 }]);

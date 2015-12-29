@@ -62,7 +62,15 @@ footer {
     margin: 50px 0;
 }
 
+@media screen and (max-width: 480px) {
+    .best-sale {
 
+        min-height: 600px;
+        padding-top: 55px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
 .best-sale {
     background-image: url('../img/bookself.png');
     background-repeat: no-repeat;
@@ -70,6 +78,7 @@ footer {
     background-size: cover;
     min-height: 600px;
     padding-top: 55px;
+}
 }
 .best-sale > div > .thumbnail >a > img {
     height: 90px;

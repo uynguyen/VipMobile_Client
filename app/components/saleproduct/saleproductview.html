@@ -23,7 +23,7 @@
                         <p class="price font-md">{{product.price*0.9 | currency: '':0}}đ</p>
                     </div>
                     <div class="col-md-6 col-sm-6">
-                        <button class="btn btn-success btn-sm right">
+                        <button class="btn btn-success btn-sm right" ng-click="addToCart(product.id, 1)">
                             <span class="glyphicon glyphicon-shopping-cart"></span>
                         </button>
                     </div>

@@ -14,18 +14,7 @@
                             <div class="item active">
                                 <img ng-src="{{selectProduct.product.image}}" alt="First slide">
                             </div>
-                            <!--<div class="item">-->
-                            <!--<img src="http://kudo.co.id/wp-pictures/product/example/woven_che_white_belakang.jpg"-->
-                            <!--alt="First slide">-->
-                            <!--</div>-->
-                            <!--<div class="item">-->
-                            <!--<img src="http://kudo.co.id/wp-pictures/product/example/woven_che_white_depan.jpg"-->
-                            <!--alt="First slide">-->
-                            <!--</div>-->
-                            <!--<div class="item">-->
-                            <!--<img src="http://kudo.co.id/wp-pictures/product/example/woven_che_white_samping.jpg"-->
-                            <!--alt="First slide">-->
-                            <!--</div>-->
+
                         </div>
                         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left"></span>
@@ -47,7 +36,8 @@
                         </div>
                     </div>
                     <div class="col-lg-6 text-right">
-                        <button type="button" class="btn btn-lg btn-success btn-lg">Thêm vào giỏ hàng</button>
+                        <button type="button" ng-click="addToCart(selectProduct.product.id, 1)"
+                        class="btn btn-lg btn-success btn-lg">Thêm vào giỏ hàng</button>
                     </div>
                 </div>
                 <div class="row">
