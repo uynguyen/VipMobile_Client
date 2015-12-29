@@ -52,5 +52,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             access:{
                 requiredLogin: false
             }
+        })
+        .state('checkout', {    // Định ngĩa 1 state home
+            url:'/checkout', // khai báo Url hiển thị
+            templateUrl:'components/checkout/checkoutview.html', // đường dẫn view
+            controller:'CheckoutCtrl',
+            title:'Thanh toán',
+            access:{
+                requiredLogin: false
+            }
         });
 });

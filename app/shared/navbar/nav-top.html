@@ -24,9 +24,15 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li data-ng-show="!$scope.isUserLoggedIn" class="dropdown">
-                    <a href="#" class="dropdown-toggle" ng-click="isCollapse = !isCollapse" ng-init="isCollapse=true"
-                    role="button" aria-haspopup="true"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></a>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle cursor-pointer" ng-click="isCollapse = !isCollapse" ng-init="isCollapse=true"
+                    role="button" aria-haspopup="true"><span class="glyphicon glyphicon-user"></span>
+
+                    Đăng nhập
+
+                </a></a>
+
                     <ul class="dropdown-menu user-login-signup"  uib-collapse="isCollapse">
                         <li>
                             <div class="row">

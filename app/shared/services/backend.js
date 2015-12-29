@@ -46,7 +46,7 @@ app.factory('BackendService', [function(){
 			producer:{
 				getAll: function(){
 					return backendip + '/producer';
-				},
+				}
 			}
     };
 

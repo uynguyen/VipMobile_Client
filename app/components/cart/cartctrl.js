@@ -3,10 +3,13 @@
 
 angularController
 
-  .controller('CartCtrl', ['$scope', 'CartService', function($scope, cartService) {
+  .controller('CartCtrl', ['$scope', '$state', 'CartService', function($scope, $state, cartService) {
      cartService.getItems(function(cart){
            $scope.cart = cart.items;
       });
+      $scope.checkout = function(){
+          $state.go('checkout');
+      };
 
       $scope.updateCart = function(productid, quantity){
           if (quantity == null || quantity == "undefined")
