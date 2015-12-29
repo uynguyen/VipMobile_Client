@@ -2,6 +2,24 @@ app.factory('ProductService', ['$http', '$q', 'DOMAIN', function($http, $q, doma
 
     return {
 
+        getCategories: function(){
+            var endpoint = domain + '/product/getCategories';
+            return $http.get(endpoint)
+                .then(
+                function(response) {
+
+                    return response.data;
+                },
+                function(errResponse) {
+                    console.error('Error while getting categories');
+                    return $q.reject(errResponse);
+                }
+            );
+
+        },
+
+
+
         getAllProducts: function(limit, page) {
             var endpoint = domain + '/product/list';
             return $http.get(endpoint)

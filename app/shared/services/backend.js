@@ -38,7 +38,7 @@ app.factory('BackendService', [function(){
 			category:{
 				getAll: function(){
 					return backendip + '/category';
-				},
+				}
 			},
 
 

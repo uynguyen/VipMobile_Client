@@ -1,7 +1,7 @@
 'use strict';
 
 angularController
-  .controller('LoginCtrl', ['$scope','$http','$window','DOMAIN', function($scope, $http, $window, domain) {
+  .controller('LoginCtrl', ['$scope','$http','$window', 'UserService','DOMAIN', function($scope, $http, $window, userService, domain) {
     $scope.signUp = function(){
 
         $http.post( domain + '/user/register', $scope.user)
@@ -13,6 +13,21 @@ angularController
             })
             .error(function (err) {
                 notie.alert(3, "Đăng ký tài khoản thất bại! " + err.mess, 1.5);
+                console.log(err);
+            });
+    }
+
+    $scope.logIn = function(){
+
+        console.log($scope.loginData);
+
+        userService.login($scope.loginData).then(function(data){
+            console.log(data);
+            $window.localStorage['token'] = data.token;
+            $window.localStorage['account'] = data.acc;
+
+
+        }).catch(function(err){
                 console.log(err);
             });
     }

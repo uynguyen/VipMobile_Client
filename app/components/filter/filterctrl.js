@@ -3,7 +3,16 @@
 angularController
     .controller('FilterCtrl', ['$scope' , '$http', 'DOMAIN', 'ProductService',
     function($scope, $http, domain, productService) {
+
         $scope.filter = {};
+
+//        productService.getCategories().then(function(data){
+//            $scope.filter.producers = data.listProducers;
+//            $scope.filter.colors = data.listcolors;
+//        }).catch(function(err){
+//                console.log(err);
+//            });
+
         $scope.filter.price = {
             range: {
                 min: 1000000,
