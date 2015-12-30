@@ -66,7 +66,8 @@ angularController
             $scope.bookProduct = function(){
                 var bookInfo = {
                     info : $scope.credit_card,
-                    cart :  $scope.cart
+                    cart :  $scope.cart,
+                    total: cartService.getTotal().toString()
                 };
                 console.log(JSON.stringify(bookInfo));
             }
