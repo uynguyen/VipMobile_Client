@@ -3,6 +3,16 @@
 angularController
     .controller('CheckoutCtrl', ['$scope', 'PaymentService', 'CartService',
         function($scope, paymentService, cartService) {
+
+            cartService.getItems(function(cart){
+                $scope.cart = cart.items;
+            });
+
+
+            cartService.getTransportFree(function(fee){
+                $scope.transportFee = fee;
+            });
+
             $scope.shipping_address = {
                 line1: "Quan5",
                 city: "HCM",
@@ -18,6 +28,7 @@ angularController
 
             $scope.paymentinfo = {
                 intent: "sale",
+
                 payer: {
                     payment_method: "credit_card",
                     funding_instruments: [{
@@ -40,7 +51,6 @@ angularController
 
 
 
-
             $scope.PlaceOrder = function() {
                 paymentService.createPayment($scope.paymentinfo, function(err, res){
                     if (err){
@@ -52,5 +62,15 @@ angularController
 
                 });
             }
+
+            $scope.bookProduct = function(){
+                var bookInfo = {
+                    info : $scope.credit_card,
+                    cart :  $scope.cart
+                };
+                console.log(JSON.stringify(bookInfo));
+            }
+
+
         }
     ]);

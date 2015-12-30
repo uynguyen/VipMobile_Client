@@ -4,9 +4,11 @@
 angularController
 
   .controller('CartCtrl', ['$scope', '$state', 'CartService', function($scope, $state, cartService) {
-     cartService.getItems(function(cart){
+      cartService.getItems(function(cart){
            $scope.cart = cart.items;
       });
+
+
       $scope.checkout = function(){
           $state.go('checkout');
       };

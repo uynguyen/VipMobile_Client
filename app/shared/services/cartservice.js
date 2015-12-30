@@ -1,5 +1,9 @@
-app.service('CartService', ['$http', '$q', '$window', 'ProductService', function($http, $q, $window, productService) {
+app.service('CartService', ['$http', '$q', '$window', 'ProductService', 'DOMAIN', function($http, $q, $window, productService, domain) {
     var cartService = this;
+
+
+
+
 
     cartService.shippaid = 0.02;
     cartService.tax = 0.07;
@@ -100,5 +104,23 @@ app.service('CartService', ['$http', '$q', '$window', 'ProductService', function
     cartService.getShippaid = function() {
         return Number((cartService.getSubtotal() * cartService.shippaid / 21000).toFixed(2));
     };
+
+
+    cartService.getTransportFree = function(cb){
+        var endpoint = domain + '/bill/getTransportFee';
+        console.log(endpoint);
+        $http.get(endpoint)
+            .then(
+            function(response) {
+
+                cb(response.data);
+            },
+            function(errResponse) {
+                console.error('Error while getting categories');
+
+            }
+        );
+    };
+
 
 }]);

@@ -13,4 +13,17 @@ app.service('PaymentService', ['$http', 'DOMAIN', function($http, domain) {
                 cb(err);
             });
     };
+
+
+    payment.bookProduct = function(bookInfo, cb) {
+
+        var endpoint = domain + '/payment/create';
+        $http.post(endpoint, bookInfo)
+            .success(function(res) {
+                cb(null, res);
+            })
+            .error(function(err) {
+                cb(err);
+            });
+    };
 }]);
