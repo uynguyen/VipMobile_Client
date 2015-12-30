@@ -8,7 +8,7 @@ var SlideData = [
 
 ];
 
-app.controller('SliderCtrl', ['$scope', function ($scope) {
+app.controller('NewProductCtrl', ['$scope', function ($scope) {
 	SlideData[0].isactive = true;
 	  	$scope.slides = SlideData;
 

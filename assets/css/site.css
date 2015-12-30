@@ -167,7 +167,7 @@ pre {
     overflow-y: scroll;
 }
 .sale-list {
-    max-height: 800px;
+    max-height: 1050px;
 }
 .sale-product-thumb > a > img {
     height: 140px;
@@ -201,11 +201,11 @@ pre {
 pointer-events: none;
 }
 .cart-small > .row > .affix > span {
+    display: inline-block;
     font-size: 26px;
     z-index: 10;
     height: 40px;
     width: 40px;
-    margin-right: 50px;
     pointer-events: all;
     border: solid 1px gray;
     border-radius: 100px;
@@ -213,10 +213,12 @@ pointer-events: none;
     background-color: gray;
     padding: 7px;
     cursor: pointer;
+    margin: 0 50px 0 0;
+    float: right;
 }
 
 .cart-small > .row > .affix > span > span {
-    display: block;
+    display: inline-block;
     padding-top: 3px;
     width: 25px;
     height: 25px;

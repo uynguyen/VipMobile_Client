@@ -19,36 +19,17 @@
                 <li>
                     <a ui-sref="cart">Cart</a>
                 </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle cursor-pointer" ng-click="isCollapse = !isCollapse" ng-init="isCollapse=true"
-                    role="button" aria-haspopup="true"><span class="glyphicon glyphicon-user"></span>
+                <li class="dropdown" data-ng-include="'shared/navbar/guest.html'" ng-show="$root.isGuest"
+                >
 
-                    Đăng nhập
-
-                </a></a>
-                    <ul class="dropdown-menu user-login-signup"  uib-collapse="isCollapse">
-                        <li>
-                            <div class="row">
-                                <div class="col-md-3 col-md-offset-9">
-                            <span class="pull-left text-danger glyphicon glyphicon-remove font-xsxs cursor-pointer"
-                            ng-click="isCollapse = !isCollapse">
-
-                            </span>
-                        </div>
-                        </div>
-                            <div data-ng-include="'components/login/loginview.html'"></div>
-                        </li>
-
-
-                    </ul>
                 </li>
+                <li class="dropdown" data-ng-include="'shared/navbar/logged.html'" ng-hide="$root.isGuest">
 
-
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

@@ -1,4 +1,5 @@
-app.service('CartService', ['$http', '$q', '$window', 'ProductService', function($http, $q, $window, productService) {
+appService.service('CartService', ['$http', '$q', '$window', 'ProductService',
+function($http, $q, $window, productService) {
     var cartService = this;
 
     cartService.shippaid = 0.02;

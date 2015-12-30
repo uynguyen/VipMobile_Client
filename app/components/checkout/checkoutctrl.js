@@ -3,6 +3,9 @@
 angularController
     .controller('CheckoutCtrl', ['$scope', 'PaymentService', 'CartService',
         function($scope, paymentService, cartService) {
+            cartService.getItems(function(cart){
+                $scope.cart = cart;
+            });
             $scope.shipping_address = {
                 line1: "Quan5",
                 city: "HCM",
@@ -24,6 +27,7 @@ angularController
                         credit_card: $scope.credit_card
                     }]
                 },
+                cart: $scope.cart,
                 transactions: [{
                     amount: {
                         total: cartService.getTotal().toString(),
@@ -38,10 +42,8 @@ angularController
                 }]
             };
 
-
-
-
             $scope.PlaceOrder = function() {
+                console.log($scope.paymentinfo);
                 paymentService.createPayment($scope.paymentinfo, function(err, res){
                     if (err){
                         console.log(err);

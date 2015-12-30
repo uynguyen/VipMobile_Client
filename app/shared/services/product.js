@@ -1,4 +1,5 @@
-app.factory('ProductService', ['$http', '$q', 'DOMAIN', function($http, $q, domain) {
+appService
+.factory('ProductService', ['$http', '$q', 'DOMAIN', function($http, $q, domain) {
 
     return {
 

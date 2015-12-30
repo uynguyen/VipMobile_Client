@@ -1,21 +1,29 @@
-
 'use strict';
 
 angular.module('vipmobile.interceptors')
-.factory('TokenInterceptor', function($q, $window) {
-  return {
-    request: function(config) {
-      config.headers = config.headers || {};
-      if ($window.sessionStorage.token) {
-        config.headers['X-Access-Token'] = $window.sessionStorage.token;
-        config.headers['X-Key'] = $window.sessionStorage.user;
-        config.headers['Content-Type'] = "application/json";
-      }
-      return config || $q.when(config);
-    },
+    .service('TokenInterceptor', ['$q', 'AuthenticationService', function($q, authService) {
+        var service = this;
 
-    response: function(response) {
-      return response || $q.when(response);
-    }
-  };
-});
+        service.request = function(config) {
+            config.headers = config.headers || {};
+            var currentUser = authService.getCurrentUser();
+            var access_token = currentUser ? currentUser.access_token : null;
+            if (access_token) {
+                config.headers['Authorization'] = 'Bearer ' + access_token;
+            }
+
+            return config || $q.when(config);
+        };
+
+        service.response = function(response) {
+            return response || $q.when(response);
+        };
+
+        // service.responseError = function(response) {
+        //     if (response.status === 401) {
+        //         $rootScope.$broadcast('unauthorized');
+        //     }
+        //     return response;
+        // };
+
+    }]);

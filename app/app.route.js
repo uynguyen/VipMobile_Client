@@ -1,11 +1,11 @@
 'use strict';
 
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
     $urlRouterProvider.otherwise('/home'); // Mọi đường dẫn không hợp lệ đều được chuyển đến state home
 
-    //$httpProvider.interceptors.push('TokenInterceptor');
+    $httpProvider.interceptors.push('TokenInterceptor');
 
     $stateProvider
         .state('home', {    // Định ngĩa 1 state home
@@ -17,7 +17,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 requiredLogin:false
             }
         })
-        .state('product', {    // Định ngĩa 1 state home
+        .state('product', {
             url:'/product', // khai báo Url hiển thị
             templateUrl:'components/product/productsview.html', // đường dẫn view
             controller:'ProductCtrl',
@@ -26,7 +26,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 requiredLogin:false
             }
         })
-        .state('single', {    // Định ngĩa 1 state home
+        .state('single', {
             url:'/single/:id', // khai báo Url hiển thị
             templateUrl:'components/singleproduct/single-product.html', // đường dẫn view
             controller:'SingleCtrl',
@@ -35,7 +35,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 requiredLogin:false
             }
         })
-        .state('authenticate', {    // Định ngĩa 1 state home
+        .state('authenticate', {
             url:'/authenticate/:RegisterToken', // khai báo Url hiển thị
             templateUrl:'components/authenticate/authenticateview.html', // đường dẫn view
             controller:'AuthenticateCtrl',
@@ -44,7 +44,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 requiredLogin:false
             }
         })
-        .state('cart', {    // Định ngĩa 1 state home
+        .state('user', {
+            url:'/user/:id', // khai báo Url hiển thị
+            templateUrl:'components/user/userview.html', // đường dẫn view
+            controller:'UserCtrl',
+            title:'Thông tin cá nhân',
+            access:{
+                requiredLogin: true
+            }
+        })
+        .state('cart', {
             url:'/cart', // khai báo Url hiển thị
             templateUrl:'components/cart/cartview.html', // đường dẫn view
             controller:'CartCtrl',
@@ -53,13 +62,13 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 requiredLogin: false
             }
         })
-        .state('checkout', {    // Định ngĩa 1 state home
-            url:'/checkout', // khai báo Url hiển thị
+        .state('checkout', {
+            url:'/checkout',
             templateUrl:'components/checkout/checkoutview.html', // đường dẫn view
             controller:'CheckoutCtrl',
             title:'Thanh toán',
             access:{
-                requiredLogin: false
+                requiredLogin: true
             }
         });
 });

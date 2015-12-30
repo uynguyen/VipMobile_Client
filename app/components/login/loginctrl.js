@@ -1,20 +1,37 @@
 'use strict';
 
 angularController
-  .controller('LoginCtrl', ['$scope','$http','$window','DOMAIN', function($scope, $http, $window, domain) {
+  .controller('LoginCtrl', ['$scope','$http','$window','UserService', function($scope, $http, $window, userService) {
     $scope.signUp = function(){
-
-        $http.post( domain + '/user/register', $scope.user)
-            .success(function (data, status) {
-                notie.confirm('Đăng ký tài khoản thành công! Quý khách vui lòng kiểm tra Email ' + $scope.user.email + ' để kích hoạt tài khoản.', 'Yes', 'Cancel', function() {
+        userService.register($scope.user)
+            .then(function (data) {
+                notie.confirm('Đăng ký tài khoản thành công! Quý khách vui lòng kiểm tra Email '
+                 + $scope.user.email + ' để kích hoạt tài khoản.', 'Đồng ý', 'Hủy', function() {
                     $window.open('https://mail.google.com', '_blank');
                 });
 
             })
-            .error(function (err) {
+            .catch(function (err) {
                 notie.alert(3, "Đăng ký tài khoản thất bại! " + err.mess, 1.5);
                 console.log(err);
             });
-    }
+    };
+
+
+    $scope.login = function() {
+
+      var username = $scope.lguser.username,
+          password = $scope.lguser.password;
+
+      if (username !== undefined && password !== undefined) {
+        userService.login(username, password).then(function(data) {
+      }).catch(function(status) {
+          alert('Oops something went wrong!');
+        });
+      } else {
+        alert('Invalid credentials');
+      }
+
+    };
 
   }]);
