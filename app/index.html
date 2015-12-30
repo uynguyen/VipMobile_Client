@@ -7,9 +7,9 @@
 
     <title title-update >VIP Mobile - {{title}}</title>
     <link rel="icon" href="/img/favicon.png" type="image/png" />
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link href="css/bootstrap-combined.min.css" rel="stylesheet"> -->
 
 
     <!-- Custom CSS -->
@@ -18,7 +18,7 @@
     <link href="css/product-details.css" rel="stylesheet">
     <link href="css/angular.rangeSlider.css" rel="stylesheet">
     <link href="css/payment.css" rel="stylesheet">
-
+    <link href="css/flyingcart.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,20 +34,23 @@
         </div>
 
     </div>
-    <!-- /.container -->
+
 
     <div data-ng-include="'shared/footer/footer.html'"></div>
 
 
-
     <!-- jQuery -->
     <script src="libs/jquery/jquery-2.1.4.min.js"></script>
+    <script src="libs/jquery/jquery.js"></script>
     <script src="libs/jquery/jquery-ui/jquery-ui.min.js"></script>
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script> -->
 
     <!-- AngularJS -->
     <script src="libs/angular/angular.min.js"></script>
+    <script src="libs/angular/angular-animate.js"></script>
     <script src="libs/angular/angular-ui-router.min.js"></script>
+
+    <!-- Other Libraries -->
     <script src="libs/notie/notie.js"></script>
     <script src="libs/bootstrap/bootstrap.min.js"></script>
     <script src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
@@ -55,34 +58,33 @@
 
 
 
-   <!-- AngularJS Services -->
-    <!-- <script src="services/backend.js"></script>
-    <script src="services/authentication.js"></script>
-    <script src="services/product.js"></script>
-    <script src="services/user.js"></script> -->
-
-    <!-- AngularJS Filters -->
-    <!-- <script src="filters/tokeninterceptor.js"></script> -->
-
     <!-- AngularJS Routes -->
     <script src="app.module.js"></script>
     <script src="app.route.js"></script>
     <script src="app.directive.js"></script>
     <script src="app.interceptor.js"></script>
+
+
+
     <!-- AngularJS Directives -->
     <script src="shared/directives/title.js"></script>
-    <script src="js/angular.rangeSlider.js"></script>
+    <script src="shared/directives/flyingcart.js"></script>
+    <script src="shared/directives/angular.rangeSlider.js"></script>
 
+    <!-- AngularJS Services -->
     <script src="shared/services/product.js"></script>
     <script src="shared/services/cartservice.js"></script>
 
-    <script src="shared/services/user.js"></script>
-
     <script src="shared/services/payment.js"></script>
+
+    <script src="shared/services/userservice.js"></script>
+    <script src="shared/services/auth/authentication.js"></script>
+
+    <!-- AngularJS Filters -->
+
 
     <!-- AngularJS Controllers -->
     <script src="components/login/loginctrl.js"></script>
-    <script src="shared/leftside/category.js"></script>
     <script src="shared/slidebar/slider.js"></script>
     <script src="components/home/homectrl.js"></script>
     <script src="components/product/productctrl.js"></script>
@@ -94,10 +96,9 @@
     <script src="components/cart/cartctrl.js"></script>
     <script src="components/cart/smallcartctrl.js"></script>
 
-    <script src="shared/navbar/headerctrl.js"></script>
 
     <script src="components/checkout/checkoutctrl.js"></script>
-
+    <script src="components/user/userctrl.js"></script>
 
 
 

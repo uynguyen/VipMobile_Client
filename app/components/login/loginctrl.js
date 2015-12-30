@@ -1,17 +1,18 @@
 'use strict';
 
 angularController
-  .controller('LoginCtrl', ['$scope','$http','$window', 'UserService','DOMAIN', function($scope, $http, $window, userService, domain) {
+  .controller('LoginCtrl', ['$scope','$state','$window','$location','UserService',
+  function($scope, $state, $window, $location, userService) {
     $scope.signUp = function(){
-
-        $http.post( domain + '/user/register', $scope.user)
-            .success(function (data, status) {
-                notie.confirm('Đăng ký tài khoản thành công! Quý khách vui lòng kiểm tra Email ' + $scope.user.email + ' để kích hoạt tài khoản.', 'Yes', 'Cancel', function() {
+        userService.register($scope.user)
+            .then(function (data) {
+                notie.confirm('Đăng ký tài khoản thành công! Quý khách vui lòng kiểm tra Email '
+                 + $scope.user.email + ' để kích hoạt tài khoản.', 'Đồng ý', 'Hủy', function() {
                     $window.open('https://mail.google.com', '_blank');
                 });
 
             })
-            .error(function (err) {
+            .catch(function (err) {
                 notie.alert(3, "Đăng ký tài khoản thất bại! " + err.mess, 1.5);
                 console.log(err);
             });
@@ -23,13 +24,16 @@ angularController
 
         userService.login($scope.loginData).then(function(data){
             console.log(data);
-            $window.localStorage['token'] = data.token;
-            $window.localStorage['account'] = data.acc;
-
+            $state.reload();
 
         }).catch(function(err){
                 console.log(err);
             });
-    }
+    };
+
+    $scope.logOut = function(){
+        userService.logout();
+        $location.path('/');
+    };
 
   }]);

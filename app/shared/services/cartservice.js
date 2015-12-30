@@ -1,4 +1,5 @@
-app.service('CartService', ['$http', '$q', '$window', 'ProductService', 'DOMAIN', function($http, $q, $window, productService, domain) {
+appService.service('CartService', ['$http', '$q', '$window', 'ProductService', 'DOMAIN',
+function($http, $q, $window, productService, domain) {
     var cartService = this;
 
 

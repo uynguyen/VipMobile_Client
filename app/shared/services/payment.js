@@ -1,4 +1,5 @@
-app.service('PaymentService', ['$http', 'DOMAIN', function($http, domain) {
+appService.service('PaymentService',
+['$http', 'DOMAIN', function($http, domain) {
 
     var payment = this;
 

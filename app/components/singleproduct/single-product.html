@@ -3,26 +3,11 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="wrapper">
                 <div class="row">
-                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="3" class="active"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img ng-src="{{selectProduct.product.image}}" alt="First slide">
-                            </div>
-
-                        </div>
-                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
-                    </div>
+                    <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+                        <uib-slide ng-repeat="slide in slides" active="slide.active">
+                            <img ng-src="{{slide.image}}" style="margin:auto;">
+                        </uib-slide>
+                    </uib-carousel>
                 </div>
                 <div class="row">
                     <h1>{{selectProduct.product.name}}</h1>
@@ -36,8 +21,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 text-right">
-                        <button type="button" ng-click="addToCart(selectProduct.product.id, 1)"
-                        class="btn btn-lg btn-success btn-lg">Thêm vào giỏ hàng</button>
+                        <button type="button" ng-click="addToCart(selectProduct.product.id, 1)" class="btn btn-lg btn-success btn-lg">Thêm vào giỏ hàng</button>
                     </div>
                 </div>
                 <div class="row">
@@ -84,7 +68,7 @@
                                     </strong>
 
                                 </span>
-                                 cái!
+                                cái!
                             </div>
                         </div>
                     </div>

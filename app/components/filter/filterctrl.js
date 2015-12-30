@@ -100,7 +100,7 @@ angularController
         $scope.$watch('filter', function(){
             $scope.$parent.flag = "Me!";
             var filterdata = {
-                searchString: null,
+                searchString: $scope.filter.searchString,
                 page: 0,
                 limit: 12,
                 minPrice: $scope.filter.price.minPrice,

@@ -35,6 +35,7 @@ angularController
                         credit_card: $scope.credit_card
                     }]
                 },
+                cart: $scope.cart,
                 transactions: [{
                     amount: {
                         total: cartService.getTotal().toString(),
@@ -49,9 +50,8 @@ angularController
                 }]
             };
 
-
-
             $scope.PlaceOrder = function() {
+                console.log($scope.paymentinfo);
                 paymentService.createPayment($scope.paymentinfo, function(err, res){
                     if (err){
                         console.log(err);

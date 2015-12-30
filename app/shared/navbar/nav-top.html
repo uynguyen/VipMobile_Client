@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="HeaderController">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -14,45 +14,28 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a ui-sref="product">Products</a>
+                    <a ui-sref="product">Sản phẩm</a>
                 </li>
                 <li>
-                    <a ui-sref="cart">Cart</a>
+                    <a ui-sref="cart">Giỏ hàng</a>
                 </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown" data-ng-include="'shared/navbar/guest.html'" ng-show="$root.isGuest"
+                >
 
-                <li class="dropdown">
-                    <a class="dropdown-toggle cursor-pointer" ng-click="isCollapse = !isCollapse" ng-init="isCollapse=true"
-                    role="button" aria-haspopup="true"><span class="glyphicon glyphicon-user"></span>
-
-                    Đăng nhập
-
-                </a></a>
-
-                    <ul class="dropdown-menu user-login-signup"  uib-collapse="isCollapse">
-                        <li>
-                            <div class="row">
-                                <div class="col-md-3 col-md-offset-9">
-                            <span class="pull-left text-danger glyphicon glyphicon-remove font-xsxs cursor-pointer"
-                            ng-click="isCollapse = !isCollapse">
-
-                            </span>
-                        </div>
-                        </div>
-                            <div data-ng-include="'components/login/loginview.html'"></div>
-
-                        </li>
-
-
-                    </ul>
                 </li>
-                <li data-ng-show="$scope.isUserLoggedIn" >uy nguyen </li>
+                <li class="dropdown" data-ng-include="'shared/navbar/logged.html'" ng-hide="$root.isGuest">
 
-
+                </li>
+                <li class="dropdown"  ng-hide="$root.isGuest" ng-controller="LoginCtrl">
+                    <a class="cursor-pointer" ng-click="logOut()">
+                        <span class="glyphicon glyphicon-share">
+                        </span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

@@ -5,9 +5,8 @@
  * Time: 10:28 PM
  * To change this template use File | Settings | File Templates.
  */
-var app = angular.module('vipmobile.directive', []);
-
-app.directive("passwordVerify", function() {
+appDirective
+.directive("passwordVerify", function() {
     return {
         require: "ngModel",
         scope: {

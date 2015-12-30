@@ -9,13 +9,13 @@
                         <img ng-src={{product.image}} alt="{{product.name}}">
                         <h4>{{product.name | limitTo:22}}{{product.name.length > 22 && '...' || ''}}</h4>
                     </a>
-                    <div class="ratings">
+                    <!-- <div class="ratings">
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
+                    </div> -->
                     <p>{{product.name}} </p>
                     <hr class="line">
                     <div class="row">
@@ -23,9 +23,11 @@
                             <p class="price">{{product.price | currency: '':0}}đ</p>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <button class="btn btn-success btn-md right" ng-click="addToCart(product.id, 1)">
+                            <add-to-cart-button class="btn btn-success btn-md right"
+
+                             ng-click="addToCart(product.id, 1)">
                                 <span class="glyphicon glyphicon-shopping-cart font-lg"></span>
-                            </button>
+                            </add-to-cart-button>
                         </div>
 
                     </div>

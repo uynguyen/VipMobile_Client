@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('titleUpdate', ['$rootScope', '$timeout',
+appDirective.directive('titleUpdate', ['$rootScope', '$timeout',
   function($rootScope, $timeout) {
     return {
       link: function() {
