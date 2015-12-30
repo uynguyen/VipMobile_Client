@@ -7,15 +7,22 @@
  */
 angular.module('vipmobile.controllers')
 
-    .controller('AuthenticateCtrl', ['$scope', '$http','$stateParams', 'DOMAIN', function($scope, $http,$stateParams,domain) {
+    .controller('AuthenticateCtrl', ['$scope', '$http','$stateParams','$location','UserService',
+    function($scope, $http,$stateParams,$location, userService) {
 
-    console.log($stateParams.RegisterToken);
+     var token = $stateParams.RegisterToken;
 
-    $http.get(domain + '/activate/' + $stateParams.RegisterToken)
-        .success(function(data,status){
-            $scope.content = data.mess;
-        })
-        .error(function(err){
-            $scope.content = err.mess;
-        })
+        var callbackURL = $location.protocol() + "://" + $location.host() + ":" + $location.port()
+            + "/#/authenticate/";
+        console.log(callbackURL);
+        console.log(token);
+        userService.activateUser(token)
+            .then(function(res){
+               console.log(res.data.mess);
+                $scope.content = res.data.mess;
+
+            }).catch(function (err) {
+                console.log(err);
+            });
+
 }]);

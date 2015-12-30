@@ -1,7 +1,7 @@
 'use strict';
 
-appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMAIN', '$rootScope',
-        function($http, $q, AuthenticationService, domain, $rootScope) {
+appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMAIN', '$rootScope', '$location',
+        function($http, $q, AuthenticationService, domain, $rootScope, $location) {
             var userService = this;
 
             userService.login = function(loginData) {
@@ -32,6 +32,9 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
             };
 
             userService.register = function(user) {
+                var callbackURL = $location.protocol() + "://" + $location.host() + ":" + $location.port()
+                    + "/#/authenticate/";
+                console.log(callbackURL);
                 return $http.post(domain + '/user/register', user)
                     .then(
                         function(response) {
@@ -73,6 +76,18 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
                             return $q.reject(errResponse);
                         }
                     );
+            };
+
+            userService.activateUser = function(token){
+
+                  return $http.get(domain + '/user/activate/' + token)
+                    .success(function(data,status){
+                        console.log('Activate in service');
+                    })
+                    .error(function(err){
+                          console.log('Arr in service');
+                    })
+
             };
         }
     ]);
