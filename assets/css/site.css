@@ -236,3 +236,11 @@ pointer-events: none;
 .user-login-signup {
     z-index: 999999;
 }
+
+ .min-height-400 {
+     min-height: 400px;
+ }
+
+ .max-height-400{
+     max-height: 400px;
+ }

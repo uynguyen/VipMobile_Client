@@ -4,18 +4,15 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
         function($http, $q, AuthenticationService, domain, $rootScope) {
             var userService = this;
 
-            userService.login = function(username, password) {
+            userService.login = function(loginData) {
 
-                return $http.post(domain + '/user/login', {
-                        username: 'username',
-                        password: 'password'
-                    })
+                return $http.post(domain + '/user/login', loginData)
                     .then(
                         function(response) {
                             var data = response.data;
                             AuthenticationService.isLogged = true;
-                            AuthenticationService.setCurrentUser(data.user);
-                            AuthenticationService.saveToken(data.access_token);
+                            AuthenticationService.setCurrentUser(data.acc);
+                            AuthenticationService.saveToken(data.token);
                             $rootScope.isGuest = false;
                             return response.data;
                         },
@@ -29,12 +26,8 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
             userService.logout = function() {
                 if (AuthenticationService.isLogged) {
 
-                    AuthenticationService.isLogged = false;
-                    delete AuthenticationService.user;
+                    AuthenticationService.logout();
 
-                    delete $window.localStorage.token;
-                    delete $window.localStorage.user;
-                    $rootScope.isGuest = true;
                 }
             };
 
@@ -69,5 +62,17 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
                 return AuthenticationService.getCurrentUser();
             };
 
+            userService.getUserBills = function(page, limit) {
+                return $http.get(domain + '/bill/getMyBill/' + page + '/' + limit)
+                    .then(
+                        function(response) {
+                            return response.data;
+                        },
+                        function(errResponse) {
+                            console.error('Error while register user ');
+                            return $q.reject(errResponse);
+                        }
+                    );
+            };
         }
     ]);

@@ -8,17 +8,20 @@ var appInterceptor = angular.module('vipmobile.interceptors',[]);
 
 var app = angular.module('vipmobile', [
 	'ui.router',
+	'ui.bootstrap',
+	'ngAnimate',
 	'vipmobile.services',
     'vipmobile.controllers',
 	'vipmobile.interceptors',
     'vipmobile.directives'
+
 ]);
 
 
 
 app.run(function ($rootScope, $window, AuthenticationService) {
-  	AuthenticationService.check();
 	$rootScope.isGuest = true;
+  	AuthenticationService.check();
         $rootScope.$on('$stateChangeStart',
             function(evt, toState, toParams, fromState, fromParams) {
                 // We can prevent this state from completing

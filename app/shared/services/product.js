@@ -68,6 +68,35 @@ appService
                         return $q.reject(errResponse);
                     }
                 );
+        },
+
+        getNewProducts: function(limit){
+            return $http.get(domain + "/product/getNew/" + limit)
+                .then(
+                    function(response) {
+                        angular.forEach(response.data, function(item) {
+                            item.image = domain + item.image;
+                        });
+                        //return response.data;
+                        return [{
+                            id: 0,
+                            image: 'http://placehold.it/800x300'
+                        }, {
+                            id: 1,
+                            image: 'http://placehold.it/800x300'
+                        }, {
+                            id: 2,
+                            image: 'http://placehold.it/800x300'
+                        }, {
+                            id: 3,
+                            image: 'http://placehold.it/800x300'
+                        }];
+                    },
+                    function(errResponse) {
+                        console.error('Error while getting product ');
+                        return $q.reject(errResponse);
+                    }
+                );
         }
     };
 

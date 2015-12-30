@@ -1,6 +1,6 @@
-<a ui-sref="user({id:loggedUser.id})">
+<a ui-sref="user">
     <span class="glyphicon glyphicon-user"></span>
 
-    {{loggedUser.name}}
+    {{$root.LoggedUser().fullName}}
 
 </a>

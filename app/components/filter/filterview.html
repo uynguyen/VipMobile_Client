@@ -3,6 +3,14 @@
         <div class="panel panel-default filter">
 
             <div class="btn-group-vertical" role="group" aria-label="...">
+                <div class="content-filter">
+                    <form style="margin-top:10px">
+                    <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm" ng-model="filter.searchString">
+                    </div>
+                </form>
+
+                </div>
                 <button type="button" class="btn btn-info" ng-click="listIsCollapse['producer'].isCollapse = !listIsCollapse['producer'].isCollapse">Nhà sản xuất</button>
                 <div class="content-filter" uib-collapse="listIsCollapse['producer'].isCollapse">
                     <div class="checkbox" ng-repeat="(id, producer) in filter.producers">

@@ -1,16 +1,15 @@
 'use strict';
 
-var SlideData = [
-	{ id: 0, src: 'http://placehold.it/800x300' },
-	{ id: 1, src: 'http://placehold.it/800x300' },
-	{ id: 2, src: 'http://placehold.it/800x300' },
-	{ id: 3, src: 'http://placehold.it/800x300' }
 
-];
 
-app.controller('NewProductCtrl', ['$scope', function ($scope) {
-	SlideData[0].isactive = true;
-	  	$scope.slides = SlideData;
+angularController.controller('NewProductCtrl', ['$scope', 'ProductService', function($scope, productService) {
 
+	productService.getNewProducts(5).then(function(data){
+		$scope.slides = data;
+		$scope.slides[0].active = true;
+	});
+
+    $scope.myInterval = 5000;
+    $scope.noWrapSlides = false;
 
 }]);

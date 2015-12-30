@@ -1,21 +1,15 @@
-<div class="row carousel-holder" ng-controller="NewProductCtrl">
-
-    <div class="col-md-12">
-        <div id="carousel-example-generic" class="carousel" data-ride="carousel" >
-            <ol class="carousel-indicators">
-                <li ng-repeat="slide in slides" data-target="#carousel-example-generic" data-slide-to="{{slide.id}}" class="{{slide.isactive && 'active'}}"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div ng-repeat="item in slides" class="item {{item.isactive && 'active'}}">
-                   <a ui-sref="single({id:item.id})"> <img class="slide-image" ng-src="{{item.src}}" alt=""></a>
-                </div>
-            </div>
-            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
-        </div>
+<div class="row" ng-controller="NewProductCtrl">
+    <div class="col-md-11 col-md-offset-1">
+        <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+            <uib-slide ng-repeat="slide in slides" active="slide.active">
+                <a ui-sref="single({id:slide.id})">
+                    <img ng-src="{{slide.image}}" style="margin:auto;">
+                    <div class="carousel-caption">
+                        <h4>Tên sản phẩm thứ {{$index}}</h4>
+                        <p>Nội dung sản phẩm</p>
+                    </div>
+                </a>
+            </uib-slide>
+        </uib-carousel>
     </div>
 </div>

@@ -1,7 +1,8 @@
 'use strict';
 
 angularController
-  .controller('LoginCtrl', ['$scope','$http','$window','UserService', function($scope, $http, $window, userService) {
+  .controller('LoginCtrl', ['$scope','$state','$window','$location','UserService',
+  function($scope, $state, $window, $location, userService) {
     $scope.signUp = function(){
         userService.register($scope.user)
             .then(function (data) {
@@ -23,30 +24,16 @@ angularController
 
         userService.login($scope.loginData).then(function(data){
             console.log(data);
-            $window.localStorage['token'] = data.token;
-            $window.localStorage['account'] = data.acc;
-
+            $state.reload();
 
         }).catch(function(err){
                 console.log(err);
             });
     };
 
-
-    $scope.login = function() {
-
-      var username = $scope.lguser.username,
-          password = $scope.lguser.password;
-
-      if (username !== undefined && password !== undefined) {
-        userService.login(username, password).then(function(data) {
-      }).catch(function(status) {
-          alert('Oops something went wrong!');
-        });
-      } else {
-        alert('Invalid credentials');
-      }
-
+    $scope.logOut = function(){
+        userService.logout();
+        $location.path('/');
     };
 
   }]);

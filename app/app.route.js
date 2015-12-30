@@ -1,11 +1,10 @@
 'use strict';
 
 
-app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/home'); // Mọi đường dẫn không hợp lệ đều được chuyển đến state home
 
-    $httpProvider.interceptors.push('TokenInterceptor');
 
     $stateProvider
         .state('home', {    // Định ngĩa 1 state home
@@ -45,7 +44,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
             }
         })
         .state('user', {
-            url:'/user/:id', // khai báo Url hiển thị
+            url:'/user', // khai báo Url hiển thị
             templateUrl:'components/user/userview.html', // đường dẫn view
             controller:'UserCtrl',
             title:'Thông tin cá nhân',

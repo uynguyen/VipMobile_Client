@@ -7,9 +7,12 @@ angular.module('vipmobile.services')
 
         auth.isLogged = false;
         auth.user = {};
+
         auth.check = function() {
             if ($window.localStorage['token'] && $window.localStorage['user']) {
                 auth.isLogged = true;
+                $rootScope.isGuest = false;
+                $rootScope.LoggedUser = auth.getCurrentUser;
             } else {
                 auth.isLogged = false;
                 delete auth.user;
@@ -23,13 +26,21 @@ angular.module('vipmobile.services')
             return null;
         };
 
+        auth.logout = function(){
+            auth.isLogged = false;
+            delete auth.user;
+            delete $window.localStorage.user;
+            delete $window.localStorage.token;
+            $rootScope.isGuest = true;
+        };
+
         auth.setCurrentUser = function(user){
             auth.user = user;
             $window.localStorage.user = angular.toJson(user);
         };
 
         auth.saveToken =  function(access_token){
-            $window.localStorage.token = angular.toJson(access_token);
+            $window.localStorage.token = access_token;
         };
 
     }]);

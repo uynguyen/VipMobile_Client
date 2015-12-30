@@ -14,10 +14,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a ui-sref="product">Products</a>
+                    <a ui-sref="product">Sản phẩm</a>
                 </li>
                 <li>
-                    <a ui-sref="cart">Cart</a>
+                    <a ui-sref="cart">Giỏ hàng</a>
                 </li>
 
             </ul>
@@ -29,6 +29,12 @@
                 </li>
                 <li class="dropdown" data-ng-include="'shared/navbar/logged.html'" ng-hide="$root.isGuest">
 
+                </li>
+                <li class="dropdown"  ng-hide="$root.isGuest" ng-controller="LoginCtrl">
+                    <a class="cursor-pointer" ng-click="logOut()">
+                        <span class="glyphicon glyphicon-share">
+                        </span>
+                    </a>
                 </li>
             </ul>
         </div>
