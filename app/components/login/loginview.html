@@ -16,16 +16,14 @@
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input id="login-username" type="text" class="form-control" name="username"
-                        ng-model="lguser.username"
-                               placeholder="Tên đăng nhập hoặc email">
+                               placeholder="Tên đăng nhập hoặc email" ng-model="loginData.username">
                     </div>
 
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input id="login-password" type="password" class="form-control" name="password"
-                        ng-model="lguser.password"
-                               placeholder="Mật khẩu">
+                               placeholder="Mật khẩu" ng-model="loginData.password">
                     </div>
 
 
@@ -42,9 +40,10 @@
                         <!-- Button -->
 
                         <div class="col-sm-12 controls">
-                            <a id="btn-login" ng-click="login()"
-                            href="#" class="btn btn-success">Đăng nhập </a>
-
+                            <!--<a id="btn-login" href="#" class="btn btn-success">Đăng nhập </a>-->
+                            <button id="btn-logIn" type="button"  class="btn btn-info" ng-click="logIn()"><i
+                                    class="icon-hand-right"></i> &nbsp Đăng nhập
+                            </button>
                         </div>
                     </div>
 

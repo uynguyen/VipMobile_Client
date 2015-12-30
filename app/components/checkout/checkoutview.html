@@ -1,248 +1,234 @@
-<div class="container wrapper" ng-contrller="CheckoutCtrl">
-            <!-- <div class="row cart-head">
-                <div class="container">
-                <div class="row">
-                    <p></p>
-                </div>
-                <div class="row">
-                    <div style="display: table; margin: auto;">
-                        <span class="step step_complete"> <a href="#" class="check-bc">Cart</a> <span class="step_line step_complete"> </span> <span class="step_line backline"> </span> </span>
-                        <span class="step step_complete"> <a href="#" class="check-bc">Checkout</a> <span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
-                        <span class="step_thankyou check-bc step_complete">Thank you</span>
+<div class="container wrapper" ng-contrller="CheckoutCtrl" xmlns="http://www.w3.org/1999/html">
+<div class="row cart-body" ng-hide="isSuccess">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
+    <!--REVIEW ORDER-->
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            Xem lại đơn hàng
+            <div class="pull-right">
+                <small><a class="afix-1" href="#">Edit Cart</a></small>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div data-ng-repeat="item in cart">
+                <div class="form-group">
+                    <div class="col-sm-3 col-xs-3">
+                        <img class="img-responsive" src="{{item.product.image}}"/>
                     </div>
-                </div>
-                <div class="row">
-                    <p></p>
-                </div>
-                </div>
-            </div> -->
-            <div class="row cart-body" ng-hide="isSuccess">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
-                    <!--REVIEW ORDER-->
-                    <div class="panel panel-info" >
-                        <div class="panel-heading">
-                            Review Order <div class="pull-right"><small><a class="afix-1" href="#">Edit Cart</a></small></div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <div class="col-sm-3 col-xs-3">
-                                    <img class="img-responsive" src="//c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg" />
-                                </div>
-                                <div class="col-sm-6 col-xs-6">
-                                    <div class="col-xs-12">Product name</div>
-                                    <div class="col-xs-12"><small>Quantity:<span>1</span></small></div>
-                                </div>
-                                <div class="col-sm-3 col-xs-3 text-right">
-                                    <h6><span>$</span>25.00</h6>
-                                </div>
-                            </div>
-                            <div class="form-group"><hr /></div>
-                            <div class="form-group">
-                                <div class="col-sm-3 col-xs-3">
-                                    <img class="img-responsive" src="//c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg" />
-                                </div>
-                                <div class="col-sm-6 col-xs-6">
-                                    <div class="col-xs-12">Product name</div>
-                                    <div class="col-xs-12"><small>Quantity:<span>1</span></small></div>
-                                </div>
-                                <div class="col-sm-3 col-xs-3 text-right">
-                                    <h6><span>$</span>25.00</h6>
-                                </div>
-                            </div>
-                            <div class="form-group"><hr /></div>
-                            <div class="form-group">
-                                <div class="col-sm-3 col-xs-3">
-                                    <img class="img-responsive" src="//c1.staticflickr.com/1/466/19681864394_c332ae87df_t.jpg" />
-                                </div>
-                                <div class="col-sm-6 col-xs-6">
-                                    <div class="col-xs-12">Product name</div>
-                                    <div class="col-xs-12"><small>Quantity:<span>2</span></small></div>
-                                </div>
-                                <div class="col-sm-3 col-xs-3 text-right">
-                                    <h6><span>$</span>50.00</h6>
-                                </div>
-                            </div>
-                            <div class="form-group"><hr /></div>
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <strong>Subtotal</strong>
-                                    <div class="pull-right"><span>$</span><span>200.00</span></div>
-                                </div>
-                                <div class="col-xs-12">
-                                    <small>Shipping</small>
-                                    <div class="pull-right"><span>-</span></div>
-                                </div>
-                            </div>
-                            <div class="form-group"><hr /></div>
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <strong>Order Total</strong>
-                                    <div class="pull-right"><span>$</span><span>150.00</span></div>
-                                </div>
-                            </div>
+                    <div class="col-sm-6 col-xs-6">
+                        <div class="col-xs-12">{{item.product.name}}</div>
+                        <div class="col-xs-12">
+                            <small>Quantity:<span>{{item.quantity}}</span></small>
                         </div>
                     </div>
-                    <!--REVIEW ORDER END-->
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
-                    <!--SHIPPING METHOD-->
-                    <div class="panel panel-info">
-                        <div class="panel-heading">Address</div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <h4>Shipping Address</h4>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Country:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" name="country" value="" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-xs-12">
-                                    <strong>First Name:</strong>
-                                    <input type="text" name="first_name" class="form-control"
-                                    ng-model="credit_card.first_name" />
-                                </div>
-                                <div class="span1"></div>
-                                <div class="col-md-6 col-xs-12">
-                                    <strong>Last Name:</strong>
-                                    <input type="text" name="last_name" class="form-control"
-                                    ng-model="credit_card.last_name"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Address:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" name="address" class="form-control" value="" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>City:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" name="city" class="form-control" value="" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>State:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" name="state" class="form-control" value="" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Zip / Postal Code:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" name="zip_code" class="form-control" value="" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Phone Number:</strong></div>
-                                <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value="" /></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Email Address:</strong></div>
-                                <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" /></div>
-                            </div>
-                        </div>
+                    <div class="col-sm-3 col-xs-3 text-right">
+                        <h6>{{item.product.price * item.quantity | number:0}} vnđ</h6>
                     </div>
-                    <!--SHIPPING METHOD END-->
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
 
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <strong>VAT</strong>
 
-                    <!--CREDIT CART PAYMENT-->
-                    <div class="panel panel-info">
-                        <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Thanh toán PayPal</div>
-                        <div class="panel-body">
-                            <form>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Card Type:</strong></div>
-                                <div class="col-md-12">
-                                    <select id="CreditCardType" name="CreditCardType" class="form-control" ng-model="credit_card.type">
-                                        <option value="visa">Visa</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Credit Card Number:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" name="car_number" ng-model="credit_card.number"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Card CVV:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" name="car_code" ng-model="credit_card.cvv2"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <strong>Expiration Date</strong>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="" ng-model="credit_card.expire_month">
-                                        <option value="">Month</option>
-                                        <option value="01">01</option>
-                                        <option value="02">02</option>
-                                        <option value="03">03</option>
-                                        <option value="04">04</option>
-                                        <option value="05">05</option>
-                                        <option value="06">06</option>
-                                        <option value="07">07</option>
-                                        <option value="08">08</option>
-                                        <option value="09">09</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                </select>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="" ng-model="credit_card.expire_year">
-                                        <option value="">Year</option>
-                                        <option value="2015">2015</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2017">2017</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <button class="btn btn-primary"
-                                    ng-click="PlaceOrder()">Thanh toán</button>
-                                </div>
-                            </div>
-                        </form>
-                        </div>
-                    </div>
-                    <!--CREDIT CART PAYMENT END-->
+                    <div class="pull-right"><span>$</span><span>200.00</span></div>
                 </div>
 
             </div>
+            <br/>
 
-            <div class="row cart-body" ng-show="isSuccess" ng-init="isSuccess=false">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8 col-md-push-4 col-sm-push-4">
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <strong>Phí vận chuyển: </strong>
 
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            Thanh toán thành công
-                        </div>
-                        <div class="panel-body">
+                    <div class="pull-right"><span>{{credit_card.fee.fee | number: 0}} VND</span></div>
+
+                </div>
+            </div>
+            <br/>
+
+            <div class="form-group">
+                <div class="col-xs-12">
+                    <strong>Tổng cộng:</strong>
+
+                    <div class="pull-right"><span>$</span><span>150.00</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--REVIEW ORDER END-->
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
+    <!--SHIPPING METHOD-->
+    <div class="panel panel-info">
+        <div class="panel-heading">Thông tin giao hàng</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="col-md-6 col-xs-12">
+                    <strong>Họ:</strong>
+                    <input type="text" name="first_name" class="form-control"
+                           ng-model="credit_card.first_name"/>
+                </div>
+                <div class="span1"></div>
+                <div class="col-md-6 col-xs-12">
+                    <strong>Tên:</strong>
+                    <input type="text" name="last_name" class="form-control"
+                           ng-model="credit_card.last_name"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12"><strong>Địa chỉ:</strong></div>
+                <div class="col-md-12">
+                    <input type="text" name="address" class="form-control" value=""
+                           data-ng-model="credit_card.address"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12"><strong>Quận:</strong></div>
+                <div class="col-md-12">
+
+                    <select class="form-control"
+                            ng-options="item as item.area for item in transportFee"
+                            ng-model="credit_card.fee">
+
+                    </select>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12"><strong>Thành phố: </strong></div>
+
+                <br/>
+
+                <div class="col-md-12">
+                    <input type="text" name="state" class="form-control" value="" data-ng-model="credit_card.city"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12"><strong>Số điện thoại liên hệ:</strong></div>
+                <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value=""
+                                              data-ng-model="credit_card.phone"/>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-4"><input class="btn btn-primary" value="Đặt hàng" data-ng-click="bookProduct()"/></div>
+            </div>
+
+        </div>
+
+    </div>
+    <!--SHIPPING METHOD END-->
+
+
+    <!--CREDIT CART PAYMENT-->
+    <div class="panel panel-info">
+        <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Thanh toán PayPal</div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                    <div class="col-md-12"><strong>Card Type:</strong></div>
+                    <div class="col-md-12">
+                        <select id="CreditCardType" name="CreditCardType" class="form-control"
+                                ng-model="credit_card.type">
+                            <option value="visa">Visa</option>
+                            <option value="visa">Master</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12"><strong>Credit Card Number:</strong></div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" name="car_number"
+                               ng-model="credit_card.number"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12"><strong>Card CVV:</strong></div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" name="car_code" ng-model="credit_card.cvv2"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <strong>Expiration Date</strong>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <select class="form-control" name="" ng-model="credit_card.expire_month">
+                            <option value="">Month</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <select class="form-control" name="" ng-model="credit_card.expire_year">
+                            <option value="">Year</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <button class="btn btn-primary"
+                                ng-click="PlaceOrder()">Thanh toán
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--CREDIT CART PAYMENT END-->
+</div>
+
+</div>
+
+<div class="row cart-body" ng-show="isSuccess" ng-init="isSuccess=false">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8 col-md-push-4 col-sm-push-4">
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                Thanh toán thành công
+            </div>
+            <div class="panel-body">
                             <span class="text-center text-primary">
                                 Quý khách vừa thanh toán thành công, vui lòng kiểm tra email để xem chi tiết đơn hàng!
                                 Chúng tôi sẽ chuyển hàng đến cho quý khách trong thời gian sớm nhất.
                             </span>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="row cart-footer">
-            </div>
+        </div>
+    </div>
+</div>
+<div class="row cart-footer">
+</div>
 </div>
