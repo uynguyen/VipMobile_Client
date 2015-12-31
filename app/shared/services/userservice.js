@@ -47,14 +47,16 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
                     );
             };
 
-            userService.updateAccount = function(acc, id) {
-                return $http.put(domain + '/user/update/' + id, acc)
+            userService.updateAccount = function(acc) {
+                return $http.post(domain + '/user/updateInfo', acc)
                     .then(
                         function(response) {
-                            return response.data;
+                            console.log('Update success user ');
+                            AuthenticationService.setCurrentUser(acc);
+                            return response;
                         },
                         function(errResponse) {
-                            console.error('Error while update user ' + id);
+                            console.error('Error while update user ');
                             return $q.reject(errResponse);
                         }
                     );

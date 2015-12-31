@@ -3,7 +3,7 @@
 angularController
     .controller('UserCtrl', ['$scope', 'UserService', function($scope, userService) {
         $scope.user = userService.getCurrentUser();
-
+        $scope.user.birthday = new Date($scope.user.birthday);
         $scope.user.avatar = 'http://placehold.it/150x150';
 
         $scope.isDisable = true;
@@ -32,9 +32,23 @@ angularController
 
         };
         $scope.EditProfile = function() {
-        //    console.log("Edit profile!");
+
+
             if ($scope.isDisable)
+            {
                 $scope.isDisable = false;
+                return;
+            }
+            $scope.user.birthday = Date.parse($scope.user.birthday);
+            console.log(new Date());
+            userService.updateAccount($scope.user).then(function(res){
+                console.log(res.data.mess);
+                notie.alert(3, "Cập nhật tài khoản thành công ", 1.5);
+
+            }).catch(function(err){
+                    console.log(err);
+                    notie.alert(3, "Cập nhật tài khoản thất bại " + err, 2);
+                });
         };
 
 
