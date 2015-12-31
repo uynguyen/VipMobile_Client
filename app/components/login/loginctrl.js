@@ -22,9 +22,23 @@ angularController
 
         console.log($scope.loginData);
 
-        userService.login($scope.loginData).then(function(data){
-            console.log(data);
-            $state.reload();
+        userService.login($scope.loginData).then(function(res){
+            console.log(res.data.mess);
+            switch(res.data.mess){
+                case 'Invalid Information':
+                    notie.alert(3, "Đăng nhập thất bại, tên đăng nhập hoặc mật khẩu không tồn tại! ", 1.5);
+                    break;
+                case 'Activated Require':
+                    notie.alert(3, "Vui lòng xác nhận tài khoản qua email trước khi đăng nhập ", 1.5);
+                    break;
+                case 'Success':
+                    $state.reload();
+                    break;
+                default:
+                    notie.alert(3, "Đăng nhập thất bại ", 1.5);
+                    break;
+            }
+
 
         }).catch(function(err){
                 console.log(err);

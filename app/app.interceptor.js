@@ -20,21 +20,16 @@ function($window, $location, $q, AuthenticationService) {
             return config || $q.when(config)
         }
         ,
-        response: function(res)
-        {
-            //console.log(res);
-            return res || $q.when(res);
-        },
 
         responseError: function(res){
-            //console.log(res.data);
-            if (res.data.mess)
+            console.log(res);
+            if (res.data.mess && (res.data.mess == 'TokenExpire' || res.data.mess=='Unauthorized'))
             {
                 AuthenticationService.logout();
                 $location.path('/');
             }
 
-            return res || $q.when(res);
+            return $q.reject(res);
         }
     };
     return sessionInjector;

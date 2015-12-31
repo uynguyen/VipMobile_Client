@@ -34,6 +34,24 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 requiredLogin:false
             }
         })
+        .state('resetpass', {
+            url:'/resetpass/:ResetpassToken', // khai báo Url hiển thị
+            templateUrl:'components/resetpass/resetpassview.html', // đường dẫn view
+            controller:'ResetPasswordCtrl',
+            title:'Khôi phục mật khẩu',
+            access:{
+                requiredLogin:false
+            }
+        })
+        .state('sendResetpassRequest', {
+            url:'/sendresetrequest', // khai báo Url hiển thị
+            templateUrl:'components/resetpass/requestresetpassview.html', // đường dẫn view
+            controller:'ResetPasswordCtrl',
+            title:'Gởi yêu cầu khôi phục mật khẩu',
+            access:{
+                requiredLogin:false
+            }
+        })
         .state('authenticate', {
             url:'/authenticate/:RegisterToken', // khai báo Url hiển thị
             templateUrl:'components/authenticate/authenticateview.html', // đường dẫn view

@@ -13,7 +13,8 @@ var app = angular.module('vipmobile', [
 	'vipmobile.services',
     'vipmobile.controllers',
 	'vipmobile.interceptors',
-    'vipmobile.directives'
+    'vipmobile.directives',
+    'bw.paging'
 
 ]);
 

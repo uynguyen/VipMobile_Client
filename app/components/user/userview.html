@@ -1,130 +1,234 @@
 <div class="container-fluid" ng-controller="UserCtrl">
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="row">
-                <ul class="nav nav-tabs">
-                    <li ng-repeat="menu in menus" role="presentation" class="cursor-pointer {{menu.isDisplay && 'active'}}" ng-click="Display(menu.id)"><a>{{menu.name}}</a></li>
-                </ul>
-            </div>
-            <div class="row user-profile" ng-show="menus[0].isDisplay">
-                <br>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img ng-src="{{user.avatar}}" alt="{{user.fullName}}" class="img-circle">
-                            </div>
-                            <div class="col-md-8">
-                                <form class="form-horizontal">
-                                    <div class="form-group">
-                                        <label for="fullName" class="col-md-3 control-label">Họ và tên</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" ng-disabled="isDisable" placeholder="Họ và tên" ng-model="user.fullName">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="emailAddress" class="col-md-3 control-label">Địa chỉ email</label>
-                                        <div class="col-md-9">
-                                            <input type="email" class="form-control" placeholder="Email" disabled="true" ng-model="user.email">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="gender" class="col-md-3 control-label">Giới tính</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" placeholder="Giới tính" ng-disabled="isDisable" ng-model="user.gender">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="birthday" class="col-md-3 control-label">Ngày sinh</label>
-                                        <div class="col-md-9">
-                                            <p class="input-group">
-                                                <input ng-disabled="isDisable" type="date" class="form-control" uib-datepicker-popup ng-model="user.birthday" is-open="status.opened" min-date="minDate" max-date="maxDate" ng-required="true" close-text="Close" />
-                                                <span class="input-group-btn">
-                                                    <button ng-disabled="isDisable" type="button" class="btn btn-default" ng-click="status.opened=true"><i class="glyphicon glyphicon-calendar"></i></button>
-                                                </span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="address" class="col-md-3 control-label">Địa chỉ</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" placeholder="Địa chỉ" ng-disabled="isDisable" ng-model="user.address">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="visa" class="col-md-3 control-label">Số thẻ visa</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" placeholder="Số thẻ visa" ng-disabled="isDisable" ng-model="user.visaCode">
-                                        </div>
-                                    </div>
+        <ul class="nav nav-tabs">
+            <li ng-repeat="menu in menus" role="presentation"
+                class="cursor-pointer {{menu.isDisplay && 'active'}}" ng-click="Display(menu.id)"><a>{{menu.name}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row user-profile" ng-show="menus[0].isDisplay">
+        <br>
 
-                                    <div class="form-group">
-                                        <div class="col-md-3 col-md-offset-3">
-                                            <button class="btn btn-primary" ng-click="EditProfile()">Thay đổi</button>
-                                        </div>
-                                    </div>
-                                </form>
-                                </dvi>
-                            </div>
-                        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img ng-src="{{user.avatar}}" alt="{{user.fullName}}" class="img-circle">
                     </div>
-                </div>
-            </div>
-            <div class="row user-update-password" ng-show="menus[1].isDisplay">
-                <br>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        abc
-                    </div>
-                </div>
-            </div>
-            <div class="row user-history-shopping" ng-show="menus[2].isDisplay">
-                <br>
-                <div class="panel panel-default">
-                    <div class="panel-body min-height-400 max-height-400 scroll-bar">
-                        <uib-accordion close-others="true">
-                            <uib-accordion-group ng-repeat="item in listBills" heading="item">
-                                <uib-accordion-heading>
-                                    <div class="row">
-                                        <div class="col-md-1">
-                                            #1
-                                        </div>
-                                    <div class="col-md-5">
-                                    Ngày 30/12/2016
-                                </div>
-                                <div class="col-md-3">
-                                    <span>332342342 đồng</span>
-                                </div>
-                                <div class="col-md-2">
-                                    <button class="btn btn-success" ng-click="CancelBill(item.id)"> Hủy đơn hàng</button>
+                    <div class="col-md-8">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="fullName" class="col-md-3 control-label">Họ và tên</label>
+
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" ng-disabled="isDisable"
+                                           placeholder="Họ và tên" ng-model="user.fullName">
                                 </div>
                             </div>
-                                </uib-accordion-heading>
-                                <table class="table table-hover table-striped font-md ">
-                                    <thead>
-                                        <tr>
-                                            <td>#</td>
-                                            <td>Sản phẩm</td>
-                                            <td>Giá</td>
-                                            <td>Số lượng</td>
-                                            <td>Thành tiền</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="sub in item.subitems">
-                                            <td>{{$index}}</td>
-                                            <td>abcm</td>
-                                            <td>11231</td>
-                                            <td>121</td>
-                                            <td>12021</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </uib-accordion-group>
-                        </uib-accordion>
+                            <div class="form-group">
+                                <label for="emailAddress" class="col-md-3 control-label">Địa chỉ email</label>
+
+                                <div class="col-md-9">
+                                    <input type="email" class="form-control" placeholder="Email" disabled="true"
+                                           ng-model="user.email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender" class="col-md-3 control-label">Giới tính</label>
+
+                                <div class="col-md-9">
+                                    <select class="form-control"
+                                            ng-disabled="isDisable"
+                                            ng-options="item.id as item.value for item in genders"
+                                            ng-model="user.gender"/>
+
+                                    <!--<input type="text" class="form-control hidden" placeholder="Giới tính"-->
+                                    <!--ng-disabled="isDisable" ng-model="user.gender">-->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthday" class="col-md-3 control-label">Ngày sinh</label>
+
+                                <div class="col-md-9">
+                                    <p class="input-group">
+                                        <input ng-disabled="isDisable" type="date" class="form-control"
+                                               uib-datepicker-popup ng-model="user.birthday"
+                                               is-open="status.opened" min-date="minDate" max-date="maxDate"
+                                               ng-required="true" close-text="Close"/>
+                                                <span class="input-group-btn">
+                                                    <button ng-disabled="isDisable" type="button"
+                                                            class="btn btn-default" ng-click="status.opened=true"><i
+                                                            class="glyphicon glyphicon-calendar"></i></button>
+                                                </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="col-md-3 control-label">Địa chỉ</label>
+
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="Địa chỉ"
+                                           ng-disabled="isDisable" ng-model="user.address">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="visa" class="col-md-3 control-label">Số thẻ visa</label>
+
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" placeholder="Số thẻ visa"
+                                           ng-disabled="isDisable" ng-model="user.visaCode">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3 col-md-offset-3">
+                                    <button class="btn btn-primary" ng-click="EditProfile()">Thay đổi</button>
+                                </div>
+                            </div>
+                        </form>
+                        </dvi>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row user-update-password" ng-show="menus[1].isDisplay">
+        <br>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-11">
+                        <form class="form-horizontal" name="form">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Nhập mật khẩu cũ</label>
+
+                                <div class="col-md-8">
+                                    <input type="password" class="form-control" placeholder="Mật khẩu cũ" required
+                                           ng-model="updatePassData.oldPass">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password" class="col-md-4 control-label">Nhập mật khẩu mới</label>
+
+                                <div class="col-md-8">
+                                    <input type="password" class="form-control" name="passwd" placeholder="Mật khẩu mới"
+                                           required
+                                           ng-model="updatePassData.newPass">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmpassword" class="col-md-4 control-label">Xác nhận mật khẩu
+                                    mới</label>
+
+                                <div class="col-md-8">
+                                    <input type="password" class="form-control" name="cfmpasswd"
+                                           placeholder="Xác nhận mật khẩu mới"
+                                           ng-model="comfirmPassword" required
+                                           data-password-verify="updatePassData.newPass">
+                                </div>
+
+                            </div>
+                            <div class="form-group error">
+                                <div class="col-md-offset-4 col-md-8">
+                                    <div ng-show="form.cfmpasswd.$error.passwordVerify">
+                                        Mật khẩu nhập lại không khớp!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-3 col-md-offset-4">
+                                    <button class="btn btn-primary" ng-click="UpdatePassword()">Cập nhật mật
+                                        khẩu
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row user-history-shopping" ng-show="menus[2].isDisplay">
+    <br />
+
+    <div class="panel panel-default">
+        <div class="panel-body min-height-400 max-height-400 scroll-bar">
+            <uib-accordion close-others="true">
+                <uib-accordion-group ng-repeat="item in listBills" heading="item">
+                    <uib-accordion-heading>
+                        <div class="row">
+                            <div class="col-md-1">
+                                {{$index + 1}}
+                            </div>
+                            <div class="col-md-1" data-type="date">
+                               {{item.bookDate | date:'dd/MM/yyyy HH:mm'}}
+                            </div>
+                            <div class="col-md-4" data-type="date">
+                                {{item.code}}
+                            </div>
+                            <div class="col-md-2">
+                                <span >{{item.total}} VND</span>
+                            </div>
+                            <div class="col-md-2">
+                                <span >{{item.state.value}}</span>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-success" ng-hide="item.state.id == 5"  ng-click="CancelBill($index)"> Hủy đơn hàng
+                                </button>
+                            </div>
+                        </div>
+                    </uib-accordion-heading>
+                    <table class="table table-hover table-striped font-md ">
+                        <thead>
+                        <tr>
+                            <td>#</td>
+                            <td>Mã</td>
+                            <td>Sản phẩm</td>
+                            <td>Giá</td>
+                            <td>Số lượng</td>
+                            <td>Thành tiền</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="sub in item.detail">
+
+                            <td>{{$index + 1}}</td>
+                            <td>{{sub.code}}</td>
+                            <td>{{sub.name}}</td>
+                            <td>{{sub.price | number: 0}} VND</td>
+                            <td>{{sub.amount}}</td>
+                            <td>{{sub.total_price | number : 0}} VND</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </uib-accordion-group>
+            </uib-accordion>
+        </div>
+        <paging
+                class="small"
+                page="1"
+                page-size="20"
+                total="total"
+                adjacent="2"
+                dots="..."
+                scroll-top="false"
+                hide-if-empty="false"
+                ul-class="pagination"
+                active-class="active"
+                disabled-class="díabled"
+                show-prev-next="true"
+                paging-action="getMyBills(page)">
+        </paging>
+
+    </div>
+</div>
+</div>
+</div>
 </div>
