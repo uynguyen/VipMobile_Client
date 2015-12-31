@@ -15,7 +15,7 @@
                 <div class="content-filter" uib-collapse="listIsCollapse['producer'].isCollapse">
                     <div class="checkbox" ng-repeat="(id, producer) in filter.producers">
                         <label>
-                            <input type="checkbox" ng-model="producer.checked">{{producer.name}}
+                            <input type="checkbox" ng-model="producer.checked">{{producer.value}}
                         </label>
                     </div>
                 </div>
@@ -45,8 +45,10 @@
 
                     <div class="checkbox" ng-repeat="(id, color) in filter.colors">
                         <label>
-                            <input type="checkbox" ng-model="color.checked">{{color.name}}
+                            <input type="checkbox"
+                            ng-model="color.checked">{{color.value}}
                         </label>
+                        <span class="glyphicon glyphicon-stop font-xs pull-right" style="color:{{color.colorCode}}"></span>
                     </div>
                 </div>
             </div>
