@@ -40,7 +40,7 @@
                 <div class="col-xs-12">
                     <strong>VAT</strong>
 
-                    <div class="pull-right"><span>$</span><span>200.00</span></div>
+                    <div class="pull-right"><span>{{VAT.value}} %</span></div>
                 </div>
 
             </div>
@@ -76,7 +76,7 @@
                 <div class="col-md-6 col-xs-12">
                     <strong>Họ:</strong>
                     <input type="text" name="first_name" class="form-control"
-                           ng-model="credit_card.first_name"/>
+                           ng-model="credit_card.first_name" required/>
                 </div>
                 <div class="span1"></div>
                 <div class="col-md-6 col-xs-12">

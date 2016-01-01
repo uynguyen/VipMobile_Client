@@ -117,11 +117,41 @@ function($http, $q, $window, productService, domain) {
                 cb(response.data);
             },
             function(errResponse) {
-                console.error('Error while getting categories');
+                console.error('Error while getting fee');
 
             }
         );
     };
 
+    cartService.getVAT = function(){
+        var endpoint = domain + '/bill/getVAT';
+        console.log(endpoint);
+        return $http.get(endpoint)
+            .then(
+            function(res) {
+               return res.data;
+            },
+            function(err) {
+                console.error('Error while getting VAT');
+                $q.reject(err);
 
+            }
+        );
+    };
+
+    cartService.bookProduct = function(bookInfo){
+        var endpoint = domain + '/bill/addNewUserBill';
+        console.log(endpoint);
+        return $http.post(endpoint, bookInfo)
+            .then(
+            function(res) {
+                return res;
+            },
+            function(err) {
+                console.error('Error while getting add user bill');
+                $q.reject(err);
+
+            }
+        );
+    }
 }]);

@@ -13,6 +13,17 @@ angularController
                 $scope.transportFee = fee;
             });
 
+            cartService.getVAT().then(
+                function(res){
+
+                        $scope.VAT = res;
+
+                },
+                function(err){
+                    console.log(err);
+                }
+            );
+
             $scope.shipping_address = {
                 line1: "Quan5",
                 city: "HCM",
@@ -67,9 +78,20 @@ angularController
                 var bookInfo = {
                     info : $scope.credit_card,
                     cart :  $scope.cart,
-                    total: cartService.getTotal().toString()
+//                    total: cartService.getTotal().toString(),
+                    VAT: $scope.VAT
                 };
-                console.log(JSON.stringify(bookInfo));
+                cartService.bookProduct(bookInfo).then(
+                   function(res){
+                       if(res.data.mess && res.data.mess == 'Success'){
+                           notie.alert(1, "Đặt hàng thành công. Quý khách vui lòng đến hộp mail để kiểm tra giao dịch.", 1.5);
+                       }
+                   },
+                   function(err){
+                       console.log(err);
+                       notie.alert(1, "Có lỗi xảy ra! Vui lòng thử lại", 1.5);
+                   });
+
             }
 
 
