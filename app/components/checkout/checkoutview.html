@@ -56,7 +56,7 @@
                             <strong>Phí vận chuyển: </strong>
 
                             <div class="pull-right">
-                                <span>{{credit_card.fee.fee | number: 0}} VNĐ</span>
+                                <span>{{transportInfo.fee.fee || 0 | number: 0}} VNĐ</span>
                             </div>
 
                         </div>
@@ -117,7 +117,7 @@
 
                             </div>
                             <div class="col-md-6">
-                                <input type="text" name="state" class="form-control" ng-init="transportInfo.city='Tp Hồ Chí Minh'" 
+                                <input type="text" name="state" class="form-control" ng-init="transportInfo.city='Tp Hồ Chí Minh'"
                                 readonly="true" ng-model="transportInfo.city"/>
                             </div>
                         </div>
