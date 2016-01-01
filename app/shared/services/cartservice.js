@@ -98,6 +98,10 @@ function($http, $q, $window, productService, domain) {
         $window.localStorage['cart'] = angular.toJson(cart);
     };
 
+    cartService.clearCartItems = function() {
+        delete $window.localStorage['cart'];
+    };
+
     cartService.getTax = function() {
         return cartService.getSubtotal() * cartService.tax;
     };
@@ -111,10 +115,10 @@ function($http, $q, $window, productService, domain) {
         var endpoint = domain + '/bill/getTransportFee';
         console.log(endpoint);
         $http.get(endpoint)
-            .success(function(response) {
-                console.error(response);
+            .then(function(response) {
+                console.log(response);
                 cb(response.data);
-            }).error(function(errResponse) {
+            },function(errResponse) {
                 console.log(errResponse);
             });
     };

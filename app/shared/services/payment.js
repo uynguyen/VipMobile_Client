@@ -7,10 +7,9 @@ appService.service('PaymentService',
 
         var endpoint = domain + '/payment/create';
         $http.post(endpoint, paymentinfo)
-            .success(function(res) {
+            .then(function(res) {
                 cb(null, res);
-            })
-            .error(function(err) {
+            }, function(err) {
                 cb(err);
             });
     };

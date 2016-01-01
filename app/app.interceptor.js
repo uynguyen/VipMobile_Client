@@ -11,7 +11,7 @@ function($window, $location, $q, AuthenticationService) {
         request: function(config)
         {
             var token = $window.localStorage['token'];
-
+        //    config.headers['Content-Type'] = 'application/json';
             if(token) // If token exist
             {
                 config.headers.Authorization = 'Bearer '+ token;
@@ -19,8 +19,16 @@ function($window, $location, $q, AuthenticationService) {
             }
 
             return config || $q.when(config);
-        }
-        ,
+        },
+        response: function(res){
+            //console.log(res);
+                return res || $q.when(res);
+        },
+
+        requestError: function(req){
+            console.log(req);
+            return $q.reject(req);
+        },
 
         responseError: function(res){
             console.log(res);
@@ -39,5 +47,5 @@ function($window, $location, $q, AuthenticationService) {
 app.config(['$httpProvider', function($httpProvider) {
     $httpProvider.interceptors.push('sessionInjector');
     $httpProvider.defaults.useXDomain = true;
-       delete $httpProvider.defaults.headers.common['X-Requested-With'];
+     //  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);

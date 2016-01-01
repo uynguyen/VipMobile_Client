@@ -8,9 +8,9 @@ angularController
      productService.getAllProducts(15, 0).then(function(data){
          console.log(data);
         $scope.products = data;
-     }).catch(function (err) {
-               console.log(err);
-           });
+    }, function(error){
+        console.log(error);
+    });
            $scope.addToCart = cartService.addToCart;
 
   }]);
