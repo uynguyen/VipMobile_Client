@@ -12,20 +12,14 @@ angularController
             cartService.getTransportFree(function(fee){
                 console.log(fee);
                 $scope.transportFee = fee;
-                cartService.ship = $scope.transportFee.fee;
+
             });
 
 
-//            cartService.getVAT().then(
-//                function(res){
-//
-//                        $scope.VAT = res;
-//
-//                },
-//                function(err){
-//                    console.log(err);
-//                }
-//            );
+            $scope.$watch('transportInfo', function(){
+                cartService.ship = $scope.transportInfo.fee.fee || 0;
+            }, true);
+
 
 
 
@@ -42,7 +36,6 @@ angularController
                         credit_card: $scope.credit_card
                     }]
                 },
-                cart: $scope.cart,
                 transactions: [{
                     amount: {
                         total: cartService.getTotal().toString(),
@@ -58,6 +51,7 @@ angularController
             };
             $scope.getTax = cartService.getTax;
             $scope.getTotal = cartService.getTotal;
+            $scope.getShip = cartService.getShippaid;
 
             $scope.PlaceOrder = function() {
                 console.log($scope.paymentinfo);

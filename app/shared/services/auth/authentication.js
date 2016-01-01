@@ -25,12 +25,13 @@ angular.module('vipmobile.services')
                 return angular.fromJson($window.localStorage.user);
             return null;
         };
-        
+
         auth.logout = function(){
             auth.isLogged = false;
             delete auth.user;
             delete $window.localStorage.user;
             delete $window.localStorage.token;
+            delete $window.localStorage.cart;
             $rootScope.isGuest = true;
         };
 

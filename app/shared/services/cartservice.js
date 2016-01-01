@@ -2,12 +2,8 @@ appService.service('CartService', ['$http', '$q', '$window', 'ProductService', '
 function($http, $q, $window, productService, domain) {
     var cartService = this;
 
-
-
-
-
     cartService.ship = 0;
-    cartService.tax = 0.1;
+    cartService.tax = 0;
 
     cartService.getItems = function(cb) {
         cartService.getCartItems(function(cart) {
@@ -16,6 +12,7 @@ function($http, $q, $window, productService, domain) {
     };
 
     cartService.addToCart = function(productid, quantity) {
+
         productService.getProduct(productid).then(function(data) {
             cartService.getCartItems(function(cart) {
                 if (cart.items[productid] == null) // add new
@@ -87,6 +84,7 @@ function($http, $q, $window, productService, domain) {
     };
 
     cartService.getCartItems = function(cb) {
+
         if (angular.fromJson($window.localStorage['cart']) == null)
             $window.localStorage['cart'] = angular.toJson({
                 size: 0,
@@ -103,11 +101,11 @@ function($http, $q, $window, productService, domain) {
     };
 
     cartService.getTax = function() {
-        return cartService.getSubtotal() * cartService.tax;
+        return cartService.getSubtotal() * (cartService.tax/100);
     };
 
     cartService.getShippaid = function() {
-        return cartService.ship;
+        return cartService.ship || 0;
     };
 
 
@@ -134,7 +132,8 @@ function($http, $q, $window, productService, domain) {
         return $http.get(endpoint)
             .then(
             function(res) {
-                cartService.tax = res.data;
+                cartService.tax = res.data.value;
+                console.log(cartService.tax);
                 return res.data;
             },
             function(err) {
@@ -159,5 +158,6 @@ function($http, $q, $window, productService, domain) {
 
             }
         );
-    }
+    };
+    cartService.getVAT();
 }]);

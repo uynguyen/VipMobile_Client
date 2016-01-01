@@ -6,7 +6,7 @@
                 <div class="panel-heading">
                     Xem lại đơn hàng
                     <div class="pull-right">
-                        <small><a class="afix-1" href="#">Edit Cart</a></small>
+                        <small><a class="afix-1" ui-sref="cart">Edit Cart</a></small>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -58,7 +58,7 @@
 
 
                             <div class="pull-right">
-                                <span>{{transportInfo.fee.fee || 0 | number: 0}} VNĐ</span>
+                                <span>{{getShip() || 0 | number: 0}} VNĐ</span>
                             </div>
 
                         </div>
@@ -70,7 +70,7 @@
                             <strong>Tổng cộng:</strong>
 
                             <div class="pull-right">
-                                <span>{{getTotal() | number:0}}</span>
+                                <span>{{getTotal() || 0 | number:0}}</span>
                                 <span> VNĐ</span>
                             </div>
                         </div>
