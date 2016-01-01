@@ -89,6 +89,10 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
                 return AuthenticationService.getCurrentUser();
             };
 
+            userService.getCurrentUserFullName = function() {
+                return AuthenticationService.getCurrentUser().fullName;
+            };
+
             userService.getUserBills = function(page, limit) {
                 return $http.get(domain + '/bill/getMyBill/' + page + '/' + limit)
                     .then(

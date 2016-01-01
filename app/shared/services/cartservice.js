@@ -6,8 +6,8 @@ function($http, $q, $window, productService, domain) {
 
 
 
-    cartService.shippaid = 0.02;
-    cartService.tax = 0.07;
+    cartService.shippaid = 0;
+    cartService.tax = 0.1;
 
     cartService.getItems = function(cb) {
         cartService.getCartItems(function(cart) {
@@ -65,11 +65,11 @@ function($http, $q, $window, productService, domain) {
                 subtotal += (cart.items[key].quantity * cart.items[key].product.price);
             }
         });
-        return Number((subtotal / 21000).toFixed(2));
+        return subtotal;
     };
 
     cartService.getTotal = function() {
-        return Number((cartService.getSubtotal() + cartService.getShippaid() + cartService.getTax()).toFixed(2));
+        return cartService.getSubtotal() + cartService.getShippaid() + cartService.getTax();
     };
 
     cartService.removeFromCart = function(productid) {
@@ -99,11 +99,11 @@ function($http, $q, $window, productService, domain) {
     };
 
     cartService.getTax = function() {
-        return Number((cartService.getSubtotal() * cartService.tax / 21000).toFixed(2));
+        return cartService.getSubtotal() * cartService.tax;
     };
 
     cartService.getShippaid = function() {
-        return Number((cartService.getSubtotal() * cartService.shippaid / 21000).toFixed(2));
+        return cartService.getSubtotal() * cartService.shippaid;
     };
 
 
@@ -111,16 +111,17 @@ function($http, $q, $window, productService, domain) {
         var endpoint = domain + '/bill/getTransportFee';
         console.log(endpoint);
         $http.get(endpoint)
-            .then(
-            function(response) {
-
+            .then(function(response) {
+                console.error(response);
                 cb(response.data);
+
             },
             function(errResponse) {
                 console.error('Error while getting fee');
 
             }
         );
+
     };
 
     cartService.getVAT = function(){

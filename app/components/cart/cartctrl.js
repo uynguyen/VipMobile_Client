@@ -30,6 +30,6 @@ angularController
       }
 
       $scope.subtotal = cartService.getSubtotal;
-
+      $scope.tax = cartService.getTax;
       $scope.total = cartService.getTotal;
   }]);

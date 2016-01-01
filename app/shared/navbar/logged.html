@@ -1,6 +1,6 @@
-<a ui-sref="user">
+<a ui-sref="user" ng-controller="UserLoggedCtrl">
     <span class="glyphicon glyphicon-user"></span>
 
-    {{$root.LoggedUser().fullName}}
+    {{LoggedUserName()}}
 
 </a>

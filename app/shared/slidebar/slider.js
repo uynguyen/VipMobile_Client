@@ -4,7 +4,7 @@
 
 angularController.controller('NewProductCtrl', ['$scope', 'ProductService', function($scope, productService) {
 
-	productService.getNewProducts(5).then(function(data){
+	productService.getHighProduct(5).then(function(data){
 		$scope.slides = data;
 		$scope.slides[0].active = true;
 	});

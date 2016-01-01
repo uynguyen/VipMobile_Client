@@ -13,12 +13,14 @@
             <div data-ng-repeat="item in cart">
                 <div class="form-group">
                     <div class="col-sm-3 col-xs-3">
-                        <img class="img-responsive" ng-src="{{item.product.image}}"/>
+                        <img class="img-responsive" ng-src="{{item.product.image}}" />
                     </div>
                     <div class="col-sm-6 col-xs-6">
                         <div class="col-xs-12">{{item.product.name}}</div>
                         <div class="col-xs-12">
-                            <small>Quantity:<span>{{item.quantity}}</span></small>
+                            <small>Quantity:
+                                <span>{{item.quantity}}</span>
+                            </small>
                         </div>
                     </div>
                     <div class="col-sm-3 col-xs-3 text-right">
@@ -40,7 +42,10 @@
                 <div class="col-xs-12">
                     <strong>VAT</strong>
 
-                    <div class="pull-right"><span>{{VAT.value}} %</span></div>
+                    <div class="pull-right">
+                        <span>{{getTax() | number:0}}</span>
+                        <span> VNĐ </span>
+                    </div>
                 </div>
 
             </div>
@@ -50,7 +55,9 @@
                 <div class="col-xs-12">
                     <strong>Phí vận chuyển: </strong>
 
-                    <div class="pull-right"><span>{{credit_card.fee.fee | number: 0}} VND</span></div>
+                    <div class="pull-right">
+                        <span>{{credit_card.fee.fee | number: 0}} VNĐ</span>
+                    </div>
 
                 </div>
             </div>
@@ -60,7 +67,10 @@
                 <div class="col-xs-12">
                     <strong>Tổng cộng:</strong>
 
-                    <div class="pull-right"><span>$</span><span>150.00</span></div>
+                    <div class="pull-right">
+                        <span>{{getTotal() | number:0}}</span>
+                        <span> VNĐ</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,92 +82,112 @@
     <div class="panel panel-info">
         <div class="panel-heading">Thông tin giao hàng</div>
         <div class="panel-body">
-            <div class="form-group">
-                <div class="col-md-6 col-xs-12">
-                    <strong>Họ:</strong>
-                    <input type="text" name="first_name" class="form-control"
-                           ng-model="credit_card.first_name" required/>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-6 col-xs-12">
+                        <strong>Họ:</strong>
+                        <input type="text" name="first_name" class="form-control" ng-model="transportInfo.first_name" />
+                    </div>
+                    <div class="span1"></div>
+                    <div class="col-md-6 col-xs-12">
+                        <strong>Tên:</strong>
+                        <input type="text" name="last_name" class="form-control" ng-model="transportInfo.last_name" />
+                    </div>
                 </div>
-                <div class="span1"></div>
-                <div class="col-md-6 col-xs-12">
-                    <strong>Tên:</strong>
-                    <input type="text" name="last_name" class="form-control"
-                           ng-model="credit_card.last_name"/>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <strong>Địa chỉ:</strong>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" name="address" class="form-control" value="" ng-model="transportInfo.address" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-12"><strong>Địa chỉ:</strong></div>
-                <div class="col-md-12">
-                    <input type="text" name="address" class="form-control" value=""
-                           data-ng-model="credit_card.address"/>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <strong>Quận:</strong>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Thành phố:</strong>
+                    </div>
+                    <div class="col-md-6">
+
+                        <select class="form-control" ng-options="item as item.area for item in transportFee" ng-model="transportInfo.fee">
+
+                        </select>
+
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" name="state" class="form-control" ng-init="transportInfo.city='Tp Hồ Chí Minh'" readonly="true" ng-model="transportInfo.city"/>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-12"><strong>Quận:</strong></div>
-                <div class="col-md-12">
+                <!-- <div class="form-group">
+                   <div class="col-md-6">
+                       <strong>Thành phố: </strong>
+                   </div>
 
-                    <select class="form-control"
-                            ng-options="item as item.area for item in transportFee"
-                            ng-model="credit_card.fee">
+                   <br/>
 
-                    </select>
-
+                   <div class="col-md-12">
+                       <input type="text" name="state" class="form-control" value="" data-ng-model="credit_card.city" />
+                   </div>
+               </div> -->
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <strong>Số điện thoại liên hệ:</strong>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" name="phone_number" class="form-control" value="" data-ng-model="transportInfo.phone" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-12"><strong>Thành phố: </strong></div>
-
-                <br/>
-
-                <div class="col-md-12">
-                    <input type="text" name="state" class="form-control" value="" data-ng-model="credit_card.city"/>
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <input class="btn btn-primary" value="Đặt hàng" ng-click="bookProduct()" ng-disabled="!isValidForm()" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-12"><strong>Số điện thoại liên hệ:</strong></div>
-                <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value=""
-                                              data-ng-model="credit_card.phone"/>
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                <div class="col-md-4"><input class="btn btn-primary" value="Đặt hàng" data-ng-click="bookProduct()"/></div>
-            </div>
-
+            </form>
         </div>
-
     </div>
     <!--SHIPPING METHOD END-->
 
 
     <!--CREDIT CART PAYMENT-->
     <div class="panel panel-info">
-        <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Thanh toán PayPal</div>
+        <div class="panel-heading">
+            <span><i class="glyphicon glyphicon-transfer"></i></span> Thanh toán PayPal</div>
         <div class="panel-body">
-            <form>
+            <form class="form-horizontal">
                 <div class="form-group">
-                    <div class="col-md-12"><strong>Card Type:</strong></div>
-                    <div class="col-md-12">
-                        <select id="CreditCardType" name="CreditCardType" class="form-control"
-                                ng-model="credit_card.type">
+                    <label class="col-md-4 control-label">Card Type:</label>
+                    <div class="col-md-8">
+                        <select id="CreditCardType" name="CreditCardType" class="form-control" ng-model="credit_card.type" ng-init="credit_card.type='visa'">
                             <option value="visa">Visa</option>
-                            <option value="visa">Master</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-12"><strong>Credit Card Number:</strong></div>
-                    <div class="col-md-12">
-                        <input type="text" class="form-control" name="car_number"
-                               ng-model="credit_card.number"/>
+                    <label class="col-md-4 control-label">Credit Card Number: </label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" name="car_number" ng-model="credit_card.number" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-12"><strong>Card CVV:</strong></div>
-                    <div class="col-md-12">
-                        <input type="text" class="form-control" name="car_code" ng-model="credit_card.cvv2"/>
+                    <label class="col-md-4 control-label">Card CVV: </label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" name="car_code" ng-model="credit_card.cvv2" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <strong>First Name</strong>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Last Name</strong>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" class="form-control" name="car_number" ng-model="credit_card.first_name" />
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <input type="text" class="form-control" name="car_number" ng-model="credit_card.last_name" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -200,8 +230,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <button class="btn btn-primary"
-                                ng-click="PlaceOrder()">Thanh toán
+                        <button class="btn btn-primary" ng-click="PlaceOrder()">Thanh toán
                         </button>
                     </div>
                 </div>
@@ -221,10 +250,9 @@
                 Thanh toán thành công
             </div>
             <div class="panel-body">
-                            <span class="text-center text-primary">
-                                Quý khách vừa thanh toán thành công, vui lòng kiểm tra email để xem chi tiết đơn hàng!
-                                Chúng tôi sẽ chuyển hàng đến cho quý khách trong thời gian sớm nhất.
-                            </span>
+                    <span class="text-center text-primary">
+                        Quý khách vừa thanh toán thành công, vui lòng kiểm tra email để xem chi tiết đơn hàng! Chúng tôi sẽ chuyển hàng đến cho quý khách trong thời gian sớm nhất.
+                    </span>
             </div>
         </div>
     </div>

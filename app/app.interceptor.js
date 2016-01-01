@@ -11,19 +11,20 @@ function($window, $location, $q, AuthenticationService) {
         request: function(config)
         {
             var token = $window.localStorage['token'];
+
             if(token) // If token exist
             {
                 config.headers.Authorization = 'Bearer '+ token;
             //    console.log('Bearer '+ token);
             }
 
-            return config || $q.when(config)
+            return config || $q.when(config);
         }
         ,
 
         responseError: function(res){
-            console.log(res);
-            if (res.data.mess && (res.data.mess == 'TokenExpire' || res.data.mess=='Unauthorized'))
+
+            if (res.data && res.data.mess && (res.data.mess == 'TokenExpire' || res.data.mess=='Unauthorized'))
             {
                 AuthenticationService.logout();
                 $location.path('/');
@@ -37,4 +38,6 @@ function($window, $location, $q, AuthenticationService) {
 
 app.config(['$httpProvider', function($httpProvider) {
     $httpProvider.interceptors.push('sessionInjector');
+    $httpProvider.defaults.useXDomain = true;
+       delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);

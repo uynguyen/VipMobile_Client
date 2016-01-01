@@ -8,19 +8,19 @@
 
                 <span class="pull-right font-xsxs glyphicon glyphicon-certificate sale-bg"></span>
                 <span class="pull-right font-lg sale-fg">
-                    <strong>{{product.sale || 10}}%</strong>
+                    <strong>{{product.salePercent || 10}}%</strong>
                 </span>
                 <a ui-sref="single({id:product.id})">
-                    <img ng-src={{product.image}} alt="{{product.name}}">
+                    <img ng-src={{product.idProduct.image}} alt="{{product.name}}">
                     <h3 class="text-info text-center">
-                        <strong>{{product.name | limitTo:22}}{{product.name.length > 22 && '...' || ''}}</strong>
+                        <strong>{{product.idProduct.name | limitTo:22}}{{product.idProduct.name.length > 22 && '...' || ''}}</strong>
                     </h3>
                 </a>
                 <hr class="line">
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
-                        <span class="font-sm text-strikethrough">{{product.price | currency: '':0}}đ</span>
-                        <p class="price font-md">{{product.price*0.9 | currency: '':0}}đ</p>
+                        <span class="font-sm text-strikethrough">{{product.idProduct.price | currency: '':0}}đ</span>
+                        <p class="price font-md">{{product.idProduct.price*0.9 | currency: '':0}}đ</p>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <button class="btn btn-success btn-sm right" ng-click="addToCart(product.id, 1)">

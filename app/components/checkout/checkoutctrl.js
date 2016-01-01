@@ -13,6 +13,7 @@ angularController
                 $scope.transportFee = fee;
             });
 
+
             cartService.getVAT().then(
                 function(res){
 
@@ -24,17 +25,10 @@ angularController
                 }
             );
 
-            $scope.shipping_address = {
-                line1: "Quan5",
-                city: "HCM",
-                state: "VN",
-                postal_code: "70000",
-                country_code: "US"
-            };
+
 
             $scope.credit_card = {
-                number: "4032038374061251",
-                billing_address: $scope.shipping_address
+                number: "4032038374061251"
             };
 
             $scope.paymentinfo = {
@@ -60,6 +54,8 @@ angularController
                     description: "Đơn hàng thanh toán thông qua paypal của VipMobileShop"
                 }]
             };
+            $scope.getTax = cartService.getTax;
+            $scope.getTotal = cartService.getTotal;
 
             $scope.PlaceOrder = function() {
                 console.log($scope.paymentinfo);
@@ -72,15 +68,15 @@ angularController
                     console.log(res);
 
                 });
-            }
+            };
 
             $scope.bookProduct = function(){
                 var bookInfo = {
-                    info : $scope.credit_card,
+                    info : $scope.transportInfo,
                     cart :  $scope.cart,
-//                    total: cartService.getTotal().toString(),
                     VAT: $scope.VAT
                 };
+                console.log(JSON.stringify(bookInfo));
                 cartService.bookProduct(bookInfo).then(
                    function(res){
                        if(res.data.mess && res.data.mess == 'Success'){
@@ -92,8 +88,18 @@ angularController
                        notie.alert(1, "Có lỗi xảy ra! Vui lòng thử lại", 1.5);
                    });
 
-            }
+            };
 
+
+            $scope.isValidForm = function(){
+                //console.log($scope.transportInfo.fee);
+                return  $scope.transportInfo != null
+                && $scope.transportInfo.first_name && $scope.transportInfo.first_name.length != 0
+                    && $scope.transportInfo.last_name && $scope.transportInfo.last_name.length != 0
+                    && $scope.transportInfo.address && $scope.transportInfo.address.length != 0
+                    && $scope.transportInfo.phone && $scope.transportInfo.phone.length != 0
+                    && $scope.transportInfo.fee;
+            };
 
         }
     ]);
