@@ -10,21 +10,21 @@ angularController
 
 
             cartService.getTransportFree(function(fee){
-                //console.log(fee);
+                console.log(fee);
                 $scope.transportFee = fee;
             });
 
 
-            cartService.getVAT().then(
-                function(res){
-
-                        $scope.VAT = res;
-
-                },
-                function(err){
-                    console.log(err);
-                }
-            );
+//            cartService.getVAT().then(
+//                function(res){
+//
+//                        $scope.VAT = res;
+//
+//                },
+//                function(err){
+//                    console.log(err);
+//                }
+//            );
 
 
 

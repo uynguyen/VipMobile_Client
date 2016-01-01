@@ -107,7 +107,7 @@ function($http, $q, $window, productService, domain) {
     };
 
     cartService.getShippaid = function() {
-        return cartService.getSubtotal() * cartService.shippaid;
+        return cartService.shippaid;
     };
 
 
@@ -134,7 +134,8 @@ function($http, $q, $window, productService, domain) {
         return $http.get(endpoint)
             .then(
             function(res) {
-               return res.data;
+                cartService.tax = res.data;
+                return res.data;
             },
             function(err) {
                 console.error('Error while getting VAT');
