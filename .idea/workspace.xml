@@ -32,7 +32,7 @@
       <file leaf-file-name="slider.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/shared/slidebar/slider.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="20" selection-start="609" selection-end="609" vertical-scroll-proportion="-6.5384617">
+            <state line="11" column="20" selection-start="656" selection-end="656" vertical-scroll-proportion="-6.5384617">
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h1#0;n#div#0;n#a#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -50,28 +50,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="saleproductctrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/saleproduct/saleproductctrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="5" selection-start="251" selection-end="251" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="singlectrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/singleproduct/singlectrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="single-product.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="single-product.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/singleproduct/single-product.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="61" selection-start="1664" selection-end="1664" vertical-scroll-proportion="0.30661324">
+            <state line="34" column="61" selection-start="1664" selection-end="1664" vertical-scroll-proportion="-5.8846154">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cartservice.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/shared/services/cartservice.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="118" column="0" selection-start="3697" selection-end="3697" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkoutview.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/components/checkout/checkoutview.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="122" column="0" selection-start="4661" selection-end="4661" vertical-scroll-proportion="4.1563125">
               <folding />
             </state>
           </provider>
@@ -90,7 +90,9 @@
         <entry file="file://$PROJECT_DIR$/app/shared/services/product.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="99" column="48" selection-start="3578" selection-end="3578" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <marker date="1451674604593" expanded="true" signature="3318:4484" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,7 +110,11 @@
         <entry file="file://$PROJECT_DIR$/app/shared/services/userservice.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <marker date="1451675594508" expanded="true" signature="161:6431" placeholder="[...]" />
+                <marker date="1451675594508" expanded="true" signature="293:6425" placeholder="{...}" />
+                <marker date="1451675594508" expanded="true" signature="3551:3613" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -130,9 +136,7 @@
         <option value="$PROJECT_DIR$/app/components/user/userview.html" />
         <option value="$PROJECT_DIR$/app/components/authenticate/authenticatectrl.js" />
         <option value="$PROJECT_DIR$/app/components/authenticate/authenticateview.html" />
-        <option value="$PROJECT_DIR$/app/shared/services/cartservice.js" />
         <option value="$PROJECT_DIR$/app/components/checkout/checkoutctrl.js" />
-        <option value="$PROJECT_DIR$/app/components/checkout/checkoutview.html" />
         <option value="$PROJECT_DIR$/app/app.interceptor.js" />
         <option value="$PROJECT_DIR$/app/components/bestsale/bestsalectrl.js" />
         <option value="$PROJECT_DIR$/app/components/bestsale/bestsaleview.html" />
@@ -142,6 +146,8 @@
         <option value="$PROJECT_DIR$/app/shared/services/product.js" />
         <option value="$PROJECT_DIR$/app/shared/slidebar/slider.html" />
         <option value="$PROJECT_DIR$/app/components/singleproduct/single-product.html" />
+        <option value="$PROJECT_DIR$/app/shared/services/cartservice.js" />
+        <option value="$PROJECT_DIR$/app/components/checkout/checkoutview.html" />
       </list>
     </option>
   </component>
@@ -616,7 +622,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -693,17 +699,10 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="3081" />
+      <option name="time" value="3089" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/components/bestsale/bestsalectrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="27" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/bestsale/bestsaleview.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="66" selection-start="125" selection-end="125" vertical-scroll-proportion="-0.65384614">
@@ -714,13 +713,6 @@
     <entry file="file://$PROJECT_DIR$/app/components/checkout/checkoutctrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="37" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/services/cartservice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="9" selection-start="3648" selection-end="3648" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -777,14 +769,20 @@
     <entry file="file://$PROJECT_DIR$/app/shared/services/userservice.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <marker date="1451675594508" expanded="true" signature="161:6431" placeholder="[...]" />
+            <marker date="1451675594508" expanded="true" signature="293:6425" placeholder="{...}" />
+            <marker date="1451675594508" expanded="true" signature="3551:3613" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/services/product.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="99" column="48" selection-start="3578" selection-end="3578" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <marker date="1451674604593" expanded="true" signature="3318:4484" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -797,7 +795,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/slidebar/slider.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="20" selection-start="609" selection-end="609" vertical-scroll-proportion="-6.5384617">
+        <state line="11" column="20" selection-start="656" selection-end="656" vertical-scroll-proportion="-6.5384617">
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h1#0;n#div#0;n#a#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -807,7 +805,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/singleproduct/single-product.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="61" selection-start="1664" selection-end="1664" vertical-scroll-proportion="0.30661324">
+        <state line="34" column="61" selection-start="1664" selection-end="1664" vertical-scroll-proportion="-5.8846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/services/cartservice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="0" selection-start="3697" selection-end="3697" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/checkout/checkoutview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="0" selection-start="4661" selection-end="4661" vertical-scroll-proportion="4.1563125">
           <folding />
         </state>
       </provider>

@@ -10,6 +10,7 @@ angularController
 
 
             cartService.getTransportFree(function(fee){
+                //console.log(fee);
                 $scope.transportFee = fee;
             });
 
@@ -62,10 +63,13 @@ angularController
                 paymentService.createPayment($scope.paymentinfo, function(err, res){
                     if (err){
                         console.log(err);
-                        return;
+                        notie.alert(3, "Thanh toán không thành công! Vui lòng thử lại.", 1.5);
                     }
-                    $scope.isSuccess = true;
+                    else {
+                    notie.alert(1, "Thanh toán thành công! Vui lòng kiểm tra lại đơn hàng.", 1.5);
+                    cartService.clearCartItems();
                     console.log(res);
+                }
 
                 });
             };

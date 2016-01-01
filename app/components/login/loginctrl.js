@@ -66,7 +66,7 @@ angularController
                 }
 
 
-            }).catch(function (err) {
+            }, function (err) {
                     console.log(err);
                 });
         };

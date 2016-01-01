@@ -98,6 +98,10 @@ function($http, $q, $window, productService, domain) {
         $window.localStorage['cart'] = angular.toJson(cart);
     };
 
+    cartService.clearCartItems = function() {
+        delete $window.localStorage['cart'];
+    };
+
     cartService.getTax = function() {
         return cartService.getSubtotal() * cartService.tax;
     };
