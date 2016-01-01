@@ -47,7 +47,7 @@
                         <td>   </td>
                         <td>   </td>
                         <td>
-                            <h5>VAT</h5>
+                            <h5>Tổng tiền sản phẩm</h5>
                         </td>
                         <td class="text-right">
                             <h5>
@@ -55,19 +55,19 @@
                             </h5>
                         </td>
                     </tr>
-                    <!--<tr>-->
-                        <!--<td>   </td>-->
-                        <!--<td>   </td>-->
-                        <!--<td>   </td>-->
-                        <!--<td>-->
-                            <!--<h5>Chi phí vận chuyển</h5>-->
-                        <!--</td>-->
-                        <!--<td class="text-right">-->
-                            <!--<h5>-->
-                                <!--<strong>{{subtotal()*0.01 | number:0}} vnđ</strong>-->
-                            <!--</h5>-->
-                        <!--</td>-->
-                    <!--</tr>-->
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                            <h5>VAT (10%)</h5>
+                        </td>
+                        <td class="text-right">
+                            <h5>
+                                <strong>{{tax() | number:0}} vnđ</strong>
+                            </h5>
+                        </td>
+                    </tr>
                     <tr>
                         <td>   </td>
                         <td>   </td>

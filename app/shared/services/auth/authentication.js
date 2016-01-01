@@ -25,7 +25,7 @@ angular.module('vipmobile.services')
                 return angular.fromJson($window.localStorage.user);
             return null;
         };
-
+        
         auth.logout = function(){
             auth.isLogged = false;
             delete auth.user;

@@ -70,7 +70,7 @@ angularController
                     $scope.$parent.totalPage = ++totalPage;
                 }
                 $scope.$parent.filterdata = filterdata;
-                console.log('products updated!'+ data.totalitem);
+                console.log('products updated! ');
             }).catch(function(err){
                 console.log(err);
             });
