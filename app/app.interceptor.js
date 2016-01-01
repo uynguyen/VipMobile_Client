@@ -31,7 +31,7 @@ function($window, $location, $q, AuthenticationService) {
         },
 
         responseError: function(res){
-            console.log(res);
+
             if (res.data && res.data.mess && (res.data.mess == 'TokenExpire' || res.data.mess=='Unauthorized'))
             {
                 AuthenticationService.logout();

@@ -10,9 +10,23 @@ angularController
 
 
             cartService.getTransportFree(function(fee){
-                //console.log(fee);
+                console.log(fee);
                 $scope.transportFee = fee;
+                cartService.ship = $scope.transportFee.fee;
             });
+
+
+//            cartService.getVAT().then(
+//                function(res){
+//
+//                        $scope.VAT = res;
+//
+//                },
+//                function(err){
+//                    console.log(err);
+//                }
+//            );
+
 
 
             $scope.credit_card = {
@@ -47,7 +61,13 @@ angularController
 
             $scope.PlaceOrder = function() {
                 console.log($scope.paymentinfo);
-                paymentService.createPayment($scope.paymentinfo, function(err, res){
+                var bookInfo = {
+                    info : $scope.transportInfo,
+                    cart :  $scope.cart,
+                    VAT: $scope.VAT,
+                    paymentinfo: $scope.paymentinfo
+                };
+                paymentService.createPayment(bookInfo, function(err, res){
                     if (err){
                         console.log(err);
                         notie.alert(3, "Thanh toán không thành công! Vui lòng thử lại.", 1.5);
@@ -65,10 +85,23 @@ angularController
                 var bookInfo = {
                     info : $scope.transportInfo,
                     cart :  $scope.cart,
-                    total: cartService.getTotal().toString()
+                    VAT: $scope.VAT
                 };
                 console.log(JSON.stringify(bookInfo));
+                cartService.bookProduct(bookInfo).then(
+                   function(res){
+                       if(res.data.mess && res.data.mess == 'Success'){
+                           notie.alert(1, "Đặt hàng thành công. Quý khách vui lòng đến hộp mail để kiểm tra giao dịch.", 1.5);
+                           cartService.clearCartItems();
+                       }
+                   },
+                   function(err){
+                       console.log(err);
+                       notie.alert(1, "Có lỗi xảy ra! Vui lòng thử lại", 1.5);
+                   });
+
             };
+
 
             $scope.isValidForm = function(){
                 //console.log($scope.transportInfo.fee);

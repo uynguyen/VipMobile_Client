@@ -167,20 +167,21 @@
                             <div class="col-md-1">
                                 {{$index + 1}}
                             </div>
-                            <div class="col-md-1" data-type="date">
+                            <div class="col-md-2" data-type="date">
                                {{item.bookDate | date:'dd/MM/yyyy HH:mm'}}
                             </div>
-                            <div class="col-md-4" data-type="date">
+                            <div class="col-md-3" data-type="date">
                                 {{item.code}}
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <span >{{item.total}} VND</span>
                             </div>
                             <div class="col-md-2">
                                 <span >{{item.state.value}}</span>
                             </div>
-                            <div class="col-md-2">
-                                <button class="btn btn-success" ng-hide="item.state.id == 5"  ng-click="CancelBill($index)"> Hủy đơn hàng
+                            <div class="col-md-1">
+                                <button class="btn btn-danger" ng-hide="item.state.id == 5 || item.state.id == 1"  ng-click="CancelBill($index)">
+                                    <span class="glyphicon glyphicon-remove" />
                                 </button>
                             </div>
                         </div>
