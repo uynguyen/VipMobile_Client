@@ -21,8 +21,8 @@ appService
 
 
 
-        getAllProducts: function(limit, page) {
-            var endpoint = domain + '/product/list';
+        getAllProducts: function(page, limit) {
+            var endpoint = domain + '/product/list/' + page + "/" + limit;
             return $http.get(endpoint)
                 .then(
                     function(response) {
@@ -58,9 +58,11 @@ appService
             return $http.post(endpoint, filter)
                 .then(
                     function(response) {
-                        angular.forEach(response.data, function(item) {
+                        angular.forEach(response.data.result, function(item) {
                             item.image = domain + item.image;
+                          //  console.log(item.image);
                         });
+                        console.log("filled");
                         return response.data;
                     },
                     function(errResponse) {

@@ -53,8 +53,8 @@ angularController
         $scope.$watch('filter', function(){
             var filterdata = {
                 searchString: $scope.filter.searchString,
-                page: 0,
-                limit: 12,
+                page: $scope.$parent.currentPage,
+                limit: $scope.$parent.pageSize,
                 minPrice: $scope.filter.price.minPrice,
                 maxPrice: $scope.filter.price.maxPrice,
                 producers: getCheckedFilterList($scope.filter.producers),
@@ -63,8 +63,14 @@ angularController
             };
             console.log(angular.toJson(filterdata));
             productService.searchProducts(filterdata).then(function(data){
-                $scope.$parent.products = data;
-                console.log('products updated!');
+                $scope.$parent.products = data.result;
+                $scope.$parent.totalitem = data.total;
+                var totalPage = Math.floor(data.total / $scope.$parent.pageSize);
+                if(data.total / $scope.$parent.pageSize != 0 ){
+                    $scope.$parent.totalPage = ++totalPage;
+                }
+                $scope.$parent.filterdata = filterdata;
+                console.log('products updated!'+ data.totalitem);
             }).catch(function(err){
                 console.log(err);
             });

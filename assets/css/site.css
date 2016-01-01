@@ -21,6 +21,10 @@
     height: 100%;
 }*/
 
+.btn_with_full_width{
+    width: 100%; !important
+}
+
 *, *:before, *:after {
     -moz-box-sizing: border-box;
     box-sizing: border-box;

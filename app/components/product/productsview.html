@@ -1,7 +1,33 @@
     <div class="col-md-3">
         <div ng-controller="FilterCtrl" ng-include="'components/filter/filterview.html'"></div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9" >
+
+            <div class="col-md-12">
+                <span >Trang {{currentPage}}/{{totalPage}}</span>
+            </div>
+            <div class="col-md-12">
+                <paging
+                        class="small"
+                        page="currentPage"
+                        page-size="pageSize"
+                        total="totalitem"
+                        adjacent="2"
+                        dots="..."
+                        scroll-top="false"
+                        hide-if-empty="false"
+                        ul-class="pagination"
+                        active-class="active"
+                        disabled-class="disabled"
+                        show-prev-next="true"
+                        paging-action="getProduct(page)">
+
+                </paging>
+            </div>
+
+
+
+
         <div class="row">
             <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products">
                 <span class="thumbnail product-thumb" title="{{product.name}}">
@@ -34,4 +60,13 @@
                 </span>
             </div>
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <label class="btn btn-info btn_with_full_width"data-ng-show="totalitem == 0">Không tìm thấy sản phẩm nào</label>
+
+
     </div>
