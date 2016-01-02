@@ -129,12 +129,12 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
             userService.activateUser = function(token){
 
                   return $http.get(domain + '/user/activate/' + token)
-                    .success(function(data,status){
+                    .then(function(data,status){
                         console.log('Activate in service');
-                    })
-                    .error(function(err){
+                        return data;
+                      },function(err){
                           console.log('Arr in service');
-                    })
+                    });
 
             };
             userService.resetPass = function(data,token){

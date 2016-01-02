@@ -17,34 +17,31 @@ angular.module('vipmobile.controllers')
         console.log(callbackURL);
         console.log(token);
         userService.activateUser(token)
-            .then(function(res){
-               var messs = res.data.mess;
-                switch(mess){
-                    case 'Activated':
+            .then(
+            function(res){
+                console.log('RESS' + res.data);
+//               var messs = res.data.mess;
+//                switch(mess){
+//                    case 'NotExist':
+//                        $scope.content = "Lỗi! Không tồn tại Token.";
+//                        break;
+//                    case 'Expire':
+//                        $scope.content = "Lỗi! Token đã hết hạn. ";
+//                        break;
+//                    case 'Was activated':
+//                        $scope.content = "Lỗi! Tài khoản đã được kích hoạt. Hãy sử dụng tài khoản của mình để đăng nhập. ";
+//                        break;
+//                    case 'Error! Email was used':
+//                        $scope.content = "Lỗi! Địa chỉ email đã được sử dụng. Vui lòng sử dụng địa chỉ email khác. ";
+//                        break;
+//                    default:
                         $scope.content = "Kích hoạt tài khoản thành công! Hãy sử dụng tài khoản của mình để đăng nhập";
-                        break;
-                    case 'NotExist':
-                        $scope.content = "Lỗi! Không tồn tại Token.";
-                        break;
-                    case 'Expire':
-                        $scope.content = "Lỗi! Token đã hết hạn. ";
-                        break;
-                    case 'Was activated':
-                        $scope.content = "Lỗi! Tài khoản đã được kích hoạt. Hãy sử dụng tài khoản của mình để đăng nhập. ";
-                        break;
-                    case 'Error! Email was used':
-                        $scope.content = "Lỗi! Địa chỉ email đã được sử dụng. Vui lòng sử dụng địa chỉ email khác. ";
-                        break;
-                    default:
-                        $scope.content = "Có lỗi xảy ra";
-                        break;
+                        //break;
 
                 }
-
-
-            }).catch(function (err) {
-                console.log(err);
-                $scope.content = "Có lỗi xảy ra";
+                ,function (err) {
+                    console.log(err);
+                    $scope.content = "Có lỗi xảy ra";
             });
 
 }]);
