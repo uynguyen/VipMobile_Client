@@ -23,16 +23,16 @@
       <file leaf-file-name="cartservice.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/shared/services/cartservice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="0" selection-start="3888" selection-end="3888" vertical-scroll-proportion="0.0">
+            <state line="135" column="45" selection-start="4181" selection-end="4182" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="authenticatectrl.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="authenticatectrl.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/authenticate/authenticatectrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="17" selection-start="1711" selection-end="1711" vertical-scroll-proportion="0.7472119">
+            <state line="33" column="36" selection-start="1340" selection-end="1340" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -56,26 +56,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="checkoutctrl.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="checkoutctrl.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/components/checkout/checkoutctrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1451684363743" expanded="true" signature="610:626" placeholder="{&quot;number&quot;: &quot;4032038374061251&quot;...}" />
-                <marker date="1451684363743" expanded="true" signature="704:1815" placeholder="{&quot;intent&quot;: &quot;sale&quot;...}" />
-                <marker date="1451684363743" expanded="true" signature="762:933" placeholder="{&quot;payment_method&quot;: &quot;credit_card&quot;...}" />
-                <marker date="1451684363743" expanded="true" signature="806:882" placeholder="[...]" />
-                <marker date="1451684363743" expanded="true" signature="807:881" placeholder="{...}" />
-                <marker date="1451684363743" expanded="true" signature="988:1771" placeholder="[...]" />
-                <marker date="1451684363743" expanded="true" signature="989:1770" placeholder="{&quot;description&quot;: &quot;Đơn hàng thanh toán thông qua paypal của VipMobileShop&quot;...}" />
-                <marker date="1451684363743" expanded="true" signature="1049:1728" placeholder="{&quot;currency&quot;: &quot;USD&quot;...}" />
-                <marker date="1451684363743" expanded="true" signature="2005:2578" placeholder="{...}" />
-                <marker date="1451684363743" expanded="true" signature="2116:2567" placeholder="{...}" />
-                <marker date="1451684363743" expanded="true" signature="2654:3428" placeholder="{...}" />
-                <marker date="1451684363743" expanded="true" signature="2675:2806" placeholder="{...}" />
-                <marker date="1451684363743" expanded="true" signature="2966:3235" placeholder="{...}" />
-                <marker date="1451684363743" expanded="true" signature="3076:3214" placeholder="{...}" />
-              </folding>
+            <state line="84" column="18" selection-start="2690" selection-end="2690" vertical-scroll-proportion="0.7788104">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkoutview.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/checkout/checkoutview.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="0" selection-start="2457" selection-end="2457" vertical-scroll-proportion="-30.73077">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cartctrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/cart/cartctrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="0" selection-start="962" selection-end="962" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,15 +87,6 @@
         <entry file="file://$PROJECT_DIR$/app/components/product/productsview.html">
           <provider selected="true" editor-type-id="text-editor">
             <state line="68" column="120" selection-start="2759" selection-end="2873" vertical-scroll-proportion="-13.153846">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.directive.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/app.directive.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -111,15 +105,6 @@
         <entry file="file://$PROJECT_DIR$/app/app.module.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="8" column="0" selection-start="369" selection-end="582" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="productctrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/product/productctrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -149,11 +134,11 @@
         <option value="$PROJECT_DIR$/app/shared/services/product.js" />
         <option value="$PROJECT_DIR$/app/shared/slidebar/slider.html" />
         <option value="$PROJECT_DIR$/app/components/singleproduct/single-product.html" />
-        <option value="$PROJECT_DIR$/app/components/checkout/checkoutctrl.js" />
         <option value="$PROJECT_DIR$/app/components/checkout/checkoutview.html" />
         <option value="$PROJECT_DIR$/app/shared/services/cartservice.js" />
         <option value="$PROJECT_DIR$/app/shared/services/userservice.js" />
         <option value="$PROJECT_DIR$/app/components/authenticate/authenticatectrl.js" />
+        <option value="$PROJECT_DIR$/app/components/checkout/checkoutctrl.js" />
       </list>
     </option>
   </component>
@@ -613,7 +598,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="3188" />
+      <option name="time" value="3232" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -638,46 +623,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/cart/cartctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/webide.jar!/resources/html5-schema/web-forms.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="23" selection-start="0" selection-end="11645" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/checkout/checkoutview.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="0" selection-start="2457" selection-end="2457" vertical-scroll-proportion="-11.769231">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/checkout/checkoutctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1451684363743" expanded="true" signature="610:626" placeholder="{&quot;number&quot;: &quot;4032038374061251&quot;...}" />
-            <marker date="1451684363743" expanded="true" signature="704:1815" placeholder="{&quot;intent&quot;: &quot;sale&quot;...}" />
-            <marker date="1451684363743" expanded="true" signature="762:933" placeholder="{&quot;payment_method&quot;: &quot;credit_card&quot;...}" />
-            <marker date="1451684363743" expanded="true" signature="806:882" placeholder="[...]" />
-            <marker date="1451684363743" expanded="true" signature="807:881" placeholder="{...}" />
-            <marker date="1451684363743" expanded="true" signature="988:1771" placeholder="[...]" />
-            <marker date="1451684363743" expanded="true" signature="989:1770" placeholder="{&quot;description&quot;: &quot;Đơn hàng thanh toán thông qua paypal của VipMobileShop&quot;...}" />
-            <marker date="1451684363743" expanded="true" signature="1049:1728" placeholder="{&quot;currency&quot;: &quot;USD&quot;...}" />
-            <marker date="1451684363743" expanded="true" signature="2005:2578" placeholder="{...}" />
-            <marker date="1451684363743" expanded="true" signature="2116:2567" placeholder="{...}" />
-            <marker date="1451684363743" expanded="true" signature="2654:3428" placeholder="{...}" />
-            <marker date="1451684363743" expanded="true" signature="2675:2806" placeholder="{...}" />
-            <marker date="1451684363743" expanded="true" signature="2966:3235" placeholder="{...}" />
-            <marker date="1451684363743" expanded="true" signature="3076:3214" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -716,13 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/services/cartservice.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="0" selection-start="3888" selection-end="3888" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/services/auth/authentication.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -739,7 +681,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/authenticate/authenticatectrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="17" selection-start="1711" selection-end="1711" vertical-scroll-proportion="0.7472119">
+        <state line="33" column="36" selection-start="1340" selection-end="1340" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/cart/cartctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="0" selection-start="962" selection-end="962" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/shared/services/cartservice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="45" selection-start="4181" selection-end="4182" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/checkout/checkoutview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="0" selection-start="2457" selection-end="2457" vertical-scroll-proportion="-30.73077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/checkout/checkoutctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="18" selection-start="2690" selection-end="2690" vertical-scroll-proportion="0.7788104">
           <folding />
         </state>
       </provider>

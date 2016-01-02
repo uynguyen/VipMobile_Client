@@ -4,6 +4,10 @@ angularController
     .controller('CheckoutCtrl', ['$scope', 'PaymentService', 'CartService',
         function($scope, paymentService, cartService) {
 
+            $scope.getTax = cartService.getTax;
+            $scope.getTotal = cartService.getTotal;
+            $scope.getShip = cartService.getShippaid;
+
             cartService.getItems(function(cart){
                 $scope.cart = cart.items;
             });
@@ -38,27 +42,52 @@ angularController
                 },
                 transactions: [{
                     amount: {
-                        total: cartService.getTotal().toString(),
+                        total: cartService.getTotal(),
                         currency: "USD",
                         details: {
-                            subtotal: cartService.getSubtotal().toString(),
-                            tax: cartService.getTax().toString(),
-                            shipping: cartService.getShippaid().toString()
+                            subtotal: cartService.getSubtotal(),
+                            tax: $scope.getTax(),
+                            shipping: cartService.getShippaid()
                         }
                     },
                     description: "Đơn hàng thanh toán thông qua paypal của VipMobileShop"
                 }]
             };
-            $scope.getTax = cartService.getTax;
-            $scope.getTotal = cartService.getTotal;
-            $scope.getShip = cartService.getShippaid;
+
+
+
+
 
             $scope.PlaceOrder = function() {
-                console.log($scope.paymentinfo);
+                console.log(JSON.stringify($scope.paymentinfo));
+
+                $scope.paymentinfo = {
+                    intent: "sale",
+
+                    payer: {
+                        payment_method: "credit_card",
+                        funding_instruments: [{
+                            credit_card: $scope.credit_card
+                        }]
+                    },
+                    transactions: [{
+                        amount: {
+                            total: cartService.getTotal(),
+                            currency: "USD",
+                            details: {
+                                subtotal: cartService.getSubtotal(),
+                                tax: $scope.getTax(),
+                                shipping: cartService.getShippaid()
+                            }
+                        },
+                        description: "Đơn hàng thanh toán thông qua paypal của VipMobileShop"
+                    }]
+                };
+
                 var bookInfo = {
                     info : $scope.transportInfo,
                     cart :  $scope.cart,
-                    VAT: $scope.VAT,
+                    VAT: $scope.getTax(),
                     paymentinfo: $scope.paymentinfo
                 };
                 paymentService.createPayment(bookInfo, function(err, res){
@@ -79,7 +108,7 @@ angularController
                 var bookInfo = {
                     info : $scope.transportInfo,
                     cart :  $scope.cart,
-                    VAT: $scope.VAT
+                    VAT: $scope.getTax()
                 };
                 console.log(JSON.stringify(bookInfo));
                 cartService.bookProduct(bookInfo).then(
@@ -87,6 +116,10 @@ angularController
                        if(res.data.mess && res.data.mess == 'Success'){
                            notie.alert(1, "Đặt hàng thành công. Quý khách vui lòng đến hộp mail để kiểm tra giao dịch.", 1.5);
                            cartService.clearCartItems();
+
+                           cartService.getItems(function(cart){
+                               $scope.cart = cart.items;
+                           });
                        }
                    },
                    function(err){
