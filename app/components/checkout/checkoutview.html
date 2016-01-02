@@ -224,7 +224,9 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <button class="btn btn-primary" ng-click="PlaceOrder()">Thanh toán
+                                <button class="btn btn-primary" ng-click="PlaceOrder()"
+                                ng-disabled="placeOrderDisabled" ng-init="placeOrderDisabled=false"
+                                >Thanh toán
                                 </button>
                             </div>
                         </div>
@@ -234,22 +236,6 @@
             <!--CREDIT CART PAYMENT END-->
         </div>
 
-    </div>
-
-    <div class="row cart-body" ng-show="isSuccess" ng-init="isSuccess=false">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8 col-md-push-4 col-sm-push-4">
-
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    Thanh toán thành công
-                </div>
-                <div class="panel-body">
-                    <span class="text-center text-primary">
-                        Quý khách vừa thanh toán thành công, vui lòng kiểm tra email để xem chi tiết đơn hàng! Chúng tôi sẽ chuyển hàng đến cho quý khách trong thời gian sớm nhất.
-                    </span>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="row cart-footer">
     </div>

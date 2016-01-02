@@ -59,6 +59,7 @@ angularController
 
 
             $scope.PlaceOrder = function() {
+                $scope.placeOrderDisabled = true;
                 console.log(JSON.stringify($scope.paymentinfo));
 
                 $scope.paymentinfo = {
@@ -99,7 +100,9 @@ angularController
                     notie.alert(1, "Thanh toán thành công! Vui lòng kiểm tra lại đơn hàng.", 1.5);
                     cartService.clearCartItems();
                     console.log(res);
+
                 }
+                $scope.placeOrderDisabled = false;
 
                 });
             };
