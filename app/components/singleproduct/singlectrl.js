@@ -9,37 +9,39 @@
 
 
 angularController
-    .controller('SingleCtrl', ['$scope', '$http','$stateParams','ProductService', 'CartService',
-    function($scope, $http,$stateParams, productService, cartService) {
-		
-		socket.on('watch', function(data){
-			if (data.product_id == $stateParams.id)
-				$scope.watchpeople = data.number;
-		});
-	
-		
-		
+    .controller('SingleCtrl', ['$scope', '$http','$stateParams', '$window','ProductService', 'CartService',
+    function($scope, $http,$stateParams, $window, productService, cartService) {
 
-    productService.getProduct($stateParams.id).then(function(data){
-        $scope.selectProduct = data;
+        productService.getProduct($stateParams.id).then(function(data){
+            $scope.selectProduct = data;
+        });
 
+        $scope.addToCart = cartService.addToCart;
+        $scope.mark = "mark";
 
-    });
-  $scope.addToCart = cartService.addToCart;
+        $scope.slides = [
+            {
+                id: 0,
+                active: true,
+                image: 'http://placehold.it/800x300'
+            },
+            {
+                id: 1,
+                image: 'http://placehold.it/800x300'
+            }
+        ];
+        $scope.myInterval = 5000;
+        $scope.noWrapSlides = false;
 
+        socket.on('watch product', function(data){
+            if (data.product_id == $stateParams.id)
+                $scope.watchpeople = data.number;
+        });
 
-
-  $scope.slides = [
-      {
-          id: 0,
-          active: true,
-          image: 'http://placehold.it/800x300'
-      },
-      {
-          id: 1,
-          image: 'http://placehold.it/800x300'
-      }
-  ];
-  $scope.myInterval = 5000;
-  $scope.noWrapSlides = false;
-}]);
+        $window.onbeforeunload = function() {
+            socket.emit('watch product', {
+                type: 'unwatch',
+                product_id: $stateParams.id
+            });
+        }
+    }]);

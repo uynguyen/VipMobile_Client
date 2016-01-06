@@ -91,7 +91,7 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
 
             userService.getCurrentUserFullName = function() {
                 var user = userService.getCurrentUser();
-                return user && user.fullName || "";
+                return user && user.fullName || "Your name";
             };
 
             userService.getUserBills = function(page, limit) {

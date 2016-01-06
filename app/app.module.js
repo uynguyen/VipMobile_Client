@@ -26,7 +26,7 @@ app.run(function ($rootScope, $window, AuthenticationService) {
   	AuthenticationService.check();
         $rootScope.$on('$stateChangeStart',
             function(evt, toState, toParams, fromState, fromParams) {
-			
+
                 // We can prevent this state from completing
 				if ((toState.access && toState.access.requiredLogin) && !AuthenticationService.isLogged) {
 					evt.preventDefault();
@@ -41,12 +41,20 @@ app.run(function ($rootScope, $window, AuthenticationService) {
 
         $rootScope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams){
-				
+
+
+//				if (toState.name == "single"){
+//					socket.emit('watch', { type:'watch', product_id:toParams.id});
+//				}
+//				if (fromState.name == "single"){
+//					socket.emit('watch', { type:'unwatch', product_id:fromParams.id});
+//                }
+
 				if (toState.name == "single"){
-					socket.emit('watch', { type:'watch', product_id:toParams.id});
+					socket.emit('watch product', { type:'watch', product_id:toParams.id});
 				}
 				if (fromState.name == "single"){
-					socket.emit('watch', { type:'unwatch', product_id:fromParams.id});
+					socket.emit('watch product', { type:'unwatch', product_id:fromParams.id});
 				}
             });
 

@@ -20,29 +20,40 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="userservice.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/shared/services/userservice.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="50" selection-start="866" selection-end="873" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userctrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/user/userctrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="26" selection-start="159" selection-end="170" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userview.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="userview.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/user/userview.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="14" selection-start="5241" selection-end="5241" vertical-scroll-proportion="0.30661324">
+            <state line="101" column="9" selection-start="5428" selection-end="5428" vertical-scroll-proportion="-10.461538">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="32" selection-start="980" selection-end="980" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="singlectrl.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/singleproduct/singlectrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="8" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="single-product.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/singleproduct/single-product.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="280" column="6" selection-start="10496" selection-end="10496" vertical-scroll-proportion="-183.07692">
+              <folding>
+                <element signature="n#style#0;n#img#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -77,16 +88,16 @@
       <file leaf-file-name="bestsaleview.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/bestsale/bestsaleview.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="750" selection-end="750" vertical-scroll-proportion="0.0">
+            <state line="5" column="16" selection-start="258" selection-end="258" vertical-scroll-proportion="-3.2692308">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loginview.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/login/loginview.html">
+      <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="20" selection-start="3137" selection-end="3619" vertical-scroll-proportion="0.0">
+            <state line="86" column="0" selection-start="2266" selection-end="2266" vertical-scroll-proportion="0.65241635">
               <folding />
             </state>
           </provider>
@@ -95,16 +106,7 @@
       <file leaf-file-name="app.module.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app.module.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="27" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="homectrl.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/home/homectrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0">
+            <state line="50" column="19" selection-start="1403" selection-end="1645" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -123,10 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/components/cart/cartctrl.js" />
-        <option value="$PROJECT_DIR$/assets/css/site.css" />
-        <option value="$PROJECT_DIR$/config/auth.js" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/app/shared/services/userservice.js" />
         <option value="$PROJECT_DIR$/app/components/login/loginctrl.js" />
         <option value="$PROJECT_DIR$/config/passport.js" />
@@ -134,11 +132,15 @@
         <option value="$PROJECT_DIR$/routers/users.js" />
         <option value="$PROJECT_DIR$/app/components/login/loginview.html" />
         <option value="$PROJECT_DIR$/app/components/user/userctrl.js" />
-        <option value="$PROJECT_DIR$/app/app.module.js" />
         <option value="$PROJECT_DIR$/app/components/home/homectrl.js" />
         <option value="$PROJECT_DIR$/app/components/bestsale/bestsalectrl.js" />
-        <option value="$PROJECT_DIR$/app/components/bestsale/bestsaleview.html" />
         <option value="$PROJECT_DIR$/app/components/user/userview.html" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/app/components/bestsale/bestsaleview.html" />
+        <option value="$PROJECT_DIR$/app/app.module.js" />
+        <option value="$PROJECT_DIR$/app/components/singleproduct/single-product.html" />
+        <option value="$PROJECT_DIR$/app/components/singleproduct/singlectrl.js" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -556,33 +558,13 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="4825" />
+      <option name="time" value="4855" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/components/singleproduct/single-product.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/singleproduct/singlectrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="62" selection-start="244" selection-end="256" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="33" selection-start="288" selection-end="288" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/passport.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="45" selection-start="1225" selection-end="1225" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="40" selection-start="266" selection-end="266" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routers/users.js">
@@ -599,7 +581,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/shared/services/userservice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="50" selection-start="866" selection-end="873" vertical-scroll-proportion="0.0">
+        <state line="18" column="29" selection-start="866" selection-end="873" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -607,13 +589,6 @@
     <entry file="file://$PROJECT_DIR$/app/components/user/userctrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="26" selection-start="159" selection-end="170" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="27" selection-start="698" selection-end="698" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -646,16 +621,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/bestsale/bestsaleview.html">
+    <entry file="file://$PROJECT_DIR$/app/components/user/userview.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="750" selection-end="750" vertical-scroll-proportion="0.0">
+        <state line="101" column="9" selection-start="5428" selection-end="5428" vertical-scroll-proportion="-10.461538">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/user/userview.html">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="14" selection-start="5241" selection-end="5241" vertical-scroll-proportion="0.30661324">
+        <state line="40" column="32" selection-start="980" selection-end="980" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/bestsale/bestsaleview.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="16" selection-start="258" selection-end="258" vertical-scroll-proportion="-3.2692308">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="19" selection-start="1403" selection-end="1645" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/singleproduct/single-product.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="280" column="6" selection-start="10496" selection-end="10496" vertical-scroll-proportion="-183.07692">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#uib-slide#0;n#uib-carousel#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/singleproduct/singlectrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="8" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="0" selection-start="2266" selection-end="2266" vertical-scroll-proportion="0.65241635">
           <folding />
         </state>
       </provider>

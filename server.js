@@ -20,19 +20,22 @@ app.use(passport.session());
 var listNumberPeople = {};
 
 
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+var listNumberPeople = {};
+
 app.use(cors());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/assets'));
 app.use(express.static(__dirname + '/app'));
 
-// Routes
-app.get('/status', function(req, res) {
-    res.send("{status: 'ok'}");
-});
 
+// Routes
 app.get('/', function(req, res) {
     res.sendFile('index.html');
 });
@@ -48,49 +51,41 @@ var getNumberPeople = function(){
 	}
 	return num;
 };
+io.on('connection', function(socket) {
 
-io.on('connection', function(socket){
-	
-  console.log(socket.id + ' connected');
+    console.log(socket.id + ' connected');
 
-	socket.on('watch', function(obj){
-		if (obj.type == 'watch')
-		{
-		if (listNumberPeople[obj.product_id] == null){
-			listNumberPeople[obj.product_id] = 1;
-		}
-		else
-		{
-			listNumberPeople[obj.product_id] += 1;
-		}
-	}
-	else
-	{
-		if (listNumberPeople[obj.product_id] != null){
-			listNumberPeople[obj.product_id] -= 1;
-			if (listNumberPeople[obj.product_id] < 0)
-					listNumberPeople[obj.product_id] = 0;
-		}
-	}
-		console.log('There are ' + listNumberPeople[obj.product_id] + ' people watching product ' + obj.product_id);
-		io.emit('watch', {product_id: obj.product_id, number: listNumberPeople[obj.product_id]});
-	});
+    socket.on('watch product', function(obj) {
+        if (obj.type == 'watch') {
+            if (listNumberPeople[obj.product_id] == null) {
+                listNumberPeople[obj.product_id] = 1;
+            } else {
+                listNumberPeople[obj.product_id] += 1;
+            }
+        } else {
+            if (listNumberPeople[obj.product_id] != null) {
+                listNumberPeople[obj.product_id] -= 1;
+                if (listNumberPeople[obj.product_id] < 0)
+                    listNumberPeople[obj.product_id] = 0;
+            }
+        }
+        console.log('There are ' + listNumberPeople[obj.product_id] + ' people watching product ' + obj.product_id);
+        io.emit('watch product', {
+            product_id: obj.product_id,
+            number: listNumberPeople[obj.product_id]
+        });
+    });
 
-		
 
-  socket.on('disconnect', function(){
-    console.log(socket.id + ' disconnected');
-  });
+
+    socket.on('disconnect', function() {
+        console.log(socket.id + ' disconnected');
+    });
 
 });
 
 
-
-
-
-
-
-var port = process.env.OPENSHIFT_NODEJS_PORT || 8080,
+var port = process.env.OPENSHIFT_NODEJS_PORT,
     host = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
 if (host == '127.0.0.1') port = 9000;
