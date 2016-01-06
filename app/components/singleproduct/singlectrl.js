@@ -11,6 +11,14 @@
 angularController
     .controller('SingleCtrl', ['$scope', '$http','$stateParams','ProductService', 'CartService',
     function($scope, $http,$stateParams, productService, cartService) {
+		
+		socket.on('watch', function(data){
+			if (data.product_id == $stateParams.id)
+				$scope.watchpeople = data.number;
+		});
+	
+		
+		
 
     productService.getProduct($stateParams.id).then(function(data){
         $scope.selectProduct = data;

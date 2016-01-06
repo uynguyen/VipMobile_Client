@@ -165,7 +165,34 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
                 });
 
 
-            }
+            };
+
+            userService.loginWithFacebook = function(){
+                console.log("!@#");
+                return $http.get('/users/auth/facebook',
+                    {
+                        headers: {
+                            'Access-Control-Allow-Origin': '*',
+                            'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
+                            'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authentication, Authorization, X-Requested-With',
+                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+                        }
+                    }
+
+                ).then(
+
+                    function(res){
+                        console.log(res);
+                        console.log('Log in with facebook successful');
+                        return res;
+                    },
+                    function(err){
+//                        console.log('Cancel bill error');
+                        console.log("fb err");
+                        console.log(err);
+                        return $q.reject(err);
+                    });
+            };
 
 
 

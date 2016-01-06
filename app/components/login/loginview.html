@@ -3,7 +3,9 @@
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">Đăng nhập</div>
-                <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#/sendresetrequest" data-ng-click="$root.isLoginCollapse = true">Quên mật khẩu</a>
+                <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#/sendresetrequest"
+                                                                                           data-ng-click="$root.isLoginCollapse = true">Quên
+                    mật khẩu</a>
                 </div>
             </div>
 
@@ -39,11 +41,22 @@
                     <div style="margin-top:10px" class="form-group">
                         <!-- Button -->
 
-                        <div class="col-sm-12 controls">
+                        <div class="col-sm-6 controls">
                             <!--<a id="btn-login" href="#" class="btn btn-success">Đăng nhập </a>-->
-                            <button id="btn-logIn" type="button"  class="btn btn-info" ng-click="logIn()"><i
+                            <button id="btn-logIn" type="button" class="btn btn-info" ng-click="logIn()"><i
                                     class="icon-hand-right"></i> &nbsp Đăng nhập
                             </button>
+
+                        </div>
+                        <div class="col-sm-6 controls">
+                            <!--<a id="btn-login" href="#" class="btn btn-success">Đăng nhập </a>-->
+
+                            <a href="/users/auth/facebook">
+                                <img class="social-login" src="img/f_logo.png">
+                            </a>
+                            <a href="#">
+                                <img class="social-login" src="img/g_logo.png">
+                            </a>
                         </div>
                     </div>
 
@@ -71,9 +84,9 @@
                 <div class="panel-title">Đăng ký</div>
                 <div style="float:right; font-size: 85%; position: relative; top:-10px">
                     <a href="#" onClick="$('#loginbox').show(); $('#signupbox').hide()">
-                    Đăng nhập
-                </a>
-            </div>
+                        Đăng nhập
+                    </a>
+                </div>
             </div>
             <div class="panel-body">
 
@@ -143,8 +156,8 @@
 
                     <div class="form-group">
                         <!-- Button -->
-                        <div class="col-md-offset-4 col-md-8" >
-                            <button id="btn-signup" type="button"  class="btn btn-info" ng-click="signUp()"><i
+                        <div class="col-md-offset-4 col-md-8">
+                            <button id="btn-signup" type="button" class="btn btn-info" ng-click="signUp()"><i
                                     class="icon-hand-right"></i> &nbsp Đăng ký
                             </button>
                         </div>

@@ -59,7 +59,7 @@ angularController
 
 
             $scope.PlaceOrder = function() {
-                console.log(JSON.stringify($scope.paymentinfo));
+
 
                 $scope.paymentinfo = {
                     intent: "sale",
@@ -90,6 +90,8 @@ angularController
                     VAT: $scope.getTax(),
                     paymentinfo: $scope.paymentinfo
                 };
+
+                console.log(JSON.stringify(bookInfo));
                 paymentService.createPayment(bookInfo, function(err, res){
                     if (err){
                         console.log(err);

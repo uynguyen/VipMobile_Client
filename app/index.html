@@ -23,6 +23,25 @@
 
 <body>
 
+<!-- socket io plugin -->
+<script src="libs/socketio/socket.io.js"></script>
+<script>
+  var socket = io();
+
+</script>
+<!-- end socket io plugin -->
+
+<!-- facebook comment plugin -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=1588685731400659";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- end facebook comment plugin -->
+
     <!-- Navigation -->
     <div data-ng-include="'shared/navbar/nav-top.html'"></div>
 

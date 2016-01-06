@@ -1,8 +1,8 @@
 'use strict';
 
 angularController
-    .controller('LoginCtrl', ['$scope', '$state', '$window', '$location', 'UserService',
-    function ($scope, $state, $window, $location, userService) {
+    .controller('LoginCtrl', ['$scope', '$state', '$window', '$location', 'UserService','$http',
+    function ($scope, $state, $window, $location, userService, $http) {
         $scope.signUp = function () {
             userService.register($scope.user)
                 .then(function (res) {
@@ -74,6 +74,41 @@ angularController
         $scope.logOut = function () {
             userService.logout();
             $location.path('/');
+        };
+
+
+        $scope.logInWithFacebook = function(){
+            console.log("fb");
+//            userService.loginWithFacebook().then(
+//              function(res){
+//
+//              }  ,
+//              function(err){
+//
+//              }
+//            );
+
+            $http.get('/users/auth/facebook',
+                {
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods': 'GET,POST,PUT,DELETE,OPTIONS',
+                        'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authentication, Authorization, X-Requested-With',
+                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+                    }
+                }
+
+            ).success(
+                function(res){
+                    console.log(res);
+                    console.log('Log in with facebook successful');
+                    return res;
+                }).error(function(err){
+//                        console.log('Cancel bill error');
+                    console.log("fb err");
+                    console.log(err);
+
+                });
         };
 
     }]);

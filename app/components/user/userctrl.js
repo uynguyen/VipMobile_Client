@@ -1,7 +1,8 @@
 'use strict';
 
 angularController
-    .controller('UserCtrl', ['$scope', 'UserService', function($scope, userService) {
+    .controller('UserCtrl', ['$scope','$rootScope', 'UserService', function($scope, $rootScope, userService) {
+        $scope.isLogwithFB = $rootScope.logWithFacebook;
         $scope.user = userService.getCurrentUser();
         $scope.user.birthday = new Date($scope.user.birthday);
         $scope.user.avatar = 'http://placehold.it/150x150';

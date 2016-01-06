@@ -1,3 +1,9 @@
+<script>
+	window.onbeforeunload = function(){
+	socket.emit('watch', { type:'unwatch', product_id:$('#product-id').text()});
+	}
+</script>
+
 <div class="container">
     <div class="row product-detail-2">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -9,8 +15,9 @@
                         </uib-slide>
                     </uib-carousel>
                 </div>
+				<div class="hide" id="product-id">{{selectProduct.product.id}}</div>
                 <div class="row">
-                    <h1>{{selectProduct.product.name}}</h1>
+                    <h1>{{selectProduct.product.name}} <span class="text-italic font-md text-danger">({{watchpeople}} người đang xem)</span></h1> 
                 </div>
                 <div class="row">
                     <div class="col-lg-6 text-left">
@@ -35,6 +42,10 @@
                         {{selectProduct.product.description}}
                     </p>
                 </div>
+				<div class="row">
+<!--<div class="fb-comments" data-href="http://vipmobile-turboitus.rhcloud.com/" data-width="100%" data-numposts="7"></div>-->
+								<div class="col-md-12"><div class="fb-comments" data-width="100%" data-href="http://localhost:9000/*"  data-numposts="7"></div></div>
+				</div>
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

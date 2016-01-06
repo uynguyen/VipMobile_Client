@@ -8,7 +8,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state('home', {    // Định ngĩa 1 state home
-            url:'/home', // khai báo Url hiển thị
+            url:'/home?id=&token=', // khai báo Url hiển thị
             templateUrl:'components/home/homeview.html', // đường dẫn view
             controller:'HomeCtrl',
             title:'Trang chủ',
@@ -16,6 +16,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 requiredLogin:false
             }
         })
+//        state('fblogin',{
+//            url:'/home/id/token/name',
+//            templateUrl:'components/home/homeview.html', // đường dẫn view
+//            controller:'HomeCtrl',
+//            title:'Trang chủ',
+//            access:{
+//                requiredLogin:false
+//            }
+//        })
         .state('product', {
             url:'/product', // khai báo Url hiển thị
             templateUrl:'components/product/productsview.html', // đường dẫn view
