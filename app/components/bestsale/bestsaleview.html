@@ -1,10 +1,10 @@
-<div class="container-fluid" ng-controller="BestSaleCtrl">
+<div class="container-fluid">
     <h1 class="text-center text-success"><strong>Sản phẩm mới nhất</strong></h1>
     <div class="row best-sale">
 
         <div ng-repeat="(id, product) in products | limitTo:15"
-        class="col-md-2 col-sm-2 col-lg-2 item {{$index % 5 == 0 && 'col-md-offset-1'}}">
-            <div class="product-name">
+        clss="col-md-2 col-sm-2 col-lg-2 item {{$index % 5 == 0 && 'col-md-offset-1'}}">
+            a <div class="product-name">
                 <h5 title="{{product.name}}">{{product.name | limitTo:12}}{{product.name.length > 12 && '...' || ''}}</h5>
             </div>
             <div class="thumbnail">

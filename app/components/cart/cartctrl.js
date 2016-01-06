@@ -14,6 +14,7 @@ angularController
       };
 
       $scope.updateCart = function(productid, quantity){
+          console.log("update");
           if (quantity == null || quantity == "undefined")
             quantity = 1;
           cartService.updateCart(productid, quantity);

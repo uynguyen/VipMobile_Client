@@ -47,7 +47,7 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
                             return response;
                         },
                         function(errResponse) {
-                            console.log('Error while register user ');
+                            console.error('Error while register user ');
                             return $q.reject(errResponse);
                         }
                     );
@@ -62,7 +62,7 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
                             return response;
                         },
                         function(errResponse) {
-                            console.log('Error while update infor  ');
+                            console.error('Error while update password  ');
                             return $q.reject(errResponse);
                         }
                     );
@@ -91,7 +91,7 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
 
             userService.getCurrentUserFullName = function() {
                 var user = userService.getCurrentUser();
-                return user && user.fullName || "";
+                return user && user.fullName || "Your name";
             };
 
             userService.getUserBills = function(page, limit) {
@@ -101,7 +101,7 @@ appService.service('UserService', ['$http', '$q', 'AuthenticationService', 'DOMA
                             return response.data;
                         },
                         function(errResponse) {
-                            console.error('Error while get user bills ');
+                            console.error('Error while register user ');
                             return $q.reject(errResponse);
                         }
                     );

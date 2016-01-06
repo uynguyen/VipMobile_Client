@@ -18,11 +18,16 @@ function($window, $location, $q, AuthenticationService) {
             //    console.log('Bearer '+ token);
             }
 
-            return config;
+            return config || $q.when(config);
         },
         response: function(res){
             //console.log(res);
                 return res || $q.when(res);
+        },
+
+        requestError: function(req){
+            console.log(req);
+            return $q.reject(req);
         },
 
         responseError: function(res){
@@ -41,6 +46,6 @@ function($window, $location, $q, AuthenticationService) {
 
 app.config(['$httpProvider', function($httpProvider) {
     $httpProvider.interceptors.push('sessionInjector');
-//    $httpProvider.defaults.useXDomain = true;
+    $httpProvider.defaults.useXDomain = true;
      //  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);

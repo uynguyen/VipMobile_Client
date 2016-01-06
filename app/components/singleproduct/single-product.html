@@ -1,265 +1,281 @@
 <div class="container">
-    <div class="row product-detail-2">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="wrapper">
-                <div class="row">
-                    <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
-                        <uib-slide ng-repeat="slide in slides" active="slide.active">
-                            <img ng-src="{{selectProduct.product.image}}" style="margin:auto;">
-                        </uib-slide>
-                    </uib-carousel>
-                </div>
-                <div class="row">
-                    <h1>{{selectProduct.product.name}}</h1>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 text-left">
-                        <div class="product-price">
-                            <span>Giá</span>
-                            <strong class="text-danger"> {{selectProduct.product.price | number:0}} vnđ
-                            </strong>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 text-right">
-                        <button type="button" ng-click="addToCart(selectProduct.product.id, 1)" class="btn btn-lg btn-success btn-lg">Thêm vào giỏ hàng</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <hr>
-                    <span class="lead text-info">
-                        <strong> Thông tin sản phẩm </strong>
-                    </span>
-                    <br>
-                    <br>
-                    <p class="font-md">
-                        {{selectProduct.product.description}}
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="wrapper">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="font-xs">{{selectProduct.product.name}}</h2>
-                        <div class="row font-lg">
-                            <div class="col-md-4">
-                                Khuyến mãi
-                                <span class="text-danger">
-                                    <strong>
-                                        {{selectProduct.product.sale || 0}} %
-                                    </strong>
-                                </span>
-                            </div>
-                            <div class="col-md-4">
-                                SKU:
-                                <span class="text-danger">
-                                    <strong>
-                                        {{selectProduct.product.code || 0}}
-                                    </strong>
-                                </span>
-                            </div>
-                            <div class="col-md-4">
-                                Chỉ còn
-                                <span class="text-danger">
+	<div class="row product-detail-2">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+			<div class="wrapper">
+				<div class="row">
+					<uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+						<uib-slide ng-repeat="slide in slides" active="slide.active">
+							<img ng-src="{{selectProduct.product.image}}" style="margin:auto;">
+						</uib-slide>
+					</uib-carousel>
+				</div>
+				<!-- <div class="hide" id="product-id">{{selectProduct.product.id}}</div> -->
+				<div class="row">
+					<h1>{{selectProduct.product.name}}
+						<span class="text-italic font-md text-danger">({{watchpeople}} người đang xem)</span>
+					</h1>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 text-left">
+						<div class="product-price">
+							<span>Giá</span>
+							<strong class="text-danger"> {{selectProduct.product.price | number:0}} vnđ
+							</strong>
+						</div>
+					</div>
+					<div class="col-lg-6 text-right">
+						<button type="button" ng-click="addToCart(selectProduct.product.id, 1)" class="btn btn-lg btn-success btn-lg">Thêm vào giỏ hàng</button>
+					</div>
+				</div>
+				<div class="row">
+					<hr>
+					<span class="lead text-info">
+						<strong> Thông tin sản phẩm </strong>
+					</span>
+					<br>
+					<br>
+					<p class="font-md">
+						{{selectProduct.product.description}}
+					</p>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<!-- <div ng-cloak class="fb-comments"
+						data-href="https://vipmobile-turboitus.rhcloud.com/#/single/{{selectProduct.product.id}}"
+						data-width="100%"
+						data-numposts="7"
+						data-order-by="reverse_time"
+						></div> -->
+						<div id="fb-comment-box" dyn-fb-comment-box page-href="https://vipmobile-turboitus.rhcloud.com/#/single/{{selectProduct.product.id}}" numposts="7" pagewidth="100%">
+						</div>
+					</div>
 
-                                    <strong>
-                                        {{selectProduct.product.amount || 0}}
-                                    </strong>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+			<div class="wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<h2 class="font-xs">{{selectProduct.product.name}}</h2>
+						<div class="row font-lg">
+							<div class="col-md-4">
+								Khuyến mãi
+								<span class="text-danger">
+									<strong>
+										{{selectProduct.product.sale || 0}} %
+									</strong>
+								</span>
+							</div>
+							<div class="col-md-4">
+								SKU:
+								<span class="text-danger">
+									<strong>
+										{{selectProduct.product.code || 0}}
+									</strong>
+								</span>
+							</div>
+							<div class="col-md-4">
+								Chỉ còn
+								<span class="text-danger">
 
-                                </span>
-                                cái!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="text-center">Thông tin chi tiết </h2>
-                        <hr>
-                        <div class="row key-spec">
-                            <div class="col-md-3">
-                                <h3 class="text-left cursor-pointer" ng-click="listCollapse['main'] = !listCollapse['main']">Thông tin chính</h3>
-                            </div>
-                            <div class="col-md-9" uib-collapse="listCollapse['main']">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <strong>Loại hiển thị</strong>
-                                            </td>
-                                            <td>Digital</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Màn hình</strong>
-                                            </td>
-                                            <td>{{selectProduct.product_detail.screenSize}} inches</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Cảm ứng</strong>
-                                            </td>
-                                            <td>{{selectProduct.product_detail.touch || 'Có'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Hiệu điều hành</strong>
-                                            </td>
-                                            <td>Mặc định</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Kết nối</strong>
-                                            </td>
-                                            <td>
-                                                <p>
-                                                    Bluetooth: {{selectProduct.product_detail.bluetooth || 'Không'}}
-                                                    <br>
-                                                </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Số lượng SIM</strong>
-                                            </td>
-                                            <td>{{selectProduct.product_detail.simAmount}} mAh</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Camera trước</strong>
-                                            </td>
-                                            <td>{{selectProduct.product_detail.viceCamera}} megapixels</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Camera sau</strong>
-                                            </td>
-                                            <td>{{selectProduct.product_detail.mainCamera}} megapixels</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Bộ nhớ Ram</strong>
-                                            </td>
-                                            <td>{{selectProduct.product_detail.ram}} GB</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Tốc độ CPU</strong>
-                                            </td>
-                                            <td>{{selectProduct.product_detail.cpu}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>GPU</strong>
-                                            </td>
-                                            <td>{{selectProduct.product_detail.gpu || 'Không'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Độ phân giải</strong>
-                                            </td>
-                                            <td>2048 x 1536</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Thời lượng pin</strong>
-                                            </td>
-                                            <td>{{selectProduct.product_detail.capacityPin}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Bộ nhớ trong</strong>
-                                            </td>
-                                            <td>{{selectProduct.product_detail.capacityStorage||'8'}} GB</td>
-                                        </tr>
+									<strong>
+										{{selectProduct.product.amount || 0}}
+									</strong>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
+								</span>
+								cái!
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<h2 class="text-center">Thông tin chi tiết </h2>
+						<hr>
+						<div class="row key-spec">
+							<div class="col-md-3">
+								<h3 class="text-left cursor-pointer" ng-click="listCollapse['main'] = !listCollapse['main']">Thông tin chính</h3>
+							</div>
+							<div class="col-md-9" uib-collapse="listCollapse['main']">
+								<table class="table">
+									<tbody>
+										<tr>
+											<td>
+												<strong>Loại hiển thị</strong>
+											</td>
+											<td>Digital</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Màn hình</strong>
+											</td>
+											<td>{{selectProduct.product_detail.screenSize}} inches</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Cảm ứng</strong>
+											</td>
+											<td>{{selectProduct.product_detail.touch || 'Có'}}</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Hiệu điều hành</strong>
+											</td>
+											<td>Mặc định</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Kết nối</strong>
+											</td>
+											<td>
+												<p>
+													Bluetooth: {{selectProduct.product_detail.bluetooth || 'Không'}}
+													<br>
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Số lượng SIM</strong>
+											</td>
+											<td>{{selectProduct.product_detail.simAmount}} mAh</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Camera trước</strong>
+											</td>
+											<td>{{selectProduct.product_detail.viceCamera}} megapixels</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Camera sau</strong>
+											</td>
+											<td>{{selectProduct.product_detail.mainCamera}} megapixels</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Bộ nhớ Ram</strong>
+											</td>
+											<td>{{selectProduct.product_detail.ram}} GB</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Tốc độ CPU</strong>
+											</td>
+											<td>{{selectProduct.product_detail.cpu}}</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>GPU</strong>
+											</td>
+											<td>{{selectProduct.product_detail.gpu || 'Không'}}</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Độ phân giải</strong>
+											</td>
+											<td>2048 x 1536</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Thời lượng pin</strong>
+											</td>
+											<td>{{selectProduct.product_detail.capacityPin}}</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Bộ nhớ trong</strong>
+											</td>
+											<td>{{selectProduct.product_detail.capacityStorage||'8'}} GB</td>
+										</tr>
 
-                            <div class="col-md-3">
-                                <h3 class="text-left cursor-pointer" ng-click="listCollapse['warr'] = !listCollapse['warr']">Thông tin bảo hành</h3>
-                            </div>
-                            <div class="col-md-9" uib-collapse="listCollapse['warr']">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <strong>Thời gian bảo hành</strong>
-                                            </td>
-                                            <td>{{selectProduct.product_detail.guarantee || 3}} tháng</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <h3 class="text-left cursor-pointer" ng-click="listCollapse['more'] = !listCollapse['more']">Thông tin thêm</h3>
-                            </div>
-                            <div class="col-md-9" uib-collapse="listCollapse['more']">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <strong>Nhà sản xuất</strong>
-                                            </td>
-                                            <td>{{selectProduct.producer}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Kích thước</strong>
-                                            </td>
-                                            <td>Cục gạch</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Cân nặng</strong>
-                                            </td>
-                                            <td>{{selectProduct.product_detail.weight}} gams </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <h3 class="text-left cursor-pointer" ng-click="listCollapse['features'] = !listCollapse['features']">Các tính năng phụ</h3>
-                            </div>
-                            <div class="col-md-9" uib-collapse="listCollapse['features']">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <strong>Màu sắc</strong>
-                                            </td>
-                                            <td>{{selectProduct.colorDetail.toString().replace(',', ', ')}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Khả năng chọi</strong>
-                                            </td>
-                                            <td>Cứng</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Chống nước</strong>
-                                            </td>
-                                            <td>Không</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+
+							<div class="col-md-3">
+								<h3 class="text-left cursor-pointer" ng-click="listCollapse['warr'] = !listCollapse['warr']">Thông tin bảo hành</h3>
+							</div>
+							<div class="col-md-9" uib-collapse="listCollapse['warr']">
+								<table class="table">
+									<tbody>
+										<tr>
+											<td>
+												<strong>Thời gian bảo hành</strong>
+											</td>
+											<td>{{selectProduct.product_detail.guarantee || 3}} tháng</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-md-3">
+								<h3 class="text-left cursor-pointer" ng-click="listCollapse['more'] = !listCollapse['more']">Thông tin thêm</h3>
+							</div>
+							<div class="col-md-9" uib-collapse="listCollapse['more']">
+								<table class="table">
+									<tbody>
+										<tr>
+											<td>
+												<strong>Nhà sản xuất</strong>
+											</td>
+											<td>{{selectProduct.producer}}</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Kích thước</strong>
+											</td>
+											<td>Cục gạch</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Cân nặng</strong>
+											</td>
+											<td>{{selectProduct.product_detail.weight}} gams </td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-md-3">
+								<h3 class="text-left cursor-pointer" ng-click="listCollapse['features'] = !listCollapse['features']">Các tính năng phụ</h3>
+							</div>
+							<div class="col-md-9" uib-collapse="listCollapse['features']">
+								<table class="table">
+									<tbody>
+										<tr>
+											<td>
+												<strong>Màu sắc</strong>
+											</td>
+											<td>{{selectProduct.colorDetail.toString().replace(',', ', ')}}</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Khả năng chọi</strong>
+											</td>
+											<td>Cứng</td>
+										</tr>
+										<tr>
+											<td>
+												<strong>Chống nước</strong>
+											</td>
+											<td>Không</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

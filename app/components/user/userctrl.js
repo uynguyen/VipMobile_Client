@@ -66,34 +66,33 @@ angularController
                 return;
             }
             $scope.user.birthday = Date.parse($scope.user.birthday);
-            console.log(JSON.stringify($scope.user));
-            //console.log(new Date());
+            console.log(new Date());
             userService.updateAccount($scope.user).then(function(res){
                 console.log(res.data.mess);
                 notie.alert(1, "Cập nhật tài khoản thành công ", 1.5);
 
-            }, function(err){
+            }).catch(function(err){
                     console.log(err);
-                    notie.alert(3, "Cập nhật tài khoản thất bại " + err, 2);
+                    notie.alert(3, "Cập nhật tài khoản thất bại " + err.data.mess, 2);
                 });
         };
 
         $scope.getMyBills = function(page){
-            // userService.getUserBills(page, 20).then(function(data){
-            //     $scope.total = data.total * 20;
-            //     $scope.listBills = data.result;
-            //     console.log(data.result);
-            //     console.log(data);
-            // });
+            userService.getUserBills(page, 20).then(function(data){
+                $scope.total = data.total * 20;
+                $scope.listBills = data.result;
+                console.log(data.result);
+                console.log(data);
+            });
 
         };
 
-        // userService.getUserBills(1, 20).then(function(data){
-        //     $scope.total = data.total * 20;
-        //     $scope.listBills = data.result;
-        //     console.log(data.result);
-        //     console.log(data);
-        // });
+        userService.getUserBills(1, 20).then(function(data){
+            $scope.total = data.total * 20;
+            $scope.listBills = data.result;
+            console.log(data.result);
+            console.log(data);
+        });
 
         $scope.CancelBill = function(index){
             console.log(index);

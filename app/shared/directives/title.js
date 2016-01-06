@@ -7,7 +7,7 @@ appDirective.directive('titleUpdate', ['$rootScope', '$timeout',
 
         var listener = function(event, toState) {
           $timeout(function() {
-            $rootScope.title = toState.title || 'Welcome!';
+            $rootScope.title = 'VIP Mobile - ' + (toState.title || 'Welcome!');
           });
         };
 

@@ -1,6 +1,6 @@
 'use strict';
 var angularController = angular.module('vipmobile.controllers', ['ui-rangeSlider','ui.bootstrap'])
-.constant('DOMAIN','http://localhost:8080/vipmobileshopapi');
+.constant('DOMAIN','http://localhost:8080/java_he_thong_phan_tan');
 
 var appService = angular.module('vipmobile.services',[]);
 var appDirective = angular.module('vipmobile.directives',[]);
@@ -25,6 +25,7 @@ app.run(function ($rootScope, $window, AuthenticationService) {
   	AuthenticationService.check();
         $rootScope.$on('$stateChangeStart',
             function(evt, toState, toParams, fromState, fromParams) {
+
                 // We can prevent this state from completing
 				if ((toState.access && toState.access.requiredLogin) && !AuthenticationService.isLogged) {
 					evt.preventDefault();
@@ -40,6 +41,12 @@ app.run(function ($rootScope, $window, AuthenticationService) {
         $rootScope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams){
 
+				if (toState.name == "single"){
+					socket.emit('watch product', { type:'watch', product_id:toParams.id});
+				}
+				if (fromState.name == "single"){
+					socket.emit('watch product', { type:'unwatch', product_id:fromParams.id});
+				}
             });
 
 });

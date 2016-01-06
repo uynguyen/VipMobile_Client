@@ -59,8 +59,7 @@ angularController
 
 
             $scope.PlaceOrder = function() {
-                $scope.placeOrderDisabled = true;
-                console.log(JSON.stringify($scope.paymentinfo));
+
 
                 $scope.paymentinfo = {
                     intent: "sale",
@@ -91,6 +90,8 @@ angularController
                     VAT: $scope.getTax(),
                     paymentinfo: $scope.paymentinfo
                 };
+
+                console.log(JSON.stringify(bookInfo));
                 paymentService.createPayment(bookInfo, function(err, res){
                     if (err){
                         console.log(err);
@@ -100,9 +101,7 @@ angularController
                     notie.alert(1, "Thanh toán thành công! Vui lòng kiểm tra lại đơn hàng.", 1.5);
                     cartService.clearCartItems();
                     console.log(res);
-
                 }
-                $scope.placeOrderDisabled = false;
 
                 });
             };
