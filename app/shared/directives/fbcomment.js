@@ -1,7 +1,7 @@
 'use strict';
 
 appDirective.directive('dynFbCommentBox', function () {
-    function createHTML(href, numposts, colorscheme, datawidth) {
+    function createHTML(href, numposts, datawidth) {
         return '<div class="fb-comments" ' +
                        'data-href="' + href + '" ' +
                        'data-numposts="' + numposts + '" ' +
