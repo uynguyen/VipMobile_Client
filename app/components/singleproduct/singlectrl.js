@@ -17,7 +17,6 @@ angularController
         });
 
         $scope.addToCart = cartService.addToCart;
-        $scope.mark = "mark";
 
         $scope.slides = [
             {

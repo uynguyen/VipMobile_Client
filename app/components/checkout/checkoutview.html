@@ -6,7 +6,7 @@
                 <div class="panel-heading">
                     Xem lại đơn hàng
                     <div class="pull-right">
-                        <small><a class="afix-1" ui-sref="cart">Edit Cart</a></small>
+                        <a class="afix" ui-sref="cart">Edit Cart</a>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -145,7 +145,7 @@
 
 
             <!--CREDIT CART PAYMENT-->
-            <div class="panel panel-info">
+            <div class="panel panel-info" ng-show="isValidForm()">
                 <div class="panel-heading">
                     <span><i class="glyphicon glyphicon-transfer"></i></span> Thanh toán PayPal</div>
                 <div class="panel-body">
@@ -224,7 +224,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <button class="btn btn-primary" ng-click="PlaceOrder()">Thanh toán
+                                <button ng-disabled="disabledPlaceOrder" class="btn btn-primary" ng-click="PlaceOrder()">Thanh toán
                                 </button>
                             </div>
                         </div>

@@ -4,11 +4,14 @@ var express = require('express'),
     passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var bodyParser = require('body-parser');
+
+
 var app = express();
+
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({secret: 'anystringoftext',
@@ -17,18 +20,9 @@ app.use(session({secret: 'anystringoftext',
 require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
-var listNumberPeople = {};
-
-
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
 var listNumberPeople = {};
 
-app.use(cors());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/assets'));
@@ -51,6 +45,7 @@ var getNumberPeople = function(){
 	}
 	return num;
 };
+
 io.on('connection', function(socket) {
 
     console.log(socket.id + ' connected');

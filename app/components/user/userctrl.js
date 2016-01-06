@@ -71,8 +71,8 @@ angularController
             userService.updateAccount($scope.user).then(function(res){
                 console.log(res.data.mess);
                 notie.alert(1, "Cập nhật tài khoản thành công ", 1.5);
-
-            }).catch(function(err){
+                $scope.isDisable = true;
+            }, function(err){
                     console.log(err);
                     notie.alert(3, "Cập nhật tài khoản thất bại " + err.data.mess, 2);
                 });

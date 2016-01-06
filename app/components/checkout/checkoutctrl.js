@@ -3,6 +3,10 @@
 angularController
     .controller('CheckoutCtrl', ['$scope', 'PaymentService', 'CartService',
         function($scope, paymentService, cartService) {
+            if (cartService.getTotalNumber() == 0) $scope.disabledPlaceOrder = true;
+            else {
+                $scope.disabledPlaceOrder = false;
+            }
 
             $scope.getTax = cartService.getTax;
             $scope.getTotal = cartService.getTotal;
@@ -92,14 +96,17 @@ angularController
                 };
 
                 console.log(JSON.stringify(bookInfo));
+                $scope.disabledPlaceOrder = true;
                 paymentService.createPayment(bookInfo, function(err, res){
                     if (err){
                         console.log(err);
                         notie.alert(3, "Thanh toán không thành công! Vui lòng thử lại.", 1.5);
+                        $scope.disabledPlaceOrder = false;
                     }
                     else {
                     notie.alert(1, "Thanh toán thành công! Vui lòng kiểm tra lại đơn hàng.", 1.5);
                     cartService.clearCartItems();
+                    
                     console.log(res);
                 }
 
@@ -113,6 +120,7 @@ angularController
                     VAT: $scope.getTax()
                 };
                 console.log(JSON.stringify(bookInfo));
+                $scope.disabledPlaceOrder = true;
                 cartService.bookProduct(bookInfo).then(
                    function(res){
                        if(res.data.mess && res.data.mess == 'Success'){
@@ -128,7 +136,7 @@ angularController
                        console.log(err);
                        notie.alert(1, "Có lỗi xảy ra! Vui lòng thử lại", 1.5);
                    });
-
+                $scope.disabledPlaceOrder = true;
             };
 
 
